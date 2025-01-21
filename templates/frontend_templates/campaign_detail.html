@@ -1,0 +1,210 @@
+{% extends "frontend_templates/base.html" %}
+
+
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="campaigndetail" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+<style>
+	/* The Modal (background) */
+	.modal-dialog {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	/* z-index: 1; Sit on top */
+	padding: 100px; /* Location of the box */
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(29, 27, 27); /* Fallback color */
+	background-color: rgba(46, 45, 45, 0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: black;
+	margin: auto;
+	padding: 100px;
+	width: 100%;
+	position: unset;
+	color: white;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: rgb(241, 239, 239);
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+<div id="myModal" class="modal-dialog">
+	<button class="close" data-dismiss="modal" style="margin-top: 2px;margin-right: 1px;" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="modal-body">
+			<p><strong>{{ description|safe }}</strong></p>
+		</div>
+	</div>
+</div>
+
+<section class="banner_part_one" >
+	<div class="banner_img_one overlay_black greyscale_layer  backimgstyle" style="background-image:url('{{ banner_image }}')">
+	</div>
+	
+</section>
+
+{{ event.banner_title }}
+<section class="common_breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">Campaign</a></li>
+			<li><a href="javascript:;">{{event.name }}</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mt40">
+		<div class="commontitleclass text-center">{{event.name }}</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+<section class="commonsections campaigndetail make_contribution">
+	<div class="container">
+		<div class="mcontribution_container">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="detail_part">
+					<div class="commontitleclass">Make your contribution</div>
+					<div class="detail_text">{{ our_mission|safe }}</div>
+					<div class="detailpart_image backimgstyle" style="background-image:url('{{ logo }}') " ></div>
+				</div>
+				<div class="fund_part">
+					<div class="fund_title text-center">Funds Requried</div>
+					<div class="donation_part">
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="display_numbers"><img src="/static/assets/images/rupee_symbol.png" class="displaynumbers_span"><span >{{ donated_amount }}</span></div>
+							<div class="display_numbers"><img src="/static/assets/images/rupee_symbol.png" class="displaynumbers_span"><span >{{ target }}</span></div>
+						</div>
+						<div class="fundprogressbar">
+							<div class="fundinlinepbar" style="width:{{ perentage_collection }}%;"></div>
+						</div>
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="fundtext_display">Amount donated</div>
+							<div class="fundtext_display">Target</div>
+						</div>
+						<div class="btn_part">
+							<div class="d-flex align-items-center justify-content-center">
+								<a href="javascript:;" class="btn_white">Share</a>
+								<!-- when campaign type is CNF  -->
+								{% if fundraiser_button %}
+								<a href="/login" class="btn_white">Be a Fundraiser</a>
+								{% endif %}
+								<!-- -------------- -->
+
+								<!-- when event accepted the donations -->
+								{% if event.accept_donation == True %}
+								<a href="javascript:;" class="btn_red">Donate</a>
+								{% endif %}
+								<!-- -------------------- -->
+							</div>
+						</div>
+						<div class="funddetailtext">{{ description|truncatechars_html:150|safe }}</div>
+						<a href="#" id="myBtn" class="fundtext_readmore">Read more</a>
+					</div>
+				</div>
+			</div>
+			 
+			<!-- campaign type CNF  -->
+			{% if view_cso %}
+			<div class="viewall"><a href="/csos/{{ event.slug }}">View All CSOs</a></div>
+			{% endif %}
+
+			{% if view_fundraiser %}
+			<div class="viewall"><a href="/fundraisers/{{ event.slug }}">View All Fundraisers</a></div>
+			{% endif %}
+			<!-- ------------- -->
+		</div>
+	</div>
+</section>
+
+
+
+
+<section class="campaigndetail contribttion_detail">
+	<div class="container">
+		<div class="cdetail_container">
+			<div class="cdetail_title fbold">{{ description_second|safe }}
+		</div>
+	</div>
+</section>
+
+{% if slides %}
+<section class=" event_display">
+	<div class="container">
+		<div class="commontitleclass text-center">Campaign<span>Gallery</span></div>
+		<div class="display_container">
+			<div class="d-flex flex-wrap">
+				{% for link in slides %}
+				<div class="display_part">
+					<div class="display_video"><iframe width="360" height="220" src="{{ link.url }}"></iframe></div>
+					<div class="display_title">{{ link.title }}</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+	</div>
+</section>
+{% endif %}
+
+
+
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+	</script>
+{% endblock %}

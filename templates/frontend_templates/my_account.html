@@ -1,0 +1,138 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/cso-banner-new.jpg')">
+		<div class="label_logo backimgstyle1" style="background-image:url('/static/fundraiser_account.png')">
+		</div>
+	</div>
+</section>
+
+
+<section class="common_breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+            <li><a href="javascript:;">fundraiser account</a></li>
+		</ul>
+	</div>
+</section>
+
+
+    <section class="fixed_icon">
+        <a href="javascript:;" class="sharebutton"><img src="http://demoispace.in/icfn/assets/images/share.png?v=A3RRzks4SN"></a>
+        <div style="display: none">
+        <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/facebook.png?v=A3RRzks4SN"></a>
+        <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/twitter.png?v=A3RRzks4SN"></a>
+        <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/linkedin.png?v=A3RRzks4SN"></a>
+        </div>
+    </section>
+     
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="container">
+                <div class="commontitleclass text-center">My<span>Account</span></div> 
+                <div class="myaccount_banner">
+                    <div class="d-flex flex-wrap justify-content-center">
+                        <div class="form-group customfieldinput">
+                            <label>CHOOSE EVENT/ CAMPAIGN</label>
+                            <select name="">
+                                <option selected disabled value="0">Create Appeal Page</option>
+                                <option value="{{ featured_event.id }}">{{ featured_event.name }}</option>
+                            </select>
+                        </div>
+                        <div class="wide_btn">
+                            <a href="/my-pages" class="btn_one active">My Pages</a>
+                        </div>
+                        <div class="wide_btn">
+                            <a href="javascript:;" class="btn_one active">Offline Donation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+    <section class="myaccount">
+        <div class="csoaccount_detail">
+            <div class="container">
+                <div class="detail_box">
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="profile_detail">
+                            <div class="commansubtitleclass text-uppercase text-center">CHANGE<span>PASSWORD</span></div>
+                            <div class="d-flex justify-content-center">
+                                <div class="user_img backimgstyle" style="background-image:url('{{ PHOTO_URL }}')">
+                                </div>
+                            </div>
+                            <div class="text-center">{{ user_obj.first_name }} {{ user_obj.last_name  }}</div>
+                            <div class="upload">
+                                <span>Upload image of size less than 500kb.</span>
+                            </div>
+                            <div class="signup_submit upload_pic">
+                                <div align="center" class="send_data">
+                                  <a data-target="#myModal" data-toggle="modal">
+                                    <input style="width: 150px; height: 50px;" class="form-control " type="file" name="icon" placeholder="Upload your profile pic">
+                                  </a>
+                                  <input style="display: none" type="file">
+                                </div>
+                            </div>
+                            <div class="detail_title">Address:</div>
+                            <p>{{ address_obj  }}</p>
+                        </div>
+                        <div class="changepassword_part">
+                            <div class="commansubtitleclass text-uppercase text-center">CHANGE<span>PASSWORD</span></div>
+                            <div class="d-flex justify-content-center">
+                                <div class="cpassword_box">
+                                    <div class="email_title">Email:</div>
+                                    <div class="email_display">{{ user_obj.username }}</div>
+                                    <div class="input_class">
+                                        <input type="text" name="" value="" class="input_style" placeholder="Old Password">
+                                    </div>
+                                    <div class="input_class">
+                                        <input type="text" name="" value="" class="input_style" placeholder="New Password">
+                                    </div>
+                                    <div class="input_class">
+                                        <input type="text" name="" value="" class="input_style" placeholder="Re-enter Password">
+                                    </div>
+                                    <div class="btn_part">
+                                        <a href="javascript:;" class="btn_darkred">Save</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity_summary">
+                            <div class="commansubtitleclass text-uppercase text-center">ACTIVITY<span>SUMMERY</span></div>
+                            <div class="summary_box">
+                                <div class="summary_title">Notifications</div>
+                                <div class="sdetail">
+                                    <span class="sdetail1">Number of fundraising pages:</span><span class="sdetail2">{{ fund_count }}</span>
+                                </div>
+                                <div class="sdetail">
+                                    <span class="sdetail1">Your donation:</span><span class="sdetail2">{{ donations }}</span>
+                                </div>
+                                <div class="sdetail">
+                                    <span class="sdetail1">Total donations received:</span><span class="sdetail2">{{ amt }}</span>
+                                </div>
+                                <div class="sdetail">
+                                    <span class="sdetail2">( Online and Offline fundraising pages)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}
+
+   

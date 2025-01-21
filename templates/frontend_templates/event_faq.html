@@ -1,0 +1,128 @@
+{% extends "frontend_templates/base.html" %}
+
+
+{% block midpart %}
+
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle"
+		style="background-image:url('/static/{{event.banner_image}}')">
+		<div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event.main_page_logo }}')">
+		</div>
+	</div>
+</section>
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+			<li><a href="javascript:;">FAQ</a></li>
+		</ul>
+	</div>
+</section>
+
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+
+
+    <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">ABOUT</span>FAQS</div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+
+
+
+
+<section class="commonsections event_faq">
+	<div class="container">
+		<div class="event_container">
+			<div class="d-flex flex-wrap justify-content-between">
+                <div class="event_box">
+					{% for faq in faq_cat %}
+					{% for ques in faq.get_questions %}
+					<a href="javascript:;" class="text_part">
+						<div class="d-flex align-items-start justify-content-between">
+							<div>
+								<span class="fbold">{{ques.question}}</span>
+							</div>
+							<img src="/static/assets/images/plus.svg" class="plus_sign">
+						</div>
+					</a>
+					<div class="textpart_toggle" style="display:none;">
+						<p>
+							<span class="fbold">
+								{% for ans in ques.get_answer %}
+                                {{ans.answer|safe}}
+                            {% endfor %}
+							</span>
+						</p>
+					</div>
+					{% endfor %}
+					{% endfor %}
+				</div>
+            
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+    <section class="findananswer"> 
+        <div class="container">
+            <form method="POST" action="" id="faq">
+              {% csrf_token %}
+    
+                <div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">CAN'T FIND AN </span>ANSWER?</div>
+    
+                <div class="form_box">
+                    <p>Fields marked with an asterisk (*) are required</p><br><br>
+                    <div class="row">
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Name<span>*</span></label>
+                                <input class="form-control " type="text" name="name" id="name">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Email ID<span>*</span></label>
+                                <input class="form-control " type="text" name="email" id="email">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Mobile No.</label>
+                                <input class="form-control " type="text" name="mobile" id="mobile">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Ask your question...<span>*</span></label>
+                                <input class="form-control " type="text" name="message" id="message" >
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn_part">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit"><a class="btn_darkred extra_padding">Submit</a></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>	
+    
+
+
+{% endblock %}

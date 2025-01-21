@@ -1,0 +1,25 @@
+
+
+<div class="dropdown">
+	<form novalidate="" class="ng-untouched ng-pristine ng-valid">
+		<select  class="form-control" onchange="location = this.value;">
+			<option  disabled="" selected="">The Event</option>
+			<option value="/event-about-us/{{ event.slug }}">About</option>
+			<option value="/event-faq/{{ event.slug }}">Faqs</option>
+			<option value="/event-gallery/{{ event.slug }}">Gallery</option>
+		</select>
+		<select class="form-control" onchange="location = this.value;">
+			<option disabled="" selected="">Be a Champion/ Fundraiser</option>
+			<option value="/fundraiser-overview/{{ event.slug }}">Overview</option>
+			<option value="/fundraisers/{{ event.slug }}">Fundraisers</option>
+            {% if event.display_fundraisercreationpage %}
+			    <option  value="/choose-target/{{ event.slug }}/id">Create a fundraising page</option>
+            {% endif %}
+		</select>
+		<select class="form-control" onchange="location = this.value;">
+			<option disabled="" selected="">Donate</option>
+			<option value="/fundraisers/{{ event.slug }}">Support a Fundraiser</option>
+			<option value="/csos/{{ event.slug }}">Choose a CSO</option>
+		</select>
+	</form>
+</div>

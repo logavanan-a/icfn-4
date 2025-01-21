@@ -1,0 +1,201 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="contactus" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">contact us</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="commonsections pagebanner_part">
+	<img src="/static/assets/images/layer_img2.png" class="bottomimg">
+	<div class="container">
+		<div class="contactdetail_text">{{ contact_us.description|safe }}
+			<img src="/static/assets/images/chat_shape.svg" class="chat_shape">
+		</div>
+		<div class="city_infopart">
+			<div class="d-flex flex-wrap justify-content-between">
+				{% for add in address %}
+				<div class="cityinfo_box">
+					<div class="cityinfo_image">
+						<div class="d-flex justify-content-center">
+							<img src="{{ city_image }}" class="citylogo">
+						</div>
+					</div>
+					<div class="title fbold">{{ add.city }}</div>
+					<div class="city_address">
+						<p>{{ add.address1 }}</p>
+						<p>{{ add.address2 }}</p>
+						<p>{{ add.country.name }} {{ add.state.name }} {{ add.pincode }}</p>
+						<p><span>Call</span>{{ add.mobile }}</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="commonsections contactemail">
+	<div class="container">
+		<form method="POST" action="" id="contact_us">
+			{% csrf_token %}
+			<div class="commontitleclass text-center">Email<span>Us</span></div>
+			<p>We're here to help. Please fill out the form below, and we'll get back to you shortly</p>
+			<p>Fields marked with an asterisk (*) are required</p><br><br>
+			<div class="row align-items-center justify-content-between">
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+						<label>Interested in<span>*</span></label>
+						<select name="event" id="event">
+							<option value="" selected="selected"></option>
+							{% for e in events %}
+							<option value="{{ e.pk }}">{{ e.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+						<label>Your name<span>*</span></label>
+						<input class="form-control " type="text" name="name" id="name">
+						<span class="error_msg">invalid input</span>
+					</div>
+				</div>
+			</div>
+			<div class="row align-items-center justify-content-between">
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+						<label>Email ID<span>*</span></label>
+						<input class="form-control " type="text" name="email" id="email">
+						<span class="error_msg">invalid input</span>
+					</div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+						<label>Phone No.<span>*</span></label>
+						<input class="form-control " type="text" name="phone" id="phone">
+						<span class="error_msg">invalid input</span>
+					</div>
+				</div>
+			</div>
+			<div class="row align-items-center justify-content-between">
+				<div class="col-xl-12 col-12">
+					<div class="form-group customfieldinput">
+						<label>You want to know something<span>*</span></label>
+						<textarea class="form-control" name="message" id="message"
+							placeholder="Please Write Here"></textarea>
+						<span class="error_msg">invalid input</span>
+					</div>
+				</div>
+			</div>
+			 <div class="col-md-12">
+				<div class="input-group">
+					<div class="checkbox">
+						<re-captcha formcontrolname="recaptcha" sitekey="{{ captcha }}"
+							id="ngrecaptcha-0" class="ng-touched ng-dirty ng-valid">
+							<div style="width: 304px; height: 78px;">
+								<div><iframe title="reCAPTCHA"
+										src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6LcfOMIUAAAAAK7BJ9WeldSydOuLtSD6ca6lKt8N&amp;co=aHR0cHM6Ly9pY2ZuLmluOjQ0Mw..&amp;hl=en&amp;v=_7Co1fh8iT2hcjvquYJ_3zSP&amp;size=normal&amp;cb=rj9aetzh3pmd"
+										width="304" height="78" role="presentation" name="a-x4yf2xxr9od5" frameborder="0"
+										scrolling="no"
+										sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+								</div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"
+									style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+							</div><iframe style="display: none;"></iframe>
+						</re-captcha>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<div class="btn_part">
+					<button type="submit"><a class="btn_darkred extra_padding"><span>Send</span>
+							<img src="/static/assets/images/send_icon.png" class="send_icon">
+						</a></button>
+				</div>
+			</div>
+	</div>
+	</form>
+</section>
+
+
+<section class="map_locationpoint">
+	<div class="">
+		<div class="loaction_map">
+			<img src="/static/contact_map.jpg" style="width:100%">
+		</div>
+	</div>
+	<div class="map_points_delhi">
+		<a href="https://goo.gl/maps/vfA6gS2NL9Q2" target="_blank">
+			<img src="/static/point_location.png">
+			<div class="location_name">
+				<p>Delhi NCR</p>
+			</div>
+		</a>
+	</div>
+	<div class="map_points_kolkata">
+		<img src="/static/point_location.png">
+		<div class="location_name">
+			<p>Kolkata</p>
+		</div>
+	</div>
+	<div class="map_points">
+		<a href="https://goo.gl/maps/iLy5DSziKFF2" target="_blank">
+			<img src="/static/point_location.png">
+			<div class="location_name">
+				<p>Bangalore</p>
+			</div>
+		</a>
+	</div>
+</section>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function ($) {
+
+		//Mobile number validation  
+		var mobile_number = 10;
+		$('#phone').keydown(function (e) {
+			if ($(this).val().length >= mobile_number) {
+				$(this).val($(this).val().substr(0, mobile_number));
+			}
+		});
+		$('#phone').keyup(function (e) {
+			if ($(this).val().length >= mobile_number) {
+				$(this).val($(this).val().substr(0, mobile_number));
+			}
+		});
+
+		//Email validator function
+		$.validator.addMethod('emailValidate', function (value, element) {
+			return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+		}, "Please enter a valid email address.");
+
+		//Form validations 
+		$('#contact_us').validate({
+			rules: {
+				name: { required: true },
+				email: { required: true, emailValidate: true },
+				phone: { required: true, digits: true, minlength: 10, maxlength: 10 },
+				event: { required: true },
+				message: { required: true },
+			},
+		});
+	});
+</script>
+
+{% endblock %}

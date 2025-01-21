@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>www.icfn.in</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
+
+
+</head>
+
+<body style="background:#edeeee; padding:60px 0px 230px">
+  <table border="0" align="center" width="620" cellpadding="0" cellspacing="0" style="font-family: 'Roboto', sans-serif;font-weight: 400; color:#232323;background:#fff; box-shadow:0px 0px 3px #dedede;padding:20px 40px 0px">
+  
+     <tr >
+      <td colspan="2" style="margin-bottom:30px;" align="center"><a href="https://www.icfn.in/" target="_blank"><img src="https://api.icfn.in/static/mailer2/images/logo.jpg" width="" alt="icfn.in"/></a></td>
+     </tr>
+     <tr>
+        <td valign="top" align="center" style="padding:13px 20px 0 ; font-size:14px; font-family:Roboto, sans-serif; font-weight: 400; color:#737272; border-bottom: 1px solid #dddede;width: 60%; float: left;margin: 0px 20%;">
+          <p style="margin: 0px;background: #fff; position: relative;top: 8px;width: 45%;">Date {{ today }}</p> </td>
+  </tr>
+
+
+     <tr>
+       <td colspan="2">
+          <table border="0" width="100%" cellpadding="0" style="padding:35px 0px 0px;">
+              <tr>
+                  <td style="font-size:16px; font-weight:500; font-family:Roboto">
+                      <p style="margin:0px">Dear {{title}}  {{ user_obj.first_name }}  {{ user_obj.last_name }}</p>
+                </td>
+                 </tr>
+            </table>
+       </td>
+     </tr>
+
+     
+     <tr>
+        <td colspan="2">
+            <table border="0" width="100%" cellpadding="0" style="padding:20px 0px 0px;">
+               <tr>
+                   <td style="font-size:16px; font-weight:500; font-family:Roboto;text-align: center; padding: 30px;box-shadow: 0px 2px 3px #dedede;border: 1px solid #dedede;">
+                       <h3 style="font-family:Oswald; font-size:24px; text-transform:uppercase;font-weight:bold; margin:0px">Greetings <span style="color:#a40000; font-weight:300">from India Cares.</span></h3>
+                 </td>
+                  </tr>
+             </table>
+        </td>
+      </tr>
+
+      <tr>
+          <td colspan="2">
+              <table border="0" width="100%" cellpadding="0" style="padding:20px 0px 25px;border-bottom:1px solid #dedede">
+                 <tr>
+                     <td style="font-size:16px; font-weight:500; font-family:Roboto;text-align: center;">
+                         <p style="font-family:Roboto; font-size:16px;font-weight:normal; margin:0px">Thank you for registering with <span style="color:#a40000;">India Cares</span>. Your account has been created 
+                            and must now be activated before you can use it.</p>
+                   </td>
+                    </tr>
+               </table>
+          </td>
+        </tr>
+        
+        
+        <tr>
+            <td colspan="2">
+                <table border="0" width="100%" cellpadding="0" style="padding:20px 0px 0px">
+                   <tr>
+                       <td style="font-size:16px; font-weight:500; font-family:Roboto;text-align: left;">
+                           <p style="font-family:Roboto; font-size:14px;font-weight:normal; margin:0px 0px 15px">
+                              To activate your account click on the following link or copy-paste it into your browser:
+                              <a href="{{ actlink }}" style="text-decoration:none"><span style="color:#a40000;border-bottom: 1px solid #a40000;">{{ actlink }}</span></a></p>
+                             <p style="font-family:Roboto; font-size:14px;font-weight:normal; margin:0px 0px 10px"> After activation you may log on to:  <a href="#" style="text-decoration:none"><span style="color:#a40000;border-bottom: 1px solid #a40000;">www.icfn.in</span></a>  using the following email and 
+                              password:</p>
+                              <p style="font-family:Roboto; font-size:14px;font-weight:normal; margin:0px 0px 10px">Email:   <a href="#" style="text-decoration:none"><span style="color:#a40000;">{{ user_obj.username }}</span></a></p>
+                              <p style="font-family:Roboto; font-size:14px;font-weight:normal; margin:0px 0px 0px">Password:  <a href="#" style="text-decoration:none"><span style="color:#a40000;"></span></a></p>
+                     </td>
+                      </tr>
+                 </table>
+            </td>
+          </tr>
+
+          <tr>
+              <td colspan="2">
+                  <table border="0" width="100%" cellpadding="0" style="padding:35px 0px 0px">
+                     <tr>
+                         <td style="font-size:16px; font-weight:500; font-family:Roboto;text-align: left;">
+                            <span style="font-size:14px; font-weight:600; font-family:Roboto;text-align: left;margin-bottom:10px">You can now do the following on your Pages:</span>
+                          <ul style="list-style-image: url('https://api.icfn.in/static/mailer2/images/circle_img.png');padding: 0px 0px 0px 15px; margin:0px 0px 10px">
+                            <li style="font-weight:normal;font-size:14px; margin-bottom:10px">Receive online donations from across our country through a secure gateway from this site.</li>
+                            <li style="font-weight:normal;font-size:14px; margin-bottom:10px">Your supporters can, when you participate in the TCS World 10K Bengaluru, Airtel Delhi Half Marathon and/ or the Tata Steel Kolkata 25K, create their own Fundraising Pages to raise funds for the service you provide.</li>
+                            <li style="font-weight:normal;font-size:14px; margin-bottom:10px">Edit the content on your Page as per event, campaign, etc… which will be approved within 2 working days by India Cares.</li>
+                            <li style="font-weight:normal;font-size:14px; margin-bottom:10px">You can use our Platform to set up your own Campaigns to raise funds, if you are a part of our running events - for free. If you are not participating in one of our Events, we ask for a small contribution.</li>
+                            <li style="font-weight:normal;font-size:14px; margin-bottom:0px">Keep track of Donations received on your Page; your Fundraiser’s Page(s); add Offline Donations, received for the event you are participating in.</li>
+                          </ul>
+                       </td>
+                        </tr>
+                   </table>
+              </td>
+            </tr>
+
+               
+        <tr>
+            <td colspan="2">
+                <table border="0" width="100%" cellpadding="0" style="padding:60px 0px 40px">
+                   <tr>
+                       <td style="font-size:16px; font-weight:500; font-family:Roboto;text-align: center;">
+                           <p style="font-family:Roboto; font-size:14px;font-weight:normal; margin:0px 0px 10px">Regards,</p>
+                              <img src="https://api.icfn.in/static/mailer2/images/Team_IndiaCares.png">
+
+                     </td>
+                      </tr>
+                 </table>
+            </td>
+          </tr>
+      
+  
+  </table>
+  <table border="0" align="center" width="635" cellpadding="0" cellspacing="0" style="font-family: 'Roboto', sans-serif;font-weight: 400; color:#232323;background:#fff; box-shadow:0px 0px 3px #dedede;">
+  
+      <tr>
+          <td style="text-align:center; background:#d5253e;font-weight:300; font-family:Oswald; font-size:14px;color:#fff;text-transform:uppercase;padding: 7px 15px;">Bengaluru</td>
+         <td  style="text-align:center; background:#b61d38;font-weight:300; font-family:Oswald; font-size:14px;color:#fff;text-transform:uppercase;padding: 7px 15px;">New delhi</td>
+         <td  style="text-align:center; background:#a20000;font-weight:300; font-family:Oswald; font-size:14px;color:#fff;text-transform:uppercase;padding: 7px 15px;">kolkata</td>
+      </tr>
+ </table>
+ <table border="0" align="center" width="620" cellpadding="0" cellspacing="0" style="font-family: 'Roboto', sans-serif;font-weight: 400; color:#232323;background:#fff; box-shadow:0px 1px 3px 0px #dedede;">
+  
+    <tr>
+        <td style="background:#3c3c3c;padding:20px 50px 10px; text-align:center ">
+          <!-- <p style="font-size:14px; font-family:Roboto; font-weight:300;color:#d2d1d1;margin-top:0px;margin-bottom:10px">Bengaluru: No 65/E, 1st Floor, M-Z House, Millers House, Bengaluru-56046 
+              <br>Call us: 08023335715</p> -->
+              <p style="font-size:14px; font-family:Roboto; font-weight:300;color:#d2d1d1;margin-top:0px;margin-bottom:10px">India Cares Foundation M-Z House, 1st Floor, 65/E, Millers Road, Bengaluru 560046. 
+              <br>Call us: 08023335715</p>
+              <p style="font-size:14px; font-family:Roboto; font-weight:300;color:#d2d1d1;margin-top:0px;margin-bottom:10px">328, Lower Ground Floor, Sant Nagar, East of Kailash, New Delhi 110065. 
+              <br> Call us:011-41096623</p>
+
+              <!-- <p style="font-size:14px; font-family:Roboto; font-weight:300;color:#d2d1d1;margin-top:0px;margin-bottom:10px">Delhi: 328, Lower Ground, Sant Nagar, East of Kailash, Delhi  110 065 
+              <br>Call us: 011-4109 6623</p> -->
+        </td>
+    </tr>
+    <tr>
+        <td style="padding:20px 50px; text-align:center; display:inline-flex ">
+         <p style="width: 240px;text-align: right;margin:0px"><a href="" style="color:#a20000; font-family:Roboto; font-size:14px"><img src="https://api.icfn.in/static/mailer2/images/mail_box.png" style="padding-right:5px;position:relative;top:3px">info@icfn.in</a></p>
+         <p style="width: 240px;text-align: left;margin:0px; padding-left: 30px;"><a href="" style="color:#a20000; font-family:Roboto; font-size:14px"><img src="https://api.icfn.in/static/mailer2/images/globe_web.png"  style="padding-right:5px;position:relative;top:3px">www.icfn.in</a></p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,723 @@
+
+{% load frontend_templatetags %}
+
+{% block header %}
+
+{% with compression=false %} {% endwith %}
+
+<!-- {# {% include "config.html" %} #} -->
+
+{% include "frontend_templates/functions.html" %}
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Cache-control" content="public">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="distribution" content="global">
+	<meta name="revisit-after" content="1 days">
+	<meta name="robots" content="index, follow" />
+	<title>{{ PageTitle }}</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keyword" content="">
+	<link rel="alternate" href="<?php echo SITE_URL; ?>" />
+	<link rel=canonical href="<?php echo SITE_URL; ?>">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/assets/css/simplebar.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/4.2.3/simplebar.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="/static/assets/css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/static/assets/css/responsive.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<meta name="theme-color" content="<?php echo SITE_THEME ?>">
+	<meta name="msapplication-navbutton-color" content="<?php echo SITE_THEME ?>">
+	<meta name="msapplication-TileColor" content="<?php echo SITE_THEME ?>">
+</head>
+<body>
+
+{% if PageName == 'login' or PageName == 'popup1' %}
+
+{% else %}	
+<header>
+	<a href="/" class="logo">
+		<img src="/static/assets/images/logo.png">
+	</a>
+	{% if PageName == 'partnerdashboard' %}
+		<div class="pdashboard_menu">
+			<a href="javascript:;"class="pusername">
+				<div class="d-flex align-items-center justify-content-between">
+					<span>info@rainbowhomes.org</span>
+					<img src="/static/assets/images/arrow_red.png" class="pmenu_arrow">
+				</div>
+			</a>
+			<ul style="display: none;">
+				<li><a href="javascript:;">
+					<img src="/static/assets/images/edit_profile.png" class="pmenuli_icon"><span>Edit Profile</span></a></li>
+				<li><a href="javascript:;"><img src="/static/assets/images/logout.png" class="pmenuli_icon"><span>Edit Profile</span></a></li>
+			</ul>
+		</div>
+
+	 {% else %}
+
+	<div class="menutopright">
+		<div class="menuhamburger">
+			<a href="javascript:;" class="active">
+				<div class="hamburge_lines">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>  
+				<div class="menutext">Menu</div>
+			</a>
+		</div>
+		<div class="loginlinks">
+			{% if request.user.is_authenticated %}
+				Welcome {{ request.user.get_full_name }}
+			{% else %}
+				<a href="/login/">Login</a>
+				<a href="/signup/">Signup</a>
+			{% endif %}
+		</div>
+	</div>
+	<div class="main_menutoggle toggleshow">
+		<ul>
+			{% get_all_event_menus as events_menu %}
+			
+			<li>
+				<a href="javascript:;" class="main_navlinktop">
+					<div class="menuicons"><img src="/static/assets/images/menu_ico_1.png"></div>
+					<div class="menuitems_txt">Give to</div>
+				</a>
+				<div class="submenu_mainmenu">
+					<div class="container">
+						<div class="linkslists">
+							<ul>
+								<li>
+									<a class="secondlevel" href="javascript:;">Events</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% for event in events_menu %}
+											<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:;" class="secondlevel">CSOs</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% for cso in events_menu %}
+											<li><a href="/csos/{{ cso.slug }}">{{ cso.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:;" class="secondlevel">Fundraisers</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% for fundraiser in events_menu %}
+											<li><a href="/fundraisers/{{ fundraiser.slug }}">{{ fundraiser.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:;" class="secondlevel">Campaigns</a>
+									<div class="thirdlevelmenu">
+										<ul>
+
+											{% get_all_campaign  as all_campaign %}
+											{% for campaign in all_campaign %}
+											<li><a href="/campaign/{{ campaign.slug }}">{{ campaign.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a target="_blank" href="https://wishtree.icfn.in/" class="secondlevel">Wish Tree</a>
+									<!-- <div class="thirdlevelmenu">
+										<ul>
+											<li><a href="javascript:;">Airtel Delhi Half Marathon 2019</a></li>
+											<li><a href="javascript:;">Tata Steel Kolkata 25K 2019</a></li>
+										</ul>
+									</div> -->
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;" class="main_navlinktop">
+					<div class="menuicons"><img src="/static/assets/images/menu_ico_2.png"></div>
+					<div class="menuitems_txt">Fund Raising</div>
+				</a>
+				<div class="submenu_mainmenu">
+					<div class="container">
+						<div class="linkslists">
+							<ul>
+								<li>
+									<a class="secondlevel" href="/start-fundraise">Why Fundraise</a>
+								</li>
+								<li>
+									<a href="/make-fundraise" class="secondlevel">Make your fundraising page</a>
+								</li>
+								<li>
+									<a href="/events" class="secondlevel">Current Events and Campaigns</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="javascript:;" class="main_navlinktop">
+					<div class="menuicons"><img src="/static/assets/images/menu_ico_3.png"></div>
+					<div class="menuitems_txt">Our Programmes</div>
+				</a>
+				<div class="submenu_mainmenu">
+					<div class="container">
+						<div class="linkslists">
+							<ul>
+								<li>
+									<a class="secondlevel" href="javascript:;">Event</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% our_program_event as our_event %}
+											{% for event in our_event %}
+											<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:;" class="secondlevel">Campaigns</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% our_program_campaign_list as campaign_list %}
+											{% for campaigns in campaign_list %}
+											<li><a href="/campaign/{{ campaigns.slug }}">{{ campaigns.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<!-- <li>
+									<a href="/archive/" class="secondlevel">Archive</a>
+								</li>
+								<li>
+									<a target="_blank" href="https://wishtree.icfn.in" class="secondlevel">Wish Tree</a>
+								</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>																		
+				<a href="javascript:;" class="main_navlinktop">
+					<div class="menuicons"><img src="/static/assets/images/menu_ico_4.png"></div>
+					<div class="menuitems_txt">Wide Angle</div>
+				</a>
+				<div class="submenu_mainmenu">
+					<div class="container">
+						<div class="linkslists">
+							<ul>
+								<li>
+									<a class="secondlevel" href="/faq/">FAQs</a>
+								</li>
+								<li>
+									<a href="/annual-reports/" class="secondlevel">ICFn Annual Reports</a>
+								</li>
+								<li>
+									<a href="/dockets" class="secondlevel">Event Dockets</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="secondlevel">Articles</a>
+									<div class="thirdlevelmenu">
+										<ul>
+											{% for artmenu in get_article_menus %}
+											<li><a href="/article/{{ artmenu.slug }}">{{ artmenu.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="/archive" class="secondlevel">Archive</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	{% endif %}
+
+</header>
+
+{% endif %}
+
+
+{% if PageName == 'login' or PageName == 'popup1' %}
+
+{% else %}
+<section class="fixed_icon">
+	<a href="javascript:;" class="sharebutton"><img src="/static/assets/images/share.png"></a>
+	<div style="display: none">
+	<a href="javascript:;"><img src="/static/assets/images/facebook.png"></a>
+	<a href="javascript:;"><img src="/static/assets/images/twitter.png"></a>
+	<a href="javascript:;"><img src="/static/assets/images/linkedin.png"></a>
+	</div>
+</section>
+{% endif %}
+
+
+{% if PageName == 'index' %}
+<section class="homebanner">
+	<div class="bannerinformation">
+		<div class="centerbannertext">We aim to bring CSOs, Individuals, Societies Together.</div>
+		<div class="supportsearchbox">
+			<div class="supporttitle">Support</div>
+			<div class="supportsearchlist">
+				<div class="searchbottombybtm"><span>CSO/ NGO</span><a href="javascript:;"><img src="/static/assets/images/search_icon.png"></a>
+					<div class="searchbottomsearchbar">
+						<input type="text" placeholder="search" class="searchinputstyle">
+					</div>
+				</div>
+				<div class="searchbottombybtm"><span>Champion</span> <a href="javascript:;"><img src="/static/assets/images/search_icon.png"></a>
+					<div class="searchbottomsearchbar">
+						<input type="text" placeholder="search" class="searchinputstyle">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="carouselimg owl-carousel" id="mainslidercarousel">
+		<div class="carouselslide" style="background-image: url('/static/assets/images/banner.jpg');"></div>
+		<div class="carouselslide" style="background-image: url('/static/assets/images/banner22.jpg');"></div>
+	</div>
+</section>
+
+{% elif PageName == 'aboutus' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner2.png')">
+		<div class="supportand_searchbar fwhite">
+			<div class="d-flex align-items-center">
+				<div class="supportsearchbox">
+					<div class="supporttitle">OUR</div>
+					<div class="supportsearchlist">
+						<a href="/annual-reports" class="searchbottombybtm"><span>ANNUAL REPORTS&nbsp;</span><img src="/static/assets/images/arrow_white.svg">
+							<div class="searchbottomsearchbar" style="display:none;">
+								<input type="text" placeholder="search" class="searchinputstyle">
+							</div>
+						</a>
+						<div>
+							 <a href="/events" class="searchbottombybtm"><span>OUR RACE DOCKETS</span><img src="/static/assets/images/arrow_white.svg">
+								<div class="searchbottomsearchbar" style="display:none;">
+									<input type="text" placeholder="search" class="searchinputstyle">
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="label_text">
+			<div class="commontitleclass  text-center">About<span>Us</span></div>
+		</div>
+	</div>
+</section>
+{% elif PageName == 'annualreports' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner3.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Annual<span>Reports</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'dockets' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner3.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Event<span>Dockets</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'champion' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+			<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'contactus' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner7.png')">
+			<div class="banner_info">
+				<div class="commontitleclass">YOU CAN SPEAK TO <span>- OUR TEAM 080-2222 62571/ 011-4109 6623</span></div>
+				<img src="/static/assets/images/call_img.png" class="call_img">
+			</div>
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Contact<span>Us</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'refundpolicy' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner7.png')">
+			<!-- <div class="banner_info">
+				<div class="commontitleclass">YOU CAN SPEAK TO <span>- OUR TEAM 080-2222 62571/ 011-4109 6623</span></div>
+				<img src="/static/assets/images/call_img.png" class="call_img">
+			</div> -->
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Refund<span>Policy</span></div>
+			</div>
+		</div>
+	</section>	
+{% elif PageName == 'privacypolicy' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner7.png')">
+			<!-- <div class="banner_info">
+				<div class="commontitleclass">YOU CAN SPEAK TO <span>- OUR TEAM 080-2222 62571/ 011-4109 6623</span></div>
+				<img src="/static/assets/images/call_img.png" class="call_img">
+			</div> -->
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Privacy<span>Policy</span></div>
+			</div>
+		</div>
+	</section>	
+{% elif PageName == 'termsconditions' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner7.png')">
+			<!-- <div class="banner_info">
+				<div class="commontitleclass">YOU CAN SPEAK TO <span>- OUR TEAM 080-2222 62571/ 011-4109 6623</span></div>
+				<img src="/static/assets/images/call_img.png" class="call_img">
+			</div> -->
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Terms &<span>Conditions</span></div>
+			</div>
+		</div>
+	</section>			
+{% elif PageName == 'csosignup' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/registration_banner.jpg')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">CSO<span>Signup</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'csoaccount' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/cso_account.png')"> 
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-xl-4 col-12">
+				<div class="form-group customfieldinput">
+			        <label>Select Title<span>*</span></label>
+			        <select name="">
+			        	<option value="">Mr.</option>
+			        	<option value="">Mrs.</option>
+			        	<option value="">Ms.</option>
+			        </select>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+</section>
+{% elif PageName == 'eventaboutus' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'eventawards' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner8.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'eventawards2' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner8.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo3.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'fundraisersoverview' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner5.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'eventgallery' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner9.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'csodetail3' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'cso' %}
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'csosignupnewreg' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/registration_banner.jpg')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">CSO<span>Signup</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'editcsodetails' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner3.png')">
+		</div>
+	</section>
+{% elif PageName == 'donate' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner10.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Donate</div>
+			</div>
+		</div>
+	</section>	
+{% elif PageName == 'eventfaq' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay_black backimgstyle" style="background-image:url('/static/assets/images/event_faq.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">FAQs</div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'makeyourfundraisingpage' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner11.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'signup' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner12.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">Sign<span>Up</span></div>
+			</div>
+		</div>
+	</section>
+<!-- {% elif PageName == 'eventadhm' %}  -->
+
+{% elif PageName == 'eventstsk25k' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner5.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo1.png')"> 
+		</div>
+	</div>
+</section>		
+{% elif PageName == 'fundraising' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner13.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>	
+{% elif PageName == 'myaccount' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner6.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'reachout' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner14.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/label_logo.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'forcorporate' %}
+	<section class="banner_part_one">	
+		<div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/images/banner3.png')">
+			<div class="label_text"> 
+				<div class="commontitleclass text-center">For<span>Corporate</span></div>
+			</div>
+		</div>
+	</section>
+{% elif PageName == 'howtostartfundraisering' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner11.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/event_logo2.png')"> 
+		</div>
+	</div>
+</section>	
+{% elif PageName == 'whatweofferforcso' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay  backimgstyle" style="background-image:url('/static/assets/images/banner3.png')">
+		<div class="label_text"> 
+			<div class="commontitleclass text-center">For<span>CSOs</span></div>
+		</div>
+	</div>
+</section>
+{% elif PageName == 'partnerdashboard' %} 
+<section class="banner_part_one">	
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner15.png')">
+		<div class="label_logo backimgstyle1"  style="background-image:url('/static/assets/images/cso_dashboard.png')"> 
+		</div>
+	</div>
+</section>
+{% elif PageName == 'login' or PageName == 'popup1' %} 
+
+{% else %}
+	<!-- <section class="banner_part_one">	
+		<div class="banner_img_one overlay_black greyscale_layer  backimgstyle" style="background-image:url('/static/assets/images/banner5.png')">
+		</div>
+	</section> -->
+{% endif %}
+
+
+
+
+{% endblock %} 
+
+
+
+
+
+{% block midpart %}						
+
+
+{% endblock %}  
+
+
+
+
+
+
+
+
+{% block footer %}
+
+
+
+{% if PageName == 'login' or PageName == 'popup1' %} 
+
+{% else %}
+
+
+<footer>
+	<div class="container">
+		<div class="footer_container">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="part_one">
+					<div class="left_text">CONNECT<span>ENGAGE</span><span>TRANSFORM</span><span class="span1"># BECAUSE YOU CARE</span></div>
+				</div>
+				<div class="part_two">
+					<div class="upper_part">
+						<div class="d-flex flex-wrap justify-content-between">
+							<div class="subpart_one">
+								<div class="title_text">India Cares</div>
+								<a href="/about-us/" class="sub_title">About Us</a>
+								<a href="/contact-us/" class="sub_title">Contact Us</a> 
+								<a href="/faq/" class="sub_title">FAQs</a>
+								<a href="/terms-conditions/" class="sub_title">Terms and Conditions</a>
+								<a href="/refund-policy/" class="sub_title">Refund Policy</a>
+								<a href="/privacy-policy/" class="sub_title">Privacy Policy</a>
+							</div>
+							<div class="subpart_one">
+								<div class="title_text">What we Offer</div>
+								<a href="/for-cso/" class="sub_title">For CSOs</a>
+								<a href="/for-corporate/" class="sub_title">For Corporate</a>
+							</div>
+							<div class="subpart_one">
+								<div class="title_text">Events</div>
+								{% eventfooter as event  %}
+								{% for events in event %}
+								<a href="/event/{{ events.slug }}" class="sub_title">{{ events.name }}</a>
+								{% endfor %}
+								<!-- <a href="javascript:;" class="sub_title">Tata Steel Kolkata 25K 2019</a> -->
+								<a href="/events" class="sub_title">Archive</a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="lower_part">
+						<div class="d-flex flex-wrap justify-content-between">
+							<div class="subpart_one">
+								<div class="title_text">CSO</div>
+								<a href="/individual_register/" class="sub_title">Register with India Cares</a>
+								<a href="/login/" class="sub_title">Sign in</a>
+								<a href="/faq/" class="sub_title">CSO FAQs</a>
+							</div>
+							<div class="subpart_one">
+								<div class="title_text">Individuals</div>
+								<a href="/event/" class="sub_title">Find a CSO</a>
+								<a href="/event/" class="sub_title">Find a fundraiser</a>
+								<a href="/event/" class="sub_title">Create a fundraising Page</a>
+							</div>
+							<div class="subpart_one">
+								<div class="title_text">Corporate</div>
+								<a href="/faq/" class="sub_title">FAQ</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="subpart_one">
+							<div class="title_text">Campaign</div>
+							{% campaignfooter as campaigns %}
+							{% for camp in campaigns %}
+							<a href="/campaign/{{ camp.slug }}" class="sub_title">{{ camp.name }}</a>
+							{% endfor %}
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="site_author text-center">Company name</div>
+</footer>
+
+
+
+{% endif %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/4.2.3/simplebar.min.js"></script>
+
+<script src="/static/assets/js/owl.carousel.min.js"></script>
+<script src="/static/assets/js/app.js"></script>
+<link href="/static/assets/fonts/" rel="stylesheet">
+<script>
+	$( function() {
+	    $( "#datepicker" ).datepicker();
+	  } );
+</script>
+</body>
+</html>
+
+
+{% endblock %}

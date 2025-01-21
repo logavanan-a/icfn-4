@@ -1,0 +1,368 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="ICFN :: Signup" PageName="Signup" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">INDIA CARES WEBSITE SIGN UP</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class=" signup_form">
+	<form method="POST" action="" id="personal_signup">
+	  	{% csrf_token %}
+
+	<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="container">
+			<div class="signup_banner">
+				<div class="commontitleclass text-center">Sign Up<span>Now</span></div>
+				<div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">SELECT AN ACCOUNT TYPE</span></div>
+				<div class="d-flex flex-wrap align-items-center justify-content-center">
+					<div class="radiobtn_part_two">
+						<div>
+						  	<input type="radio" id="signup1" name="signup_form" value="Personal" checked>
+	    					<label class="radiobtn_label fbold" for="signup1">Personal</label>
+					 	</div>
+					 </div>
+					 
+					 <div class="radiobtn_part_two">
+						<div>
+						  	<input type="radio" id="signup2" name="signup_form" onclick="window.location='/cso-signup/';">
+	    					<label class="radiobtn_label fbold" for="signup2">CSO</label>
+					 	</div>
+					 </div>
+					 <div class="radiobtn_part_two">
+						<div>
+						  	<input type="radio" id="signup3" name="signup_form">
+	    					<label class="radiobtn_label fbold" for="signup3">Corporate</label>
+	    				
+					 	</div>
+					 </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+	</section>
+
+
+		<div class="container">
+		<div class="commontitleclass text-center">Email<span>Us</span></div><br><br>
+		<p><center>For registration, Please fill out the form below, and we'll get back to you shortly</center></p><br><br>
+		<div class="imp_note">Fields marked with an asterisk (*) are required</div><br><br>
+
+
+		<div class="signup_formbox">
+			<div class="row justify-content-between">
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select Title<span>*</span></label>
+				        <select name="title" id="title">
+					        <option _ngcontent-c1="" value="">Select title...</option>
+	                        <option _ngcontent-c1="" value="1" class="ng-star-inserted">Mr</option>
+	                        <option _ngcontent-c1="" value="2" class="ng-star-inserted">Ms</option>
+	                        <option _ngcontent-c1="" value="3" class="ng-star-inserted">Mrs</option>
+	                        <option _ngcontent-c1="" value="4" class="ng-star-inserted">Dr</option>
+	                        <option _ngcontent-c1="" value="5" class="ng-star-inserted">Prof</option>
+	                        <option _ngcontent-c1="" value="6" class="ng-star-inserted">Miss</option>
+	                        <option _ngcontent-c1="" value="10" class="ng-star-inserted">M/s</option>
+                          </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>First Name<span>*</span></label>
+				        <input class="form-control " type="text" name="fname" id="fname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Last Name</label>
+				        <input class="form-control " type="text" name="lname" id="lname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Mobile No.<span>*</span></label>
+				        <input class="form-control " type="text" name="mobile" id="mobile">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Email<span>*</span></label>
+				        <input class="form-control " type="text" name="email" id="email">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Password<span>*</span></label>
+				        <input class="form-control " type="password" name="password1" id="password1">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Re-enter Password<span>*</span></label>
+				        <input class="form-control " type="password" name="password2" id="password2">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Address 1<span>*</span></label>
+				        <input class="form-control " type="text" name="address1" id="address1">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Address 2</label>
+				        <input class="form-control " type="text" name="address2" id="address2">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select Country<span>*</span></label>
+				        <select name="country" id="country">
+				        	<option value="" selected="selected"></option>
+				        	{% for c in countries %} 
+					        <option value="{{ c.id }}">{{ c.name }}</option>
+					        {% endfor %} 
+				        </select>
+						<p _ngcontent-c1="" class="invalid-feedback"></p>
+
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div _ngcontent-c1="" class="form-group">
+						<label _ngcontent-c1="">Select State</label>
+						<select _ngcontent-c1="" name="state" class="form-control ng-valid ng-dirty ng-touched" formcontrolname="state">
+						  <option _ngcontent-c1="">Select here...</option>
+						  {% for s in states %}
+						  <option value="{{ s.id }}">{{ s.name }}</option>
+						  {% endfor %}
+						</select>
+						<p _ngcontent-c1="" class="invalid-feedback"></p>
+					</div>
+
+
+					<!-- <div class="form-group customfieldinput">
+				        <label>Select State</label>
+				        <select name="state" id="state">
+				        	<option value="">Select Here...</option>
+				        	{% for s in state %} 
+					        <option value="{{ s.id }}">{{ s.name }}</option>
+					        {% endfor %}
+				        </select>
+				    </div>   -->
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>City<span>*</span></label>
+				        <input class="form-control " type="text" name="city" id="city">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Pincode<span>*</span></label>
+				        <input class="form-control " type="text" name="pincode" id="pincode">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+
+						{% if msg %}
+                        <p style="text-align:center;color:red;">{{msg}}</p>
+                        {% endif %}
+
+
+				<div class="col-xl-2 col-12">
+					<div class="btn_part">
+						<button type="submit"><a class="btn_darkred ">Submit</a></button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+	  </form>
+	
+</section>
+
+<div id="myModal" class="modal">
+	<div class="modal-content">
+	    <span class="close">&times;</span>
+	    <center>
+	    <p _ngcontent-c1="">Please write to :
+	      <a _ngcontent-c1="" href="mailto:tcsworld10k@icfn.in">tcsworld10k@icfn.in</a> for TCS Event registration,
+	      <br _ngcontent-c1="">
+	      <a _ngcontent-c1="" href="mailto:adhm@icfn.in">adhm@icfn.in</a> for ADHM Event registration,
+	      <br _ngcontent-c1="">
+	      <a _ngcontent-c1="" href="mailto:tsk25k@icfn.in">tsk25k@icfn.in</a> for TSK25K Event registration,
+	      <br _ngcontent-c1="">
+	      <a _ngcontent-c1="" href="mailto:info@icfn.in"></a>info@icfn.in for Other Event registrations.
+	      <br _ngcontent-c1=""> Registrations happen only after documentation validation.
+	      <br _ngcontent-c1=""> Thank you,
+	      <br _ngcontent-c1=""> India Cares Team</p>
+	  </center>
+  </div>
+</div>
+
+<style>
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<script>
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("signup3");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function($) {
+
+     //Mobile number validation  
+      var mobile_number = 10;
+      $('#mobile').keydown( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+      $('#mobile').keyup( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+
+      //Email validator function
+     $.validator.addMethod('emailValidate', function (value, element) {
+            return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+        }, "Please enter a valid email address.");
+     
+     //Form validations 
+     $('#personal_signup').validate({
+        rules: {
+        		title: {required:true},
+                fname: {required:true},
+                email: {required:true,emailValidate: true},
+                mobile: {required:true,digits:true,minlength:10,maxlength:10},
+                password1: {required:true},
+                password2: {required:true},
+                address1: {required:true},
+                country: {required:true},
+                city: {required:true},
+                pincode: {required:true,digits:true},
+              },  
+      });
+}); 
+
+
+</script> 
+
+<script>
+	$('#state').html('');
+
+	/*loading States based on Country */
+	$('#country').change(function() {
+		var country_id = $(this).val();
+		if(country_id) {
+			targeturl="/state-data/"+country_id;
+			$.ajax({
+				url: targeturl, 
+				type: 'POST',
+				data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+				success: function(result){
+					$('#state').html('');
+
+					var data = '<option value="">Select Here...</option>';
+					$("#state").append(data);
+
+					for (res in result.state_list)
+					{
+						var r = result.state_list[res];
+
+						var option = '<option value=' + r.id + '>' + r.name + '</option>';
+						$("#state").append(option);
+					}
+				}
+			});
+		}
+	});
+</script>
+
+{% endblock %}

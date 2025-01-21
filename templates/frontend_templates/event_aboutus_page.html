@@ -1,0 +1,88 @@
+
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="eventaboutus" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+			<li><a href="javascript:;">About us</a></li>
+		</ul>
+	</div>
+</section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">ABOUT</span>EVENT</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+
+
+<section class="commonsections abouteventdetail">
+	<div class="container">
+		<div class="eventdetail_box">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="eventdetail_video">
+				</div>
+				<div class="eventdetail_infopart">
+					<div class="commontitleclass">About -<span>{{ event.name }}</span></div>
+					<div class="eventdetail_part" data-simplebar>
+						<p>{{ event.description|safe }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="registerforevent">
+	<div class="container">
+		<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+		<div class="registerevent_container">
+			<div class="d-flex flex-wrap align-items-start justify-content-between">
+				<a href="/csos/{{ event.slug }}" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent1.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>CSOs</span></div>
+				</a>
+				<a href="/choose-target/{{ event.slug }}/id" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent2.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Fundraisers</span></div>
+				</a>
+				<a href="/event-awards/{{ event.slug }}/" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent3.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Awards</span></div>
+				</a>
+				<a href="/dockets" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent4.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Past year run report</span></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

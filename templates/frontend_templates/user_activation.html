@@ -1,0 +1,32 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="login" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="login backimgstyle login_overlay" style="background-image:url('/static/assets/images/background_login.png')">
+	<div class="loginbox">
+		<img src="/static/assets/images/logo.png" class="login_logo"> 
+        <div class="">
+            <span class="star">{{msg}}</span>
+        </div>
+		<div class="d-flex justify-content-center">
+			<div>
+				<div class="btn_part">
+					<a href="/login" data-toggle="modal" data-target="#popup1" class="btn_black extra_padding">Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

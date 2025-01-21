@@ -1,0 +1,78 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="completedevents" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="banner_part_one">	
+    <div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/edhm_banner.jpg')">
+        </div>
+    </div>
+</section>
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">make your fundraising page</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="container">
+			<div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">{{  make_name  }}</span>{{  make_name1 }}</div>
+		</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+<section class="commonsections fundraising_part">
+	<div class="container">
+		<div class="fundraising_box">
+			{{ article_two.description|safe }}
+		</div>
+	</div>
+</section>
+<section class="registerforevent">
+	<div class="container">
+		<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+		<div class="registerevent_container">
+			<div class="d-flex flex-wrap align-items-start justify-content-between">
+				<a href="/csos/{{ event_slug }}" class="event_box active">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent1.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>CSOs</span></div>
+				</a>
+				<a href="/choose-target/{{ event_slug }}/id" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent2.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Fundraisers</span></div>
+				</a>
+				<a href="/event-awards/{{ event_slug }}/" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent3.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Awards</span></div>
+				</a>
+				<a href="/dockets" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent4.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Past year run report</span></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

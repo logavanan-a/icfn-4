@@ -1,0 +1,341 @@
+
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="article" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 17px solid rgb(15, 15, 15);
+	width: 70%;
+	position: unset;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+            <li><a href="javascript:;">make your fundraiser page</a></li>
+		</ul>
+	</div>
+</section>
+
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">{{ article_one.name }}</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+
+
+<section class="commonsections abouteventdetail">
+	<div class="container">
+		<div class="eventdetail_box">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="eventdetail_video">
+				</div>
+				<div class="eventdetail_infopart">
+					<div class="commontitleclass">{{ article_one.name }}</div>
+					<div class="eventdetail_part" data-simplebar>
+						<p>{{ article_one.description|safe }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% if length == 1 %}
+	<section class="registerforevent">
+		<div class="container">
+			<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+			<div class="registerevent_container">
+				<div class="d-flex flex-wrap align-items-start justify-content-between">
+					<a href="/csos/{{ event_slug }}" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent1.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>CSOs</span></div>
+					</a>
+					<a href="/choose-target/{{ event_slug }}/id" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent2.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Fundraisers</span></div>
+					</a>
+					<a href="/event-awards/{{ event_slug }}/" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent3.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Awards</span></div>
+					</a>
+					<a href="/dockets" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent4.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Past year run report</span></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% elif length > 1 %}
+
+<div id="Cso" class="modal">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="donate_popup">
+			<div class="donate_middle">
+				<div class="login_fields">
+					<div class="donate_yes">
+						{% for img in featured_event_main %}
+							<div class="borderpopup_width col-md-4 ng-star-inserted">
+								<a href="/csos/{{ img.slug }}" data-dismiss="modal">
+									<img src="/static/{{ img.main_page_logo }}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="Fund" class="modal">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="donate_popup">
+			<div class="donate_middle">
+				<div class="login_fields">
+					<div class="donate_yes">
+						{% for img in featured_event_main %}
+							<div class="borderpopup_width col-md-4 ng-star-inserted">
+								<a href="/choose-target/{{ img.slug }}/id" data-dismiss="modal">
+									<img src="/static/{{ img.main_page_logo }}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="Award" class="modal">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="donate_popup">
+			<div class="donate_middle">
+				<div class="login_fields">
+					<div class="donate_yes">
+						{% for img in featured_event_main %}
+							<div class="borderpopup_width col-md-4 ng-star-inserted">
+								<a href="/event-awards/{{ img.slug }}/" data-dismiss="modal">
+									<img src="/static/{{ img.main_page_logo }}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	<section class="registerforevent">
+		<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+			<div class="registerevent_container">
+				<div class="d-flex flex-wrap align-items-start justify-content-between">
+					<a onclick="popupfunction('cso')" href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent1.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>CSOs</span></div>
+					</a>
+					<a onclick="popupfunction('fund')"  href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent2.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Fundraisers</span></div>
+					</a>
+					<a onclick="popupfunction('award')" href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent3.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Awards</span></div>
+					</a>
+					<a href="/dockets" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent4.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Past year run report</span></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% else %}
+
+<div id="myModal" class="modal">
+	<div class="modal-dialog">
+		<button class="close" data-dismiss="modal" type="button">
+			<img src="/static/close_button.png">
+		</button>
+		<div class="modal-content">
+			<div class="donate_popup">
+				<div class="donate_middle">
+					<div class="login_fields">
+						<div class="donate_yes">
+							<div class="borderpopup_width ">
+								<p class="validmsg">There are NO active events we will come back later. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<section class="registerforevent">
+		<div class="container">
+			<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+			<div class="registerevent_container">
+				<div class="d-flex flex-wrap align-items-start justify-content-between">
+					<a onclick="popupfunction()" href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent1.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>CSOs</span></div>
+					</a>
+					<a onclick="popupfunction()" href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent2.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Fundraisers</span></div>
+					</a>
+					<a onclick="popupfunction()" href="#" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent3.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Awards</span></div>
+					</a>
+					<a href="/dockets" class="event_box">
+						<div class="d-flex justify-content-center">
+							<img src="/static/assets/images/regevent4.png" class="event_img">
+						</div>
+						<div class="event_title text-center"><span>Past year run report</span></div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+
+<script>
+	var popupfunction = function(csopopup){
+		
+		// Get the modal
+		if(csopopup=="cso"){
+			var modal = document.getElementById("Cso")
+		}
+
+		if(csopopup=="fund"){
+			var modal = document.getElementById("Fund")
+		}
+
+		if(csopopup=="award"){
+			var modal = document.getElementById("Award")
+		}
+		// var modal = document.getElementById("myModal");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		modal.style.display = "block";
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		if (event.target == modal) {
+		modal.style.display = "none";
+		}
+		}
+	}
+
+
+</script>
+
+
+{% endblock %}

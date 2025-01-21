@@ -1,0 +1,125 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+    
+        <section class="banner_part_one">	
+            <div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/donation_banner/donate_banner.jpg')">
+                <div class="label_text"> 
+                    <div class="commontitleclass text-center">Donate</div>
+                </div>
+            </div>
+        </section>	
+
+
+        <section class="common_breadcrumb">
+            <div class="container">
+            
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/event/{{ event.slug }}">{{event.slug }}</a></li>
+                    <li><a href="/donate/ngo/{{ cso.slug }}/{{ event.slug }}">{{ cso.slug }}</a></li>
+                    <li><a href="javascript;;">Donate</a></li>
+                </ul>
+            
+            </div>
+        </section>
+
+
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="container">
+                <div class="donate_banner">
+                    <div class="donate_step">	
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="donatestep_part fbold text-center ">1</div>
+                            <div class="donatestep_part fbold text-center active">2</div>
+                        </div>
+                    </div>
+                    <div class="commansubtitleclass text-center"><span class="commansubtitleclass grey">YOUR</span>CONFIRMATION</div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+    
+    <section class="commonsections donate_confirmation">
+        <div class="container">
+            <div class="confirm_container">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="conf_box">
+                        <div class="d-flex justify-content-center">
+                            <div class="conf_img backimgstyle" style="background-image:url('http://demoispace.in/icfn/assets/images/swayam_logo.png?v=Kvailg45G6')">
+                            </div>
+                        </div>
+                        <div class="conf_persondetail">
+                            <span class="person_name fbold">Ms. Amrita Das Gupta</span>
+                            <span>9/2B Deodar Street</span>
+                            <span>Kolkata, West Bengal,</span>
+                            <span>India - 700019</span>
+                            
+                            <div class="d-flex">
+                                <p class="fbold">Phone: </p><p>9903888923</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="fbold">Email: </p><p>swayam@cal.vsnl.net.in</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="fbold">Website: </p><p>http://www.swayam.info/</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="fbold">Tax Status: </p><p>12A,  80G,  FCRA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conf_detail">
+                        <div class="commansubtitleclass text-center"><span class="commansubtitleclass grey">YOU HAVE CHOSEN TO DONATE TO</span>SWAYAM</div>
+                        <div class="conf_subtitle text-center">You are entitled for tax deductions U/s 12A, 80G, FCRA.</div>
+                        <div class="conf_detail_table">
+                            <div class="conf_detail_table_row">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="left_part">Donation to <span class="">Swayam</span></div>
+                                    <div class="right_part d-flex align-items-center">
+                                        <img src="http://demoispace.in/icfn/assets/images/rupee_black.png?v=Kvailg45G6" class="rupee_black"><span>3000.00</span></div>
+                                </div>
+                            </div>
+                            <div class="conf_detail_table_row">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="left_part">5% Handling costs</div>
+                                    <div class="right_part  d-flex align-items-center">
+                                        <img src="http://demoispace.in/icfn/assets/images/rupee_black.png?v=Kvailg45G6" class="rupee_black"><span>150.00</span></div>
+                                </div>
+                            </div>
+                            <div class="conf_detail_table_row">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="left_part">Amount disbursed to the CSO</div>
+                                    <div class="right_part  d-flex align-items-center">
+                                        <img src="http://demoispace.in/icfn/assets/images/rupee_black.png?v=Kvailg45G6" class="rupee_black"><span>2850.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check_note">
+                            <div class="checkboxclass_two">
+                                <input type="checkbox" name="" id="comm_detail_one" checked="">	
+                                <label class="checkbox_label" for="comm_detail_one">
+                                    <div>I have read and agree on the India Cares<a href="javascript:;">Terms and Conditions</a></div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="btn_part">
+                                <a href="javascript:;" class="btn_darkred extra_padding">Proceed to Donate with Razorpay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

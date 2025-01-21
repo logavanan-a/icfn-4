@@ -1,0 +1,147 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: #202020;
+    color: white;
+	margin: auto;
+	padding: 20px;
+	border: 17px solid rgb(31, 30, 30);
+	width: 70%;
+	position: unset;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<section class="banner_part_one">
+    <div class="banner_img_one overlay_black  backimgstyle"
+        style="background-image:url('/static/partner_dashboard_banner.jpg')">
+        <div class="label_logo backimgstyle1" style="background-image:url('/static/fundraiser_dashboard.png')">
+        </div>
+    </div>
+</section>
+
+<section class="common_breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/my-page">fundraiser account</a></li>
+            <li><a href="javascript:;">My Page</a></li>
+        </ul>
+    </div>
+</section>
+
+
+<section>
+    <div class="form-group dropdown_fix">
+        <form action="." method="post">
+            {% csrf_token %}
+        <select  id="StatusDropdown" name="status" onchange="this.form.submit()" class="form-control ng-valid ng-dirty ng-touched" title="Select Cause">
+            <option value="0">Select Status</option>
+            <option value="true">Active</option>
+            <option value="false">InActive</option>
+        </select>
+    </form>
+    </div>
+    <div class="table_part">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width:20%" class="name">Title</th>
+                    <th style="width:10%" class="date">CSO</th>
+                    <th style="width:9%" class="detail">Goal Amount</th>
+                    <th style="width:10%" class="detail">Amount Raised</th>
+                    <th style="width:8%" class="detail">Status</th>
+                    <th style="width:20%" class="detail">Action</th>
+                </tr>
+            </thead>
+            <tbody id="myTable" >
+                {% for fund in fund_obj %}
+                <tr>
+                    <td>{{ fund.title }}</td>
+                    {% if fund.ngo %}
+                    <td>{{ fund.ngo.name }}</td>
+                    {% else %}
+                    <td> </td>
+                    {% endif %}
+                    <td>{{ fund.goal_amount }}</td>
+                    <td>{{ fund.total_amount }}</td>
+                    {% if fund.active %}
+                    <td>Active</td>
+                    {% else %}
+                    <td>InActive</td>
+                    {% endif %}
+                    <td class="text_right">
+                        <a href="/preview-page/?eslug={{ event.slug  }}&fslug={{ fund.slug }}&ngo={{ fund.ngo.id }}&id={{ fund.id }}">Edit</a>| 
+
+                        <input type="hidden" value="{{ fund.id }}" name="fund_id">
+                        <a onclick="window.location='/popup-msg/?fund_id={{ fund.id }}&status={{ event.active }}'">Deactivate {{ msg }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-14 butn">
+        <a href="/my-page">
+            <button class="back_button" type="button" tabindex="0">Back</button>
+        </a>
+    </div>
+
+
+
+<script>
+
+
+</script>
+
+
+{% endblock %}

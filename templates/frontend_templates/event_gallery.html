@@ -1,0 +1,56 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block midpart %}
+
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle"
+		style="background-image:url('/static/{{event.banner_image}}')">
+		<div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event.main_page_logo }}')">
+		</div>
+	</div>
+</section>
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+			<li><a href="javascript:;">GALLERY</a></li>
+		</ul>
+	</div>
+</section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+    <section class="pagedesign_banner">
+        <div class="pagedesign_banner_containeapi/campaign/galleryr mb100">
+            <div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">ABOUT</span>GALLERY</div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+
+
+<section class=" event_display">
+    <div class="container">
+        <div class="display_container">
+            <div class="d-flex flex-wrap">
+                {% for link in links %}
+				<div class="display_part">
+                    <div class="display_video"><iframe width="360" height="222" src="{{ link.URL }}"></iframe></div>
+					<div class="display_title">{{ link.name }}</div>
+				</div>
+				{% endfor %}
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn_part">
+                <a href="/coming-soon" class="btn_darkred extra_padding"><span>Photo Album</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

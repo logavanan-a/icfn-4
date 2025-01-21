@@ -1,0 +1,27 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="whatweofferforcso" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<section class="offerforcso">
+	<div class=" forcorporate">
+		<div class="container">
+			<div class="corporate_box">
+
+				{{ forcso.description|safe }}
+			
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

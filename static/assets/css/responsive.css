@@ -1,0 +1,1850 @@
+@media only screen and (min-width: 1181px){
+	.logo:hover{
+		background-color: #f2f2f2;
+	}
+	.menutopright:hover{
+		background-color: #f2f2f2;
+	}
+	.menutopright a:hover{
+		text-decoration:underline; 
+	}
+	.featuredbox:hover{
+		box-shadow: 0 0 15px 0 rgba(109,109,109,0.80);
+	}
+	.download_box:hover{
+		box-shadow:inset 0px 0px 10px 0px rgba(255,255,255,0.2);
+	 	-webkit-box-shadow:inset 0px 0px 10px 0px rgba(255,255,255,0.2);
+	 	-moz-box-shadow:inset 0px 0px 10px 0px rgba(255,255,255,0.2);
+	}
+	.boxcontentbtm:hover{
+		box-shadow: 0px 0px 12px 0px rgba(0,0,0,40%);
+	}
+	.commanclassdiv:hover{
+		box-shadow: 0px 0px 12px 0px rgba(0,0,0,40%);
+	}
+	.footer_container .sub_title:hover{
+		color:#FFFFFF; 
+	}
+	.btn_part a.btn_white:hover{
+      	background-color:#b3b3b3;
+   		color:#101010;
+	}
+	.btn_part a.btn_red:hover{
+      	background-color:#b11902;
+   		color:#FFFFFF;
+	}
+	.btn_part a.btn_black:hover{
+      	background-color:#595959;
+   		color:#FFFFFF;
+	}
+	.btn_part a.btn_darkred:hover{
+      	background-color:#cc0000;
+   		color:#FFFFFF;
+	}
+	.btn_part a.btn_blurwhite:hover{
+      	background-color:#b3b3b3;
+   		color:#232323;
+	}
+	.circle_link:hover{
+		color:#FFFFFF; 
+	}
+	.event_faq .event_box span a:hover{
+		color: #A50000;
+	}
+	/* ----------social_link_part  start-------------- */
+	.social_link_part .social_link_box:hover{
+	    background-color:#456aba; 
+	}
+	.social_link_part .social_link_box.orange:hover{
+	    background-color:  #e3624f; 
+
+	}
+	.wide_btn a.btn_one:hover{
+		border: #E02519  2px solid;
+	    color:#E02519;
+	    background-color:#FFFFFF ;
+	   box-shadow:0px 0px 10px 0px rgba(0,0,0,0.5); 
+	}
+	.wide_btn a.btnwide_red:hover{
+		border: #A50000  2px solid;
+		background-color: #FFFFFF;
+		color:#A50000;
+	   box-shadow:0px 0px 10px 0px rgba(0,0,0,0.5); 
+	}
+	.pdashboard_banner .wide_btn a.btnwide_red:hover{
+		border: #800000  2px solid;
+		background-color:	 #800000 ;
+		color: #FFFFFF;
+		box-shadow:0px 0px 0px 0px rgba(0,0,0,0.5);  
+	}	
+	.askquebox_parent .aksboxtoggle_content a:hover{
+		color:#A50000 
+	}
+	.table_part table tbody tr td a:hover{
+		color: #A50000;
+	}
+	.radiobtn_part_two [type="radio"]:hover + .radiobtn_label:before{ 
+		background-color: #b3b3b3; 
+	}
+	.registerforevent .event_box .event_title span:hover{
+		color: #E02519;
+		border-bottom:#E02519 2px solid;
+	}	 
+}  
+@media only screen and (max-width: 1180px) and (orientation: landscape){
+	.menutopright{
+		flex-direction: row-reverse;
+	}
+}
+@media only screen and (max-width: 1180px){
+	/* --------------------fixed icon start-------- */
+	.fixed_icon{
+	    top: 100px; 
+	}
+	/* --------------------fixed icon end-------- */
+	/* --------------------pagination start-------- */
+	.pagination_part {
+	    overflow-x: scroll;
+	    white-space: nowrap;
+	}
+	.pagination_part a {
+	    font-size: 14px;
+	}
+	/* --------------------pagination end-------- */
+
+	/* ----------social_link_part  start-------------- */
+	.social_link_part .social_link_box{
+		margin: 0px 0px 15px 0px;
+		width:90%;
+		margin:0px  5% 15px 5% ; 
+	}
+	.social_link_box .icon_part {
+	    width: 40px;
+	}
+	.social_link_box .icon_part .social_img {
+	    max-width: 22px;
+	    max-height: 22px;
+	}
+	.social_link_part .social_link_box .text_part {
+	    font-size: 16px;
+	    padding: 8px 25px;
+	}
+	/* ----------social_link_part  end-------------- */
+	/* --------------------btn part-------- */
+	.btn_part a.btn_darkred{
+		font-size:18px;
+		padding: 10px 45px;
+	}
+	.btn_part a.extra_padding{
+		padding:8px  25px 10px 25px;
+	}
+	.btn_part a.btn_black{
+		font-size:18px; 
+	}
+	/* ----------------wide btn part-------- */
+	.wide_btn a{
+		font-size:18px;
+		margin: 0px 0px 15px 0px; 
+	}
+	/* -------------------- custom field start-------- */
+	.customfieldinput.form-group {
+	    margin-bottom: 30px
+	}
+	.customfieldinput label{
+		font-size:16px; 
+	}
+	.customfieldinput.nomargin {
+    	margin: 0px 0px 20px 0px;
+	}
+	.customfieldinput.extra_margin{
+		margin: 0px 0px 45px 0px;
+	}
+	.customfieldinput .form-control ,select,option,textarea {
+	   line-height: 1;
+       padding: 15px 20px;
+       font-size: 15px;
+	}
+	.customfieldinput select, option{
+		font-size:16px; 
+	}
+	.customfieldinput .info_msg{
+		font-size:12px;
+		bottom: -17px;
+		left: 10px; 
+	}
+	.customfieldinput .browse_btn{
+		padding: 10px 15px;
+		font-size: 16px;
+	}
+	.c_note{
+		font-size:16px;
+		line-height:1.3;  
+	}
+	.customfieldinput .calendar_display{
+
+	}
+	/* -------------------- custom field end-------- */
+	/* -------------------- checkbox sart -------- */
+	.checkboxclass .checkbox_label:before {
+		height:16px;
+		width:16px;  	
+	}
+	.checkboxclass .checkbox_label:after{
+		left: 3px;
+		height: 6px;
+		width: 9px;
+		opacity: 0;
+		position: absolute;
+		top: 4px;
+	}
+	/* -------------------- checkbox  end-------- */
+	/* -------------------- checkbox two sart -------- */
+	.checkboxclass_two .checkbox_label:before{
+		height:16px;
+		width:16px;
+	}
+	.checkboxclass_two .checkbox_label:after{
+		left: 4px;
+		height: 5px;
+		width: 9px;
+		opacity: 0;
+		top: 5px;
+	}
+	/* -------------------- checkbox two  end-------- */
+	/* -------------------- commonbox part start-------- */
+	.commonbox_wrapper .commanbox_parent:first-child{
+		margin: 0px 0px 20px 0px;
+	}
+	.commanbox_parent:last-child{
+		margin: 0px;
+	}
+	.commonbox_wrapper .commanbox_parent:nth-child(3n){
+		margin: 0px 0px 20px 0px;	
+	}
+	.commonbox_wrapper .commanbox_parent:nth-child(3n + 1){
+		margin: 0px 0px 20px 0px;	
+	}
+	.commanbox_parent{
+		width:100%; 
+	}
+	.commonbox_wrapper .commonbox_title{
+		font-size:22px; 
+	}
+	.commanbox_parent{
+		 margin: 0px 0px 20px 0px;
+	}
+	.commanbox_parent:last-child{
+	    margin: 0px;
+	}
+	.commonbox{
+		height:auto; 
+		padding: 20px 25px;  
+	}
+	.commonbox .user_detail{
+	    margin: 10px 0px 0px 0px;
+	    font-size: 16px;	
+	}
+	.commonbox .cb_title {
+	    font-size: 22px;
+	    margin: 10px 0px;
+	}
+	.commonbox .company_logo{
+		background-size: 70%;
+	}
+	.commonbox .company_logo .company_name{
+		font-size:28px; 
+	}
+	.commanbox_parent .viewall {
+	    font-size: 14px;
+	}
+	/* ----------commonbox part end-------------- */
+	.commansubtitleclass{
+		font-size:24px; 
+	}
+	.logo{
+		height:60px;
+		text-align:center;
+		justify-content:center;
+		width:100%;    
+	}
+	.logo img{
+		max-width:200px; 
+	}
+	.menutopright{
+		width:100%;
+		top:60px;
+		height:36px;
+		font-size:15px;   
+		padding-top:0px;
+		padding-bottom:0px;
+		justify-content: space-around;   
+	}
+	.main_menutoggle{
+		align-items: normal;
+    	justify-content: left;
+    	transform: translateY(-100%);
+    	-webkit-transform: translateY(-100%);
+    	-moz-transform: translateY(-100%);
+    	-o-transform: translateY(-100%);
+    	-ms-transform: translateY(-100%);
+	}
+	.main_menutoggle ul{
+		flex-wrap:wrap;  
+	}
+	.main_menutoggle ul li{
+		width: 100%;
+	}
+	.main_menutoggle ul li a.main_navlinktop{
+		text-align: left;
+		display: flex;
+		align-items: center;
+		border-bottom: #e2e2e2 1px solid;
+		padding: 10px 20px;
+	}
+	.main_menutoggle ul li:last-child a.main_navlinktop{
+		border-bottom: 0px;
+	}
+	.main_menutoggle ul li a.main_navlinktop .menuicons{
+		margin-bottom: 0px;
+		margin-right: 15px;
+	}
+	.main_menutoggle ul li a.main_navlinktop img{
+		max-width: 17px;
+		max-height: 17px;
+	}
+	.submenu_mainmenu{
+		position: relative;
+		top: 0px;
+		transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-webkit-transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-moz-transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-o-transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-ms-transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		max-height:0px;
+		overflow: hidden;
+	}
+	.submenu_mainmenu.toggleshow_sub{
+		max-height: 100%;
+	}
+	.submenu_mainmenu .container{
+		padding: 0px;
+		margin-top: -1px;
+	}
+	.linkslists{
+		padding:0px;
+	}
+	.linkslists ul li{
+		text-align: left;
+	}
+	.linkslists ul li a{
+		font-size: 18px;
+		margin: 0px 0px;
+		padding: 10px 20px !important;
+		width: 100%;
+	}
+	.thirdlevelmenu{
+		margin-top: 0px;
+	}
+	.linkslists ul li a.active:after{
+		bottom: 0px;
+	}
+	.menutopright .menuhamburger{
+		margin-right:0px; 
+	}
+	.main_menutoggle{
+		top:96px;
+		height: auto;
+	}
+	.commonsections {
+    	padding: 30px 0px;
+	}
+	.commontitleclass {
+    	font-size: 30px;
+    }
+	/* --------home banner start-------- */
+	.bannerinformation{
+		width:100%;
+		height:80vh;  
+	}
+	.centerbannertext{
+	    font-size: 30px;
+	    top: 40%; 
+	    left:15px; 
+	}
+	.carouselslide {
+    	height: 80vh;
+	}
+	.supporttitle{
+		font-size:30px; 
+	}
+	.searchbottombybtm{
+		font-size:20px; 
+	}
+	.searchbottombybtm img{
+		width:20px; 
+	}
+	/* --------home banner end-------- */
+	/* --------banner_part one start-------- */
+	.banner_part_one{
+		height:60vh; 
+	}
+	.banner_img_one .searchbottombybtm img{
+		width:10px; 
+	}
+	.banner_img_one .label_text{
+		bottom: -60px;
+		left: 15px;
+		padding: 15px 30px;
+	}
+	.banner_img_one .label_logo{
+	    position:absolute;
+	    bottom: -77px;
+	    left: 0px;
+	    height:auto;
+	    width:auto;
+	    background-color:#FFFFFF ;
+	    box-shadow: 0px 0px 9px 0px rgba(109,109,109,65%);    
+	  padding-top: 35%;
+	      width: 80%;
+	      background-size: 70%;  
+	}
+	.banner_img_one .banner_info{
+		width:90%;
+		top: 63%; 
+	}
+	.banner_img_one .banner_info .call_img{
+		display:none; 
+	}
+	/* --------banner_part one end-------- */
+	/* --------page design banner start------- */
+	.pagedesign_banner .pagedesign_banner_container.mb40{
+		    padding: 110px 0px 40px 0px;
+	}
+	.pagedesign_banner .pagedesign_banner_container.mb90{
+    	padding: 90px 0px 40px 0px ;
+	}
+	.pagedesign_banner .pagedesign_banner_container.mb100{
+    	padding: 90px 0px 40px 0px ;
+	}
+	.pagedesign_banner .pagedesign_banner_container.mt40{
+        padding:40px 0px;
+	}
+	.pagedesign_banner .pagedesign_banner_container .bannersubtitle{
+		padding: 20px 5px 0px 5px;
+	    font-size: 24px;
+	    letter-spacing: 0px;
+	    line-height: 1.3;
+	}
+	.pagedesign_banner .pagedesign_banner_container .csosignuptext{
+	    font-size:25px;
+	    text-align:center; 
+	    margin:0px 0px 15px 0px  ;
+	}
+	.pagedesign_banner .padedesign_detail .persondetail .personimage{
+		width:140px; 
+	}
+	.pagedesign_banner .padedesign_detail .persondetail .personimage img{
+		width:27%; 
+	}
+	.pagedesign_banner .padedesign_detail .mission_detail .missiondetail_about{
+		    margin: 20px 0px 0px 0px;
+	}
+	.mission_detail .missiondetail_about .believe_img{
+		display:none;  
+	}
+	.mission_detail .missiondetail_about .about_detail{
+		width:100%;
+		padding: 10px;
+	}
+	.mission_detail .missiondetail_about .about_detail p{
+		font-size:20px; 
+	}
+	.pagedesign_banner .padedesign_detail .persondetail{
+		width:100%; 
+	}
+	.pagedesign_banner .padedesign_detail .mission_detail{
+		width:100%; 
+	}
+	.mission_detail .missiondetail_about .about_detail .point_img{
+		display:none;
+	}
+	.pagedesign_banner .commansubtitleclass{
+		margin: 0px 10px 5px 0px;	
+	}
+	.pagedesign_banner{
+
+	}
+	.pagedesign_banner .pagedesign_banner_container {
+    	padding: 30px 0px 0px 0px;
+	}
+	.pagedesign_banner .commontitleclass {
+		line-height:1.3; 
+	} 
+	.pagedesign_banner .pagebannermenu{
+		margin:30px 0px 0px 0px;
+	}
+	.pagedesign_banner .pagebannersearch{
+		width:100%;
+		margin:0px 30px;  
+	}
+	.pagedesign_banner .pagebannersearch .searchinputstyle{
+		font-size:18px; 
+	}
+	.pagedesign_banner .pagebannersearch .search_btn{
+		padding: 11px 15px;
+		max-width: 47px;
+	}
+	.pagedesign_banner .pagebannerdropdown{
+		width:100%; 
+		margin:20px 30px 0px 30px; 
+	}
+
+	/* --------page design banner end------- */
+	/* --------featured part start-------- */
+	.featuredboxourinitiative{
+		flex-wrap:wrap;
+		display:block; 
+	}
+	.featuredbox{
+		width:100%; 
+		flex-wrap:wrap;
+		display:block;
+		margin: 15px 0px 0px 0px; 
+	}
+	.featuredtitle{
+		width:100%;
+		text-align:center;  
+		font-size:30px;  
+	}
+	.featuredeventslist{
+		width: 100%;
+		display: block;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.featuredeventbox{
+		padding:10px 0px 15px 0px;
+		width: 100%;
+		border-bottom:#737171 1px solid;
+	}
+	.featuredeventbox:first-child{
+		border-right:0px; 
+	}
+	.featuredeventbox:last-child{
+		border-bottom:0px; 
+	}
+	.featuredimgurl{
+		padding-top: 55%;
+	}
+	.ourinitatives{
+		width:100%; 
+	}
+	.ourinitititle {
+   		font-size: 26px;
+   	}
+   	.carouselsliderthumbs{
+   		padding:0px; 
+   	}
+   	.carouselsiderimg {
+    	padding-top: 50%;
+    }
+	/* --------funfactsnumber start -------- */
+	.funfactsnumber {
+		display:block;
+		flex-wrap:wrap;
+		padding:10px 0px 0px 0px;  
+	}
+	.factsnumbercols{
+		padding:20px 0px 0px 0px; 
+		width:100%;
+	}
+	.funfactstitletxt {
+    	font-size: 26px;
+    }
+    .funfactstitl_subetxt {
+    	padding-bottom: 15px;
+	}
+    .funfactstitl_sub_numberetxt {
+    	font-size: 34px;
+	}
+    .funfactstitl_sub_content {
+	    font-size: 16px;
+	    line-height: 1.3;
+	}
+	.acrosstitlecontent.notop{
+		    padding: 0px 0px 30px 0px;
+	}
+	/* --------why support start -------- */
+	.whysupportcause:before{ 
+		top:-15px; 
+	}
+	.whysupportcause:after{
+		width:100%; 
+	}
+	.whysupportcausecontent{
+		display:block;
+		flex-wrap:wrap;
+		min-height:75vh   
+	}
+	.containercausebox{
+		width: 100%;
+    	padding: 20px 15px;
+	}
+	.titlewhysupporttx{
+		font-size: 29px;
+		margin: 0px 0px 15px 0px;
+	}
+	.whysupportcontent {
+	    font-size: 16px;
+	    line-height: 1.3;
+	}
+	.boxcontentbtm {
+	    margin: 15px 5% 0px 5%;
+	}
+	.boxcontentbtm a{
+		font-size:16px; 
+	}
+	/* --------be champion start -------- */
+	.bechampion {
+    	padding: 30px 0px;
+	}
+	.bechampiontitlepart {
+    	margin: 0px 0px 30px 0px;
+	}
+	.championimageslider {
+	    margin:0px;
+	    padding-top: 40%;
+	    width: 100%;
+	}
+	.bechampion .commanclassdiv{
+		width:100%;
+		margin:0px 0px 30px 0px; 
+	}
+	.bechampion .commanclassdiv:last-child{
+		margin:0px; 
+	}
+	/* --------comman div start -------- */
+	.commanclassdivtitle{
+		font-size:24px; 
+	}
+	.comandivcontainer{
+		padding: 30px 24px 24px 24px; 
+	}
+	.commanclassdivtext{
+		font-size:16px; 
+	}
+	.commanclassdivsubtext{
+		font-size:14px; 
+	}
+	.commanclassdivlinkpart {
+	    margin: 20px 0px 0px 0px;
+	}
+	.commanclassdivlinkpart a{
+		font-size:14px; 
+	}
+	.divviewalllink{
+		font-size: 16px;
+   		 margin: 15px 0px 0px 0px;
+	}
+	.divsliderimage{
+		padding-top:50%; 
+	}
+	.commandivwrapper .commanclassdiv .div_sub_title{
+		font-size:28px; 
+	}
+	.commanclassdiv .image_text{
+		font-size:16px; 
+	} 
+	/* --------diff segment one goal start -------- */
+	.diffsegmentonegoal::before{
+		width:0%; 
+	}
+	.diffsegmentonegoal::after{
+		width:100%; 
+	}
+	.diffsegmentonegoal .section_div {
+    	margin: 25px 0px 0px 0px;
+    }
+    .diffsegmentonegoal .commontitleclass{
+    	font-size:24px; 
+    }
+    .diffsegmentonegoal .section_div .ifreme_class{
+    	width:100%;
+    	height:200px;  
+    }
+    .diffsegmentonegoal .section_div .info_part{
+    	width:100%;
+    	margin: 25px 0px 0px 0px; 
+    }
+    .diffsegmentonegoal .section_div .info_part .title_text{
+    	font-size: 24px;
+    }
+    .diffsegmentonegoal .section_div .info_part .about_detail{
+    	font-size:16px;
+    	padding:0px 0px 25px 0px;  
+    }
+    .diffsegmentonegoal .section_div .info_part .review_name{
+    	bottom:-14px;
+    }
+    /* --------associated start -------- */
+    .associated .commandivwrapper{
+    	margin: 25px 0px 0px 0px ;
+    }
+    .associated .commandivwrapper .commanclassdiv{
+    	width:100%; 
+    }
+    /* --------footer start -------- */
+    .footer_container {
+    	padding:15px 0px; 
+    }
+    .footer_container .part_one{
+    	width:100%; 
+    }
+    .footer_container .part_one .left_text{
+    	font-size:30px; 
+    }
+    .footer_container .part_two{
+    	width:100%; 
+    }
+    .footer_container .part_two .subpart_one{
+    	width:100%;
+    }
+    
+    .footer_container .part_two .lower_part{
+    	margin:0px;
+    }
+    .footer_container .title_text{
+    	font-size:22px; 
+    	margin: 20px 0px 15px 0px;
+    }
+    .footer_container .sub_title{
+    	font-size:16px; 
+    }
+    /* --------about us start -------- */
+    /* --------about us detail table -------- */
+    .aboutus_detailtable .detailtable_container{
+    	 padding:0px 0px 70px 0px;
+    }
+    .aboutus_detailtable .detailtable_container .table_section{
+    	width:100%;
+    	padding: 30px 20px;
+    	border-right:0px;
+    	border-bottom: #686666 1px solid; 
+     }
+     .aboutus_detailtable .detailtable_container .lower_table .table_section{
+     	padding:30px 15px;
+     }
+     .aboutus_detailtable .detailtable_container .lower_table .table_section:last-child{
+     	border-bottom: 0px;
+     }
+     .aboutus_detailtable .detailtable_container .table_section .table_title{
+     	    font-size: 28px;
+     }
+     .aboutus_detailtable .detailtable_container .table_section .table_detail{
+     	font-size:16px; 
+     	padding: 10px 0px 0px 0px;
+     }
+     .aboutus_detailtable .detailtable_container .table_bottomlabel{
+     	font-size: 18px;
+     	width: 90%;
+     	padding: 10px 10px 10px 10px;
+     	line-height: 1.5;
+     }
+     .aboutus_detailtable .detailtable_container .table_bottomlabel:before{
+     	display: none;
+     }
+     .aboutus_detailtable .detailtable_container .tabletextcenter{
+     	padding: 0px;
+     	    font-size: 40px;
+     }
+
+    /* --------our people-------- */
+    .our_people{
+    	padding:30px 0px; 
+    }
+    .ourpeople_container{
+    	padding: 0px; 
+    }
+    .our_people .ourpeople_container .title_row .peoplewidth_display{
+    	width:100%;
+    	    margin: 20px 0px 0px 0px; 
+    }
+    .our_people .ourpeople_container .peoplewidth_display{
+    	width:100%;
+    	    margin: 20px 0px 0px 0px 
+    }
+    .our_people .ourpeople_container .hoveroverlay_content p{
+    	font-size:16px; 
+    	    padding: 20px 15px
+    }
+    .our_people .people_maincontainer .people_detail{
+    	font-size: 22px;
+    }
+    .our_people .people_maincontainer .people_subdetail{
+    	font-size:16px; 
+    }
+    /* --------about us end -------- */
+    /* --------annual reports page start  -------- */
+      /* --------annual reports section start  -------- */
+    .annual_reports .annualreports_container{
+    	padding: 70px 0px 20px 0px; 
+    }
+    .annual_reports .annualreports_container .reportdiv_parent{
+    	width: 100%;
+    	margin: 0px 0px 30px 0px; 
+    }
+    .annual_reports .annualreports_container .reportdiv_parent:nth-child(3n+1){
+    	    margin: 0px 0px 30px 0px;
+    }
+    .annual_reports .annualreports_container .reportdiv_parent:nth-child(3n){
+    	    margin: 0px 0px 30px 0px;
+    }
+    .annual_reports .annualreports_container .reportdiv_parent:last-child{
+    	margin: 0px 0px 0px 0px;	
+    }
+    .annual_reports .report_detailpart{
+    	    padding: 10px 20px;
+    }
+    .annual_reports .report_detailpart .report_title{
+    	    font-size: 28px;
+    }
+    .annual_reports .report_detailpart .report_detail {
+ 	   padding: 10px 0px 0px 0px;
+ 	   font-size:14px; 
+	}
+	.annual_reports .reportshare_icon {
+    	padding: 10px 10px;
+    	    top: 64%;
+	}
+	.annual_reports .reportshare_icon img{
+		    width: 20px;
+	}	
+    /* --------annual reports page end  -------- */
+    /* --------campeign detail  page start  -------- */
+    /* ------- make contribution start  -------- */
+    .make_contribution .detail_part{
+    	width:100%; 
+    }
+    .make_contribution .display_numbers{
+    	font-size:18px;
+    }
+    .make_contribution .fund_part{
+    	margin: 30px 0px 0px 0px;
+    	width:100%; 
+    	    padding: 15px 15px 50px 15px;
+    }
+    .make_contribution .detail_part .detail_text{
+    	font-size:14px;
+    	line-height:1.3;  
+    }
+    .make_contribution .fundprogressbar{
+    	margin: 10px 0px;
+    }
+    .make_contribution .fund_part .btn_part{
+    	margin: 20px 0px;
+    }
+    .make_contribution .fund_part .funddetailtext{
+    	font-size:14px; 
+    }
+    .make_contribution .fund_part .fundtext_readmore{
+    	font-size:16px;
+    	bottom: 25px;
+    	left: 15px; 
+    }
+
+     /* ------- contribution deail start  -------- */
+    .contribttion_detail{
+    	    margin: 0px 0px 30px 0px;
+    }
+    .contribttion_detail .cdetail_container{
+    	padding:20px 15px;
+    	font-size:14px; 
+    	line-height:1.3; 
+    }
+    .contribttion_detail .cdetail_title {
+    	margin: 0px 0px 15px 0px;
+    	line-height: 1.3;
+    	font-size:16px; 
+	}
+	 /* -------collobration deail start  -------- */
+	 .collbrations_detail .commandivwrapper{
+	 	margin: 30px 0px;
+	 }
+    /* --------campeign detail page end  -------- */
+    /* ----------- completed events page css start ----------- */
+	/* ----------- completed events section css start ----------- */
+	.completedevents {
+   		 margin: 35px 0px 0px 0px;
+	}
+	.completedevents .highlights_part{
+		margin: 0px;
+	}
+	.completedevents .border_display{
+		top: 0px;
+		left: 0px;
+    	height: 100%;
+    	width: 100%;
+	}
+	.completedevents .event_detail{
+		padding:0px 15px 15px 15px ; 
+		min-height: auto;
+	}
+	.completedevents .event_detail .event_banner{
+		padding-top: 30%;
+		width: 60%;
+		background-size: 81%;
+	}
+	.completedevents .highlights_part .left_box{
+		width:100%;
+		margin: 0px; 
+	}
+	.completedevents .highlights_part .right_box{
+		width:100%;
+		margin: 0px;	
+	}
+	.completedevents .participated_box .box_part .title{
+		margin: 0px;
+		font-size:22px; 
+	}
+	.completedevents .participated_box .number_detail{
+		font-size:28px; 
+	}
+	.completedevents .highlights_part .title{
+		font-size:22px;
+		margin:20px 0px 15px 0px; 
+	}
+	.completedevents .participated_box .box_part{
+		width:100%;
+		padding: 10px 0px;
+		margin: 0px;
+		border-bottom:rgba(255,255,255,0.5) 1px solid;
+		border-right: 0px;  
+	}
+	.completedevents .participated_box .box_part:last-child{
+		border-bottom:0px;
+	}
+	.completedevents .highlights_part .highlights_video{
+		height:200px; 
+	}
+	.completedevents .participated_box .participatelower_box{
+		padding:0px; 
+	}
+	.completedevents .participated_box .participatelower_box .title{
+		margin: 0px;
+		padding: 10px 0px;
+	}
+	.download_box{
+		margin:10px 0px 0px 0px ;
+		top: 0px;
+		right: 0px;
+		position: relative;
+		padding: 10px 15px;
+	}
+	.download_box .download_box_text{
+		font-size:16px; 
+	}
+	/* -----------  event display ----------- */
+	.event_display{
+		margin: 40px 0px;
+	}
+	.event_display .display_part{
+		width:100%; 
+		margin:0px;
+	}
+
+	.event_archieve {
+    	margin: 0px 0px 40px 0px;
+	}
+	.event_display .display_part:nth-child(3n + 1){
+		margin:0px; 
+	}
+	.event_display .display_part:nth-child(3n){
+		margin:0px;
+	}
+	.event_display .display_part .display_title {
+	    font-size: 18px;
+	    margin: 10px 0px 20px 0px;
+	}
+	.event_archieve .display_part:nth-child(3n + 1){
+		 margin: 0px 0px 30px 0px;
+	}
+	.event_archieve .display_part:nth-child(3n){
+		 margin: 0px 0px 30px 0px;
+	}
+	.event_archieve .display_part{
+		 margin: 0px 0px 30px 0px;
+	}
+	.event_archieve .display_part:last-child{
+		 margin: 0px 0px 10px 0px;
+	}
+	/* ----------- completed events page css end ----------- */
+	/* ----------- champion page css start ----------- */
+	.myappeal .myappeal_box{
+		padding:15px; 
+	}
+	.myappeal .appealvideo_part{
+		width:100%;
+		height:200px;  
+	}
+	.myappeal .myappeal_detail{
+		width:100%;
+		margin: 15px 0px 0px 0px ; 
+	}
+	.myappeal p {
+	    margin: 15px 0px;
+	    font-size: 14px;
+	}
+	.myappeal .fund_detail{
+		width:100%;
+		font-size:20px;
+		text-align:center;   
+	}
+	.myappeal .appeal_bar{
+		width:100%;
+		margin: 15px 0px; 
+	}
+	.myappeal .myappeal_detail .detailtext {
+	    font-size: 16px;
+	    line-height: 1.3;
+	    margin:0px;
+	}
+	.myappeal .helpme_text {
+	    margin: 15px 0px 0px 0px;   
+	    font-size: 18px;
+	}
+	.myappeal .link_part a{
+		font-size:18px; 
+		margin: 0px 20px 15px 0px;
+	}
+	.myappeal .link_part a .link_img{
+		max-width:25px; 
+	}
+	/* ----------- encourage  ----------- */
+	.encourage {
+	    margin: 0px 0px 35px 0px;
+	}
+	.encourage .comment_part {
+		padding:10px 0px 25px 0px; 
+	}
+	.encourage .diaplay_comment {
+	    padding: 10px 15px;
+	}
+	.encourage .diaplay_comment .comment_text{
+	    font-size: 16px;
+  		line-height: 1.3;
+	}
+	.encourage .comment_input{
+	    padding: 10px 15px;
+	}
+	.encourage .comment_input .comment_style{
+		font-size: 16px;
+	}
+	.encourage .btn_part a.btn_red{
+		font-size:20px; 
+	}
+	/* ----------- champion page css end ----------- */
+	/* ----------- contact us page css start ----------- */
+	.pagebanner_part .contactdetail_text{
+		padding:10px 20px;
+		margin: 55px 0px 0px 0px; 
+		font-size: 18px;
+   		line-height: 1.3;
+	}
+	.pagebanner_part .contactdetail_text .chat_shape {
+	    bottom: -19px;
+	    left: 20px;
+	    width: 20%;
+	}
+	.pagebanner_part .city_infopart .cityinfo_box{
+		width:100%; 
+	}
+	.pagebanner_part .city_infopart .cityinfo_box .title {
+	    margin: 10px 0px 20px 0px;
+	    font-size: 28px;
+	}
+	.pagebanner_part .city_infopart .cityinfo_box .city_address p {
+	    font-size: 16px;
+	    margin-bottom: 9px;
+	}
+	/* ----------- contact us page css end----------- */
+	/* ----------- email us page start----------- */
+	.contactemail p {
+	    margin: 20px 0px 30px 0px;
+	    color: #A50000;
+	    font-size: 15px;
+	    text-align: center;
+	    line-height: 1.3;
+	    width: 96%;
+	}
+	/* ----------- email us page end ----------- */
+	/* ----------- cso account page  css start----------- */
+	.csoaccount_detail{
+		margin: 30px 0px ;
+	}
+	.csoaccount_detail .detail_box{
+		font-size:16px; 
+		padding:10px 15px; 
+	}
+	.csoaccount_detail .profile_detail{
+		border-right:0px;
+		border-bottom: rgba(104,102,102,1) 1px solid;  
+		width:100%; 
+	}
+	.profile_detail .account_detail{
+		padding:20px 0px; 
+		border-bottom:rgba(104,102,102,1) 1px solid;  
+	}
+	.profile_detail .account_logo {
+	    margin: 20px 0px 15px 0px;
+	    width: 60%;
+	    padding-top: 40%;
+	    background-size: 100%;
+	}
+	.profile_detail .account_detail .detail_title{
+	    margin: 0px 0px 7px 0px;
+	}
+	.profile_detail .account_detail .detail_text {
+	    word-break: break-word;
+	    margin: 0px 0px 10px 0px;
+	}
+	.csoaccount_detail .btn_part a.btn_blurwhite{
+		padding:10px 25px;
+		font-size: 18px; 
+	}
+	.csoaccount_detail .changepassword_part{
+		width:100%; 
+		margin:20px 0px 0px 0px ;
+	}
+	.changepassword_part .cpassword_box{
+		width:100%; 
+	}
+	.changepassword_part .email_title{
+		font-size:inherit ;
+		margin: 15px 0px;
+	}
+	.changepassword_part .email_display{
+		font-size:inherit ;
+	}
+	.cpassword_box .input_class {
+		margin: 0px 0px 15px 0px ;
+	}
+	.cpassword_box .input_class .input_style{
+		font-size:16px;
+	}
+	.changepassword_part .communicationpart{
+		margin:0px; 
+		border-bottom:rgba(104,102,102,1) 1px solid;  
+	}
+	.changepassword_part .communicationpart .communication_detail{
+		margin: 20px 0px 0px 0px;
+	}
+	.changepassword_part .communicationpart .comm_detail{
+		margin:0px 0px 15px 30px;
+		font-size: 16px;
+	}
+	.csoaccount_detail .detail_box .participating_events{
+		margin:20px 0px 0px 0px  ;
+	}
+	.csoaccount_detail .detail_box .partevent_box{
+		width:100%; 
+	}
+	.csoaccount_detail .detail_box .partevent_box:last-child{
+		border-top: #686666 1px solid;
+		padding:2px 0px 0px 0px; 
+	}
+	.csoaccount_detail .detail_box .partevent_box .event_detail{
+		border-right:0px;
+	}
+	.csoaccount_detail .detail_box .partevent_box:last-child .event_header{
+		margin:0px 2px 2px 2px;
+	}
+	/* ----------- cso account page  css end----------- */
+	/* ----------- event aboutus page start----------- */
+	/* ----------- about event detail----------- */
+	.abouteventdetail .eventdetail_box{
+		padding:15px 15px; 
+		height:auto; 
+		font-size:16px; 
+	}
+	.abouteventdetail .eventdetail_video{
+		width:100%; 
+		height:40vh; 
+	}
+	.abouteventdetail .eventdetail_infopart{
+		width:100%; 
+		padding:20px 0px;
+	}
+	.abouteventdetail .eventdetail_infopart .eventdetail_part{
+		height:30vh; 
+	}
+	/* ----------- registerforevent---------- */
+	.registerforevent{
+		margin:0px 0px 30px 0px ;
+	}
+	.registerforevent .registerevent_container{
+		margin:20px 0px 0px 0px ;
+	}
+	.registerforevent .event_box{
+		width:100%;
+		border-right:0px;
+		border-bottom: #686666 1px solid; 
+	}
+	.registerforevent .event_box:last-child{
+		border-bottom:0px;	
+	}
+	.registerforevent .event_box .event_title {
+		padding: 0px 0px 3px 0px;
+		font-size:18px; 
+	}
+	/* ----------- event aboutus page end----------- */
+	/* ----------- event awards  page  start----------- */
+	/* ----------- award detail  start----------- */
+	.awards_detail .awardsdetail_box{
+		padding:15px 20px 8px 20px; 
+		margin: 0px 0px 20px 0px;
+	}
+	.awards_detail .margin_class{
+		padding:0px; 
+	}
+	.awards_detail .awardsdetail_box .detailbox_title{
+		font-size:20px;
+		margin: 0px 0px 10px 0px; 
+	}
+	.awards_detail .awardsdetail_box li{
+		margin: 0px 0px 10px 0px;
+		font-size:14px; 
+	}
+	/* ----------- event awards  page  end----------- */
+	/* ----------- event awards two  page start----------- */
+	/* ----------- award gallery---------- */
+	.awards_gallery .gallery_container{
+		padding:30px 0px; 
+	}
+	.awards_gallery .gallery_margin{
+		margin-top:20px; 
+	}
+	.awards_gallery .gallery_box .gallerybox_detail {
+    	padding: 15px 20px;
+	}
+	.awards_gallery .gallery_box .gallerybox_detail span{
+		font-size:20px; 
+	}
+	.awards_gallery .gallery_box .gallerybox_detail p {
+	    font-size: 15px;
+	    margin: 10px 0px;
+	}
+	.awards_gallery .pagination_part{
+		padding:0px 0px 30px 0px; 
+	}
+	/* ----------- event awards two  page end----------- */
+	/* ----------- fundraisers overviwe start----------- */
+	/* ----------- fundraisers---------- */
+	.fundraisers .myappeal .myappeal_box{
+		padding:30px 15px; 
+	}
+	/* ----------- fundraisers_freqasked---------- */
+	.fundraisers_freqasked .askque_box{
+		padding:10px 15px;  
+	}
+	.fundraisers_freqasked .freqask_container .askquebox_parent span{
+		font-size:14px;
+		margin: 0px ; 
+	}
+	.fundraisers_freqasked .askque_box span{
+		font-size:14px;
+		line-height:1.3;
+		padding:0px 10px 0px 0px;   
+	}	
+	.fundraisers_freqasked .askque_box img{
+		max-width:15px; 
+	}
+	.askquebox_parent .aksboxtoggle_content {
+	    padding: 0px 15px;
+	}
+	/* ----------- fundraise_category---------- */
+	.fundraise_category{
+		padding:30px 0px; 
+	}
+	.fundraise_category .fundcategory_container{
+		margin:20px 0px 0px 0px;
+		border: #686666 1px solid;
+	}
+	.fundraise_category .fcategory_box{
+		width:100%;
+		padding:25px 0px; 
+		border-right:0px;   
+	}
+	.fundraise_category .fcategory_box:nth-child(1){
+		padding:25px 0px; 
+	}
+	.fundraise_category .fcategory_box:nth-child(2){
+		padding:25px 0px; 
+	}
+	.fundraise_category .fcategory_box:nth-child(3){
+		padding:25px 0px; 
+	}
+	.fundraise_category .fcategory_box:nth-last-child(2){
+		border-bottom:#686666 1px solid;
+	}
+	.fundraise_category .fcategory_box:nth-last-child(3){
+		border-bottom:#686666 1px solid;
+	}
+	.fundraise_category .fcategory_box .fcategory_subdetail {
+	    font-size: 14px;
+	    margin: 10px 0px 0px 0px;
+	}
+	/* ----------- fundraisers overviwe end----------- */
+	/* ----------- cso_detail 3 page start ----------- */
+	/* ----------- banner part ----------- */
+	.pagedesign_banner .csodetail_pagebanner{
+		margin:20px 0px 0px 0px ;
+	}
+	.csodetail_pagebanner .logo_part{
+		width:100%; 
+	}
+	.csodetail_pagebanner .detail_part{
+		width:100%; 
+	}
+	.csodetail_pagebanner .detail_part .detailpart_box{
+		width:100%; 
+	}
+	.csodetail_pagebanner .detail_part .detailpart_box .detail_info{
+		font-size:16px; 
+	}
+	/* -----------------our mission---------------- */
+	.csodetail_pagebanner .csomissiondetail{
+		margin:30px 0px 0px 0px ;
+	}
+	.csodetail .myappeal .appealvideo_part{
+		height:200px; 
+	}
+	.csodetail .make_contribution .fund_part{
+		padding:10px 15px; 
+	}
+	/* ----------------our achievements ---------------- */
+	.ourachivements .achivement_box{
+		padding:15px 15px 10px 15px; 
+	}
+	.achivement_box .achivement_img{
+		max-width:45px; 
+	}
+	.achivement_box .achivement_box_titlepart{
+		margin: 0px 0px 15px 0px;
+	}
+
+	.achivement_box .achive_title{
+		font-size:30px; 
+	}
+	.achivement_box .achivementbox_detail{
+		font-size:14px;
+		margin: 15px 0px ; 
+	}
+	.achivement_box .achivementbox_detail p{
+		line-height:1.3; 
+		margin:0px 0px 10px 0px ;
+	}
+	.achivement_box .achivementbox_detail ul {
+		margin:15px 0px  ;
+	}
+	/* ----------------our supporters ---------------- */
+	.oursupporters{
+		margin:30px 0px;
+	}
+	/* ----------- cso_detail 3 page end ----------- */
+	/* ----------- cso  page start ----------- */
+	.cso_part{
+	    padding:30px 0px ; 
+	}
+	.cso_part .commonbox .link_part{
+	    margin:10px 0px;
+	}
+	/* ----------- cso  page end ----------- */
+	/* ----------- csosignup _new reg  page start ----------- */
+	.csosignup_newreg{
+	    padding:30px 0px; 
+	}
+	/* ----------- csosignup _new reg  page end ----------- */
+	/* ----------- csosignup _new reg 1 page start ----------- */
+	.pagedesign_banner .csosignupstep{
+	    margin: 25px 0px 0px 0px;
+	}
+	.pagedesign_banner .csosignupstep .csostepdisplay{
+	    width: 100%;
+	    font-size:18px;
+	    margin:0px 0px 20px 0px; 
+	}
+	.pagedesign_banner .csosignupstep .csostepdisplay:last-child{
+	    margin:0px; 
+	}
+	.csosignup_newreg .signup_text{
+	    font-size:14px;
+	    line-height:1.3; 
+	    color:#322B2B;
+	    padding:0px 0px 0px 30px;
+	    margin:0px 0px 40px 0px ;   
+	}
+	/* ----------- csosignup _new reg 1 page end ----------- */
+	/* ----------- donate page  start----------- */
+	/* ----------- donate pagebanner   start----------- */
+	.donate_banner .donate_step{
+		margin: 0px 0px 15px 0px;
+	}
+	.donate_banner .donate_step .donatestep_part {
+	    font-size: 20px;
+	    padding: 9px 16px;
+	}
+	.pagedesign_banner .donate_banner .radiobtn_part_two{
+		margin: 20px 0px 0px 0px;
+	}
+	/* ----------- donate part start----------- */
+	.donate_part .condition_part .text_part{
+		font-size:16px;
+		width:100%;  
+	}
+	.donate_part .btn_part{
+		margin: 20px 15% 0px 15%;
+		width:70%; 
+	}
+	/* ----------- note part start----------- */
+	.note_part {
+    	margin: 0px 0px 30px 0px;
+	}
+	.note_part .note_container {
+	    padding:15px;
+	}
+	.note_part .title_part{
+		margin: 0px 0px 15px 0px;
+	}
+	.note_part .pin_img{
+		max-width:20px; 
+	}
+	.note_part .info_part .info_box{
+		width:100%;
+		font-size:14px;  
+	}
+	.note_part .info_part .info_box span{
+		margin: 0px 0px 15px 0px;
+	}
+	.note_part .info_part .info_box p{
+		margin: 0px 0px 15px 0px;
+	}
+	/* ----------- donate page  end----------- */
+	/* ----------- donate page 2 start----------- */
+	.donate_confirmation{
+
+	}
+	.donate_confirmation .confirm_container .conf_box{
+		width:100%; 
+	}	
+	.conf_box .conf_img{
+		padding-top:40%;
+		display:block;
+		background-size:75%;   
+	}
+	.donate_confirmation .conf_detail{
+		width:100%; 
+	}
+	.conf_box .conf_persondetail{
+		font-size:16px; 
+	}
+	.conf_box .conf_persondetail .person_name{
+		margin:5px 0px 10px 0px; 
+	}
+	.conf_box .conf_persondetail span, p{
+		margin:0px 0px 5px 0px ;
+	}
+	.donate_confirmation .confirm_container .conf_detail{
+		width:100%;
+		margin:20px 0px 0px 0px; 
+	}
+	.conf_detail .commansubtitleclass{
+		line-height: 1.3;
+	} 
+	.conf_detail .conf_subtitle{
+		font-size:18px;
+		line-height:1.3;
+		border-bottom: #A50000 3px solid;  
+	}
+	.conf_detail .conf_detail_table {
+	    font-size: 16px;
+	    margin: 0px 0px 10px 0px;
+	}
+	.conf_detail .conf_detail_table .conf_detail_table_row{
+		padding:10px 0px; 
+	}
+	.conf_detail .conf_detail_table .left_part{
+		width:60%; 
+	}
+	.conf_detail .conf_detail_table .right_part {
+   	 	width: 26%;
+	}
+	.conf_detail .conf_detail_table .right_part .rupee_black {
+	    max-width: 13px;
+	    max-height: 13px;
+	    margin: 2px 5px 0px 0px
+	}
+	.conf_detail .check_note{
+		margin:15px 0px;
+	}
+	.conf_detail .check_note div {
+	    font-family: 'Roboto', sans-serif;
+	    font-size: 14px;
+	    line-height:1.3; 
+	    margin: 0px 0px 0px 15px;
+	    padding: 0px 0px 0px 10px;
+	}
+	/* ----------- donate page 2  end----------- */
+	/* ----------- event faq page start ----------- */
+	/* ----------- event faq start ----------- */
+	.event_faq .event_box{
+		width:100%; 
+		margin: 0px 0px 15px 0px;
+		font-size:20px; 
+	}
+	.event_faq .event_container .event_box:first-child{
+		margin: 0px 0px 15px 0px;
+	}
+	.event_faq .event_box:last-child{
+		margin: 0px;
+		margin: 0px 0px 15px 0px;
+	}
+	/* ----------- find an answer start ----------- */
+	.findananswer .form_box{
+		margin: 30px 0px;
+	}
+	.findananswer .form_box p{
+		margin:0px 0px 20px 0px;
+	}
+	/* ----------- event faq page end ----------- */
+	/* ----------- make_your_fundraising_page start ----------- */
+	/* -----------fundraising part start ----------- */
+	.fundraising_part .fundraising_box{
+		padding:15px; 
+	}
+	.fundraising_part .fundraising_box span{
+		font-size:18px; 
+	}
+	.fundraising_part .fundraising_box li {
+	    margin-bottom: 0px;
+	    list-style-type: disc;
+	    font-size: 14px;
+	    margin: 0px 0px 15px 0px;
+	    padding: 0px 0px 0px 0px;
+	}
+	/* ----------- make_your_fundraising_page end ----------- */
+	/* ----------- sign up page start---------- */
+	/* ----------- sign up banner ---------- */
+	.signup_banner .commansubtitleclass {
+	    margin:15px 0px;
+	}
+	/* ----------- sign up form ---------- */
+	.signup_form{
+	    padding:30px 0px; 
+	}
+	.signup_form .signup_oropt {
+	    font-size: 17px;
+	    padding: 14px 14px;
+	    height: 45px;
+	    width: 45px;
+	    margin: 15px 0px;
+	}
+	.signup_form .imp_note{
+		margin:15px 0px ;
+	}
+	/* ----------- sign up page end----------- */
+	/* ----------- event adhm page start ----------- */
+	/* ----------- event  adhm  page banner  ----------- */
+	.event_banner {
+	    margin: 15px 0px 0px 0px;
+	    overflow-x: scroll;
+	    white-space: nowrap;
+	    width: auto;
+		display:block;  
+	    position: relative;
+	}
+	.event_banner .eb_box{
+		width:50%;
+		display:block;
+		margin-right:0px;
+    	margin-left: 0px;
+    	margin-bottom:15px; 	  
+	}
+	.event_banner .eb_box:nth-last-child(1){
+		margin-bottom:0px;	
+	}
+	.event_banner .eb_box:nth-last-child(2){
+		margin-bottom:0px;	
+	}
+	.event_banner .eb_box .ebbox_text{
+		font-size:16px;
+		 line-height: 1.3;  
+	}
+	/* ----------- commonevent_box  ----------- */
+	.commonevent_box{
+	    padding: 0px ;
+	}
+	/* ----------- event adhm page end ----------- */
+	/* ----------- fundraising  page start ----------- */
+	.fundraising_part{
+		margin: 30px 0px;
+	}
+	.fundraising_banner .wide_btn a{
+    	width:100%; 
+	}
+	.fundraise_wrapper .customfieldinput, select, option{
+		padding: 10px 25px;
+	}
+	.fundraising_table{
+		overflow-x:scroll; 
+		white-space:nowrap; 
+	}
+	.fundraising_table th {
+	    padding: 15px 3px;
+	     font-size: 16px;
+	}
+	.fundraising_table tr td.td_title {
+	    padding: 13px 7px;
+	    font-size:14px; 
+	}
+	/* ----------- fundraising  page end ----------- */
+	/* ----------- my account page start ----------- */
+	/* ----------- my account banner ----------- */
+	.myaccount_banner{
+		 margin: 15px 0px 0px 0px;
+	}
+	.myaccount_banner .customfieldinput, select{
+		width:100%;
+		font-size:18px;  
+	}
+	.myaccount_banner .customfieldinput.form-group{
+		margin:0px 0px 20px 0px; 
+	}
+	.myaccount_banner .wide_btn{
+		width: 80%;
+		margin:0px 10%;
+	}
+	.myaccount .changepassword_part .cpassword_box{
+		width:100%;
+		margin:0px 0px 20px 0px ; 
+	}
+	.myaccount .activity_summary{
+		width:100%;
+		border-left:0px; 		
+		border-top: rgba(104,102,102,1) 1px solid;
+		padding:20px 0px 0px 0px;  		
+	}
+	.myaccount .activity_summary .summary_box{
+		padding:0px; 
+	}
+	.myaccount .activity_summary .summary_title{
+		font-size:18px; 
+	}
+	/* ----------- my account  page end ----------- */
+	/* ----------- reach out page  start ----------- */
+	/* ----------- reach out banner  start ----------- */
+	.reachout_banner .wide_btn a{
+		width:100%; 
+	}
+	/* ----------- reach out part  start ----------- */
+	.reachout{
+    	margin: 30px  0px;
+	}
+	.reachout_box {
+	    padding: 20px 15px;
+	    margin: 0px;
+	}
+	.reachout_box .reachout_title_part {
+	    font-size: 20px;
+	}
+	.reachout_box .reachout_detail {
+	    margin: 10px 0px 15px;
+	    font-size: 16px;
+	}
+	.reachout_box .reachout_img .reach_img {
+	    border: #FFFFFF 10px solid;
+	    max-width: 100%;
+	    margin: 0px;
+	}
+	.reachout .reachoutbox_detail {
+	    padding:0px 15px  15px 15px;
+	}
+	.reachoutbox_detail .block_detail{
+		padding:30px 0px  0px 0px;
+		width:100%;
+		font-size:16px;
+		border-right:0px;
+		border-bottom:#686666 1px solid;    
+	}
+	.reachoutbox_detail .block_detail:last-child{
+		border-bottom:0px;    
+	}
+	.block_detail .block_image {
+	    padding-top: 45%;
+	    width: 45%;
+	}
+	.block_detail .blockdetail_title {
+	    font-size: 20px;
+	}
+	.block_detail li:before{
+		font-size:20px;
+	}
+	.reachout .touchwitus {
+	    padding: 30px 0px 40px 0px;
+	    margin: 0px;
+	}
+	.touchwitus .touchwitustitle {
+	    font-size: 24px;
+	    margin: 0px 0px 15px 0px;
+	    line-height:1.3; 
+	}
+	.touchwitus .touchwithus_box {
+	    width: 80%;
+	    margin: 0px 10%;
+	}
+	.touchwitus ::placeholder{
+		font-size:12px ; 
+	}
+	.touchwitus .customfieldinput .form-control {
+    	padding: 11px 25px 8px 25px;
+    	font-size:14px; 
+	}
+	/* ----------- reach out page  end ----------- */
+	/* ----------- for corporate page  start ----------- */
+	.forcorporate{
+		padding: 80px 0px 30px 0px;
+	}
+	.forcorporate .corporate_box {
+	    padding:15px;
+	    font-size: 14px;
+	}
+	.forcorporate .corporate_box p {
+	    margin: 0px 0px 10px 0px;
+	}
+	.forcorporate .corporate_box p:last-child{
+	    margin: 0px ;
+	}
+	.forcorporate .corporate_box span {
+	    font-size: 20px;
+
+	}
+	.forcorporate .corporate_box li {
+	    margin: 0px 0px 7px 16px;
+	    padding:0px 
+	}
+	.forcorporate .corporate_box li:last-child{
+	    margin: 0px 0px 0px 16px;
+	}
+
+	/* ----------- for corporate page  end ----------- */
+	/* ----------- how to start fundraisering  page  start ----------- */
+	.startfundraising .forcorporate{
+		padding:30px 0px; 
+	}
+	.startfundraising .forcorporate .corporate_box span {
+	    line-height: 1.2;
+	    margin-bottom: 15px;
+	}
+	/* ----------- how to start fundraisering  page  end ----------- */
+	/* ----------- what we offer for cso page  start ----------- */
+	.offerforcso .forcorporate .corporate_box span{
+		margin:0px 0px 12px 0px  ;
+	}
+	.offerforcso .forcorporate .corporate_box ul{
+		margin:10px 0px ;
+	}
+	/* ----------- what we offer for cso page  end ----------- */
+	/* ----------- partner dashboard  start ----------- */
+	/* ----------- partner dashboard  banner ----------- */
+	.pdashboard_banner{
+		margin:15px 0px 0px 0px ;
+	} 
+	.pdashboard_banner .wide_btn a {
+	    width: 100%;
+	}
+	/* ----------- chart part----------- */
+	.chart_part{
+		margin:30px 0px ;
+	}
+	.chart_part .chart_container .chart_box {
+	    height: 40vh;
+	 	width:100%;
+	 	margin:0px 0px 20px 0px; 
+	}
+	
+	.chart_part .chart_container .chart_box:nth-child(3n+1){
+	 	margin:0px 0px 20px 0px;
+	}
+	.chart_part .chart_container .chart_box:nth-child(3n){
+		margin:0px 0px 20px 0px;
+	}
+	.chart_part .chart_container .chart_box:last-child{
+	 	margin:0px;
+	}
+	/* ----------- partner dashboard  banner ----------- */
+	.view_transaction {
+	    margin: 0px 0px 30px 0px;
+	}
+	.view_transaction .table_options {
+	    margin: 15px 0px;
+	}
+	.table_options .tableopt_box {
+	    width:100%; 
+		margin:0px 0px 10px 0px ;
+	}
+	.table_options .tableopt_box:nth-child(4n+1){
+		margin:0px 0px 10px 0px ;
+	}
+	.table_options .tableopt_box:nth-child(4n){
+		margin:0px 0px 10px 0px ;
+	}
+	.view_transaction .table_part {
+	   overflow-x: scroll;
+	       font-size: 14px;
+	       margin: 0px 0px 20px 0px;
+	       white-space: nowrap;
+	}
+	.table_part .table td, .table th {
+	    padding: 10px 15px;
+	}
+	/* ----------- partner dashboard  end ----------- */
+	/* ----------- login page start ----------- */
+	.loginbox{
+		width:90%;
+		padding:20px; 
+	}
+	.loginbox .login_logo {
+	    margin: 0px 0px 20px 0px;
+	}
+	/* ----------- login page end----------- */
+	/* ----------- pop up  start ----------- */
+	.popup .popup_box{
+		width:100%;
+		height:auto;  
+		padding:20px 15px; 
+	}
+	.popup .popup_box .map_img{
+		position:relative;
+		top:0px;
+		left: 0px;
+		height: 230px;
+		max-height:250px; 
+		width: 300px;  
+		max-width:300px; 
+	}
+	.popup .popup_box .btn_border {
+		width:100%; 
+	    margin: 0px;
+	    padding: 0px 45px;
+	}
+	.popup .popup_box .commansubtitleclass {
+	    margin: 0px 0px 20px 0px;
+	    line-height: 1.3;
+	    width: 100%;
+	    font-size:18px ;
+	    width:100%; 	
+	}	
+	.popup .popup_box .customfieldinput.form-group{
+		margin:0px 0px 20px 0px ;
+	}
+	/* ----------- pop up  start ----------- */
+}	

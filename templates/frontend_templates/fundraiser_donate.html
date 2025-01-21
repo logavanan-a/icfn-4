@@ -1,0 +1,318 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: #2b2929;
+	margin: auto;
+	padding: 20px;
+	color: white;
+	width: 70%;
+	position: unset;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+   
+<div id="TermsCon" class="modal">
+    <button class="close" data-dismiss="modal" type="button"><img src="/static/close_button.png"></button>
+    <div class="modal-content">
+        <div class="modal-body">
+            <p><p>TERMS OF PROGRAM</p>
+            <p>SECTION 1 - OVERVIEW</p>
+            <p>This website is operated by India Cares Foundation. All information, tools and Programs&nbsp;<br>sfsfsdfsdfsdfsdfsdfsdfsdfsdfdsd</p></p>
+        </div>
+    </div>
+</div>
+
+        <section class="banner_part_one">	
+            <div class="banner_img_one overlay backimgstyle" style="background-image:url('/static/assets/donation_banner/donate_banner.jpg')">
+                <div class="label_text"> 
+                    <div class="commontitleclass text-center">Donate</div>
+                </div>
+            </div>
+        </section>	
+
+    <section class="common_breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/event/{{ event.slug }}">{{event.slug }}</a></li>
+                <li><a href="/{{ event.slug }}/{{ cham.slug }}">{{ cham.slug }}</a></li>
+                <li><a href="javascript;;">Donate</a></li>
+            </ul>
+        </div>
+    </section>
+
+
+{% if event.accept_donation %}
+<form onSubmit="return checkForm();" action="/donate/fundraiser/{{ cham.slug }}/{{ event.slug }}/conformation" method="GET">
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="container">
+                <div class="donate_banner">
+                    <div class="donate_step">	
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="donatestep_part fbold text-center active">1</div>
+                            <div class="donatestep_part fbold text-center">2</div>
+                        </div>
+                    </div>
+                    <div class="commansubtitleclass text-center"><span class="commansubtitleclass grey">YOU HAVE CHOSEN TO DONATE TO FOR</span>{{ cham.name }}</div>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="radiobtn_part_two">
+                            <div>
+                                  <input type="radio" id="d1" name="radiobtn_donate">
+                                <label class="radiobtn_label fbold" for="d1"> ₹ 3000</label>
+                             </div>
+                         </div>
+                         <div class="radiobtn_part_two">
+                            <div>
+                                  <input type="radio" id="d2" name="radiobtn_donate">
+                                <label class="radiobtn_label fbold" for="d2"> ₹ 2000</label>
+                             </div>
+                         </div>
+                         <div class="radiobtn_part_two">
+                            <div>
+                                  <input type="radio" id="d3" name="radiobtn_donate">
+                                <label class="radiobtn_label fbold" for="d3"> ₹ 1000</label>
+                             </div>
+                         </div>
+                         <div class="radiobtn_part_two">
+                            <div>
+                                  <input type="radio" id="d4" name="radiobtn_donate">
+                                <label class="radiobtn_label fbold" for="d4"> ₹ 500</label>
+                             </div>
+                         </div>
+                         <div class="radiobtn_part_two">
+                            <div>
+                                  <input type="radio" id="d5" name="radiobtn_donate">
+                                <label class="radiobtn_label fbold" for="d5"> ₹ Other</label>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+
+
+    <h6 class="field_marked">Fields marked with an asterisk (*) are required</h6>
+    <section class="commonsections donate_part">
+        <div class="container">
+            <div class="donate_container">
+                <div class="form_part">
+                    <div class="row">
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>First Name<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Email<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Mobile No.<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Address 1<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Address 2</label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                        <div class="col-xl-6 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Card type<span>*</span></label>
+                                <select id="CardType" name=""  required>
+                                    <option selected disabled value="0"></option>
+                                    <option value="PAN">Pan card</option>
+                                    <option value="AC">Aadhar card</option>
+                                </select> 
+                            </div>
+                        </div>
+                        <div id="Aadhar" class=" col-lg-4 col-md-6">
+                            <div class="form-group">
+                              <label>Aadhar Number<span>*</span></label>
+                              <input formcontrolname="adhar_card" type="text" required>
+                            </div>
+                        </div>
+                        <div id="Pan" class=" col-lg-4 col-md-6">
+                            <div class="form-group">
+                              <label>Pan Number<span>*</span></label>
+                              <input formcontrolname="pan_card" type="text" required>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Select state<span>*</span></label>
+                                <select class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="state"  required>
+                                    {% for state in state_list %}
+                                    <option value="{{ state.id }}">{{ state.name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>City<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Pincode<span>*</span></label>
+                                <input class="form-control " type="text">
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-12">
+                            <div class="form-group customfieldinput">
+                                <label>Comment box<span>*</span></label>
+                                <textarea name="" class="form-control" rows="3"></textarea>
+                                <span class="error_msg">invalid input</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <span class="notemsg">Note: To claim tax exemption for this donation you have to provide proper,correct details for the columns marked with an asterisk</span>
+                </div>
+                <div class="condition_part">
+                    <div class="d-flex flex-wrap align-items-start justify-content-between">
+                        <div onclick="popupfunction('termscon')" class="text_part">By Clicking the Donate Button You Agree to Our<a>Terms and Conditions</a>
+                    </div>
+                        <div class="btn_part">
+                            <a href="/donate/fundraiser/{{ cham.slug }}/{{ event.slug }}/conformation"><button type="submit">Proceed</button></a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<script>
+
+    $(document).ready(function() {
+        $('#CardType').on('change.Aadhar', function() {
+        $("#Aadhar").toggle($(this).val() == 'AC');
+        $("#Pan").toggle($(this).val() == 'PAN');
+        }).trigger('change.Aadhar'); trigger('change.Pan');
+    });
+    
+    function checkForm(){
+        var button = document.querySelector('input[name="radiobtn_donate"]:checked')  
+        if( button == null) {   
+            alert("Please Enter Amount"); 
+            return false
+        }
+    }  
+
+    
+    var popupfunction = function(csopopup){
+        
+        // Get the modal
+        if(csopopup=="termscon"){
+            var modal = document.getElementById("TermsCon")
+        }
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+        }
+    }
+    
+    </script>
+</form>
+
+
+{% else %}
+
+
+    <center>{{ msg }}</center>
+
+  
+{% endif %}
+
+
+
+{% endblock %}

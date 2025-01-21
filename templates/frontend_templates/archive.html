@@ -1,0 +1,171 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="completedevents" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle"
+		style="background-image:url('/static/edhm_banner.jpg')">
+	</div>
+</section> 
+
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">Archives</a></li>
+		</ul>
+	</div>
+</section>
+
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container">
+		<div class="commontitleclass text-center">Events<span>& Campaigns</span></div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+
+<div class="completedevents">
+	<div class="container">
+		<div class="commontitleclass text-center">COMPLETED EVENTS</div>
+		<div>
+
+			{% for comp_event in completed_event_list %}
+			<div class="completedevents_box" >
+				<div class="event_image backimgstyle" style="background-image:url('/static/assets/images/cevent_banner.png') " >
+					<div class="border_display"><span>event</span></div>
+				</div>
+				<div class="event_detail">
+					<div class="d-flex justify-content-center">
+						<div class="event_banner backimgstyle1"style="background-image:url('{{ comp_event.image }}') " >
+						</div>
+					</div>
+					<div class="commontitleclass text-center">{{ comp_event.name }}</div>
+					<div class="highlights_part">
+						<div class="d-flex flex-wrap justify-content-center">
+							<div class="left_box">
+								<div class="title text-center">PARTICIPATED</div>
+								<div class="participated">
+									<div class="participated_box text-center">
+										<div class="d-flex flex-wrap justify-content-between">
+											<div class="box_part">
+												<div class="title">CSOs</div>
+												<div class="number_detail fbold">{{ comp_event.cso_count }}</div>
+											</div>
+											<div class="box_part">
+												<div class="title">Fundraisers</div>
+												<div class="number_detail fbold">{{ comp_event.fundraiser_count }}</div>
+											</div>
+											<div class="box_part">
+												<div class="title">Corporate</div>
+												<div class="number_detail fbold">{{ comp_event.corporate_count }}</div>
+											</div>
+										</div>
+										<div class="participatelower_box">
+											<div class="title">Total Funds Raised</div>
+											<div class="number_detail fbold">{{ comp_event.total_fundraised }}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="right_box">
+								<div class="title text-center">LAST YEAR HIGHLIGHTS</div>
+								<div class="highlights_video"><iframe width="500" height="350" src="{{ comp_event.video }}"></iframe></div>
+							</div>
+							<!-- <a href="javascript:;" class="download_box">
+								<div class="d-flex align-items-center">
+									<div class="download_box_text">Download Charity Dockets</div>
+									<img src="{{ camp_comp.pdf }}">
+								</div>
+							</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<div class="completedevents">
+	<div class="container">
+			<div class="commontitleclass text-center">COMPLETED CAMPAIGN</div>
+			{% for camp_comp in campaign_list_completed %}
+			<div>
+				<div class="completedevents_box overlay">
+					<div class="event_image backimgstyle" style="background-image:url('/static/assets/images/cevent_banner.png') " >
+						<div class="border_display"><span  class="fchange text_white">campaign</span></div>
+					</div>
+					<div class="event_detail">
+						<div class="d-flex justify-content-center">
+							<div class="event_banner backimgstyle1"style="background-image:url('{{ camp_comp.image }}') " >
+							</div>
+						</div>
+						<div class="commontitleclass text-center">{{ camp_comp.name }}</div>
+					</div>
+					<a href="{{ camp_comp.pdf }}" class="download_box">
+						<div class="d-flex align-items-center">
+							<div class="download_box_text">Download Campaing Dockets</div>
+							<img src="/static/download_event.png">
+						</div>
+					</a>
+				</div>
+			</div>
+			{% endfor %}
+	</div>
+</div>
+
+
+
+<section class=" event_display">
+	<div class="container">
+		<div class="commontitleclass text-center">Event<span>Speak</span></div>
+		<div class="display_container">
+			<div class="d-flex flex-wrap">
+				{% for link in link_list %}
+					<div class="display_part">
+							<iframe width="360" height="222" src="{{ link.url }}"></iframe>
+							<div class="display_title">{{ link.text }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<a href="https://www.youtube.com/watch?v=Uka4r7t4Lic" class="divviewalllink"><span>View more</span></a>
+	</div>
+</section>
+<section class="event_display event_archieve">
+	<div class="container">
+		<div class="commontitleclass text-center">Event<span>Archives</span></div>
+		<div class="display_container">
+			<div class="d-flex flex-wrap">
+				<div class="display_part">
+					<div class="display_video">
+					<img src="/static/evcent_archives01.jpg">
+					</div>
+				</div>
+				<div class="display_part">
+					<div class="display_video">
+					<img src="/static/evcent_archives02.jpg">
+					</div>
+				</div>
+				<div class="display_part">
+					<div class="display_video">
+					<img src="/static/evcent_archives03.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="/coming-soon" class="divviewalllink"><span>View more</span></a>
+	</div>
+</section>
+
+
+{% endblock %}

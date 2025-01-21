@@ -1,0 +1,25 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="privacypolicy" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<section class=" forcorporate">
+	<div class="container">
+		<div style="background-color: rgb(31, 30, 30); color: white;" class="corporate_box">
+			
+
+		{{ privacy_policy.description|safe }}
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

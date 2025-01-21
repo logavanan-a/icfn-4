@@ -1,0 +1,83 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="login" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="login backimgstyle login_overlay" style="background-image:url('/static/assets/images/background_login.png')">
+	<div class="loginbox">
+		<img src="/static/assets/images/logo.png" class="login_logo"> 
+		<form method="POST" action="" id="login">
+	  	{% csrf_token %}
+			<div class="row">
+				<div class="col-xl-12 col-12">
+					<div class="form-group customfieldinput">
+				        <label>User Name</label>
+				         <input class="form-control " type="text" name="username" id="username">
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-12 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Password</label>
+				         <input class="form-control " type="password" name="password" id="password">
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+			</div>
+			<a href="javascript:;" class="forgot_link">Forgot  Password</a>
+
+
+			{% if msg %}
+            <p style="text-align:center;color:red;">{{msg}}</p>
+            {% endif %}
+
+
+
+			<div class="d-flex justify-content-center">
+				<div>
+					<div class="btn_part">
+						<button type="submit"><a data-toggle="modal" data-target="#popup1" class="btn_black extra_padding">Login</a></button>
+						<span>OR</span>
+						<a href="/signup/" class="btn_darkred extra_padding">Sign Up</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function($) {
+     
+     //Form validations 
+     $('#login').validate({
+        rules: {
+        		username: {required:true},
+        		password: {required:true},
+              },  
+      });
+}); 
+
+
+
+
+</script> 
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

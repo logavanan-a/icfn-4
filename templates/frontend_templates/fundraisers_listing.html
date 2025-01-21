@@ -1,0 +1,384 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="cso" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<style>
+
+	/* The Modal (background) */
+	.modal-dialog {
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		top: 0;
+		display: none; /* Hidden by default */
+		position: fixed;  /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		justify-content: center;
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+		
+	}
+	
+
+	/* Modal Content */
+	.modal-content {
+		background-color:brown;
+		margin: auto;
+		width: 170%;
+		height: 25%;
+		color: white;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.indiamap {
+		align-items: left;
+		height: 100px;
+		width: 100px;
+	}
+
+	.form-b {
+		display: none;
+		height: 50%;
+		width: 50%;
+		justify-content: center;
+		background-color: rgb(39, 38, 38);
+		color: white;
+		align-items: center;
+	} 
+	
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+	</style> 
+
+
+
+<div id="myModal" class="modal-dialog">
+	<div class="modal-content">
+		<button data-dismiss="modal" hidden=""></button>
+		<div class="donate_popup">
+			<div>
+				<div class="donate_middle">
+					<img class="indiamap" src="/static/indiamap.png">
+					<div class="login_fields">
+						<div class="donate_yes">
+							<h2>Are you an Indian citizen</h2>
+							<div class="nationality">
+								<label class="donate_radio">
+									<input id="listingcso_yes" name="donate" type="radio">Yes
+									<span class="checkmark"></span>
+								</label>
+								<label class="donate_radio">
+									<input type="radio" name="donate" value="no">No
+									<span class="checkmark"></span>
+								</label>
+								<a data-target="#myModal5" data-toggle="modal"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- after clicking the no button in donate popup -->
+<div class="form-b">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div>
+		<div class="donate_middle donate_popup_next">
+			<div class="login_fields" style="padding-bottom: 44px">
+				<div class="donate_yes">
+					<h4 class="modalno">India Cares does not have FCRA so cannot receive foreign funds,
+						if you want to donate Please contact CSO, 
+						or leave your details We will get back to you soon...</h4>
+					<div class="login_fields">
+						<div class="email_us contact_uss">
+							<form novalidate="" class="ng-invalid ng-dirty ng-touched">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Name<span class="aterisk">*</span></label>
+										<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="name" type="name">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Phone Number<span class="aterisk">*</span></label>
+										<input class="form-control ng-invalid ng-dirty ng-touched" formcontrolname="phone" type="name">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Email<span class="aterisk">*</span></label>
+										<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="email" type="name">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="send_data">
+										<button data-dismiss="modal" type="submit" disabled="">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!------------------------------------------------------------- -->
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+			<li><a href="javascript:;">Participating CSO's</a></li>
+		</ul>
+	</div>
+</section>
+
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+<script type="text/javascript">
+
+
+	function filterfundraiserdata(){
+		var event_slug = `{{ event.slug }}`
+		var search_name = $("#searchfund").val()
+		var value = $("#causevalue").val();
+		if (search_name && value){
+			var url = `/fundraisers/${ event_slug }?cause=${ value }&fundraiser_name=${search_name}`
+		}else if (search_name){
+		var url = `/fundraisers/${ event_slug }?fundraiser_name=${ search_name }`
+		}else if (value){
+			var url = `/fundraisers/${ event_slug }?cause=${ value }`
+		}
+	window.location.href=url;
+	
+	
+	}
+	
+	
+	</script>
+
+
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<di￼v class="d-flex flex-wrap justify-content-center">
+			<div class="commontitleclass text-center">This year<span>Participating Fundraisers-</span><div class="color_red">{{ total_participating_fundraiser }}</div></div>
+		</div>
+		<div class="pagebannermenu">
+			<div class="d-flex flex-wrap align-items-center justify-content-center">
+				<div class="pagebannersearch">
+					<input id="searchfund" onchange="filterfundraiserdata()" name="fundraiser_name" type="text" class="searchinputstyle" placeholder="Search by Name">
+					<a href="javascript:;"><img src="/static/assets/images/search.png" class="search_btn"></a>
+				</div>
+				<div class="pagebannerdropdown">
+					<label class="">SELECTED CAUSE</label>
+					<select id="causevalue" onchange="filterfundraiserdata()" name="cause" class="pagebannerdropdownselect">
+						<option selected disabled value="">SELECTED CAUSE</option>
+						{% for caus in select_cause %}
+							{% if cause == caus.id %}
+			        			<option selected value="{{ caus.id }}">{{ caus.name }}</option>
+							{% else %}
+								<option value="{{ caus.id }}">{{ caus.name }}</option>
+							{% endif %}
+						{% endfor %}
+			        </select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+<section class="cso_part">
+	<div class="container">
+		{% if obj_list %}
+			<div class="commonbox_wrapper">
+				<div class="d-flex flex-wrap">
+					{% for cham in obj_list %}
+					<div class="commanbox_parent">
+						{% if event.slug == "500KStepChallenge" %}
+							<div class="commonbox_title fbold text-center">CauseWheeler</div>
+						{% else %}
+							<div class="commonbox_title fbold text-center">Champions</div>
+						{% endif %}
+						<div class="commonbox">
+							<div class="d-flex justify-content-center">
+								<div class="company_logo backimgstyle"  style="background-image:url('/static/{{ cham.icon }}')"></div>
+							</div>
+							<div class="user_detail text-center">{{ cham.created_by.first_name }} {{ cham.created_by.last_name }}</div>
+							<div class="cb_title text-center">{{ cham.ngo.name }}</div>
+							<div class="user_detail">{{ cham.description|truncatechars_html:150|safe }}</div>
+						
+							<div class="link_part">
+								<div class="d-flex justify-content-center">
+									<!-- <a href="javascript:;" class="share_link"><span class="share_span">Be a Champion</span></a> -->
+									<a href="javascript:;" class="share_link"><span class="share_span">share</span></a>
+									
+									<a class="share_link" href="/{{ event.slug }}/fundraiser/{{ cham.slug }}">Read More</a>
+									
+								</div>
+							</div>
+
+							{% if event.accept_donation == True %}
+							<div class="d-flex flex-wrap align-items-center justify-content-center">
+								<div class="radiobtn_part">
+									<div>
+										<input type="radio" id="{{ forloop.counter }}_b1_btn1" name="box1_btn">
+										<label class="radiobtn_label" for="{{ forloop.counter }}_b1_btn1">&#8377; 3000</label>
+									</div>
+								</div>
+								<div class="radiobtn_part"> 
+									<div>
+										<input type="radio" id="{{ forloop.counter }}_b1_btn2" name="box1_btn">
+										<label class="radiobtn_label" for="{{ forloop.counter }}_b1_btn2">&#8377; 2000</label>
+									</div>
+								</div>
+								<div class="radiobtn_part"> 
+									<div>
+										<input type="radio" id="{{ forloop.counter }}_b1_btn3" name="box1_btn">
+										<label class="radiobtn_label" for="{{ forloop.counter }}_b1_btn3">&#8377; 1000</label>
+									</div>
+								</div>
+								<div class="radiobtn_part"> 
+									<div>
+										<input type="radio" id="{{ forloop.counter }}_b1_btn4" name="box1_btn">
+										<label class="radiobtn_label" for="{{ forloop.counter }}_b1_btn4">&#8377; 500</label>
+									</div>
+								</div>
+								<div class="radiobtn_part"> 
+									<div>
+										<input type="radio" id="{{ forloop.counter }}_b1_btn5" name="box1_btn">
+										<label class="radiobtn_label" for="{{ forloop.counter }}_b1_btn5">&#8377; Other</label>
+									</div>
+								</div>
+							</div>
+
+								<div class="d-flex justify-content-center">
+									<a onclick="popupfunction('{{ cham.slug }}', '{{ event.slug }}')" href="javascript:;" class="circle_link backimgstyle1" style="background-image:url('/static/assets/images/link_round.png')">Donate</a>
+								</div>
+								{% endif %}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% else %}
+			<div class="comingsoon"> <h1 style="text-align:center"> Coming soon</h1> </div>
+		{% endif %}
+	</div>
+</section>
+
+
+
+
+<style>.comingsoon{
+	font-size: 48px;
+		
+	font-family: Oswald;
+		
+	font-weight: 700;
+		
+	font-weight: 200;
+		
+	color: inherit;
+	}
+</style>
+
+
+
+
+
+<script type="text/javascript">
+
+	var popupfunction = function(chamslug, eventslug){
+
+		var url = $("#listingcso_yes").attr("onclick","window.location='/donate/fundraiser/"+chamslug+"/"+eventslug+"'");
+		// onclick="window.location='/donate/fundraiser/{{ cham.slug }}/{{ event.slug }}';"
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// When the user clicks the button, open the modal 
+		modal.style.display = "block";
+
+		// when the user will click to the redio button open the model
+		var redio = document.getElementById("myRedio")
+		redio.style.display = "block"
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+		}
+	}
+
+	$(document).ready(function() {
+	$('input[name=donate]:radio').change(function(e) {
+		let value = e.target.value.trim()
+
+	switch (value) {
+		case 'no':
+			$('.form-b').show()
+			break;
+		default:
+			break;
+
+		}
+	})
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	modal.style.display = "none";
+	}
+	})
+
+	</script>
+
+
+ <!--Pagination-->
+ {% include "frontend_templates/pagination.html" %}
+
+  <!--end of Pagination-->
+
+  
+
+
+{% endblock %}

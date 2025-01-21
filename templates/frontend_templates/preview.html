@@ -1,0 +1,274 @@
+
+
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: #202020;
+    color: white;
+	margin: auto;
+	padding: 20px;
+	border: 17px solid rgb(31, 30, 30);
+	width: 70%;
+	position: unset;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+
+<form id="form" name="fundraiser_form" action="/edit-fundraiser-page/" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="{{ fund_obj.id }}" name="fund_id">
+    <input type="hidden" value="{{ display_name }}" name="display_name">
+    {% csrf_token %}
+    <div id="Ex1" class="modal">
+        <button class="close" data-dismiss="modal" type="button"><img src="/static/close_button.png"></button>
+        <div class="modal-content" style="overflow: hidden">
+            <div class="modal-body">
+            <form novalidate="" class="ng-valid ng-touched ng-dirty">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Name<span>*</span></label>
+                    <input class="form-control ng-untouched ng-pristine ng-valid" name="name" value="{{ display_name  }}" type="name">
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Goal Amount<span>*</span></label>
+                    <input class="form-control ng-untouched ng-pristine ng-valid" name="goal_amount" value="{{ fund_obj.goal_amount }}" type="number">
+                </div>
+                </div>
+                <div class="col-md-12">
+                <div class="form-group">
+                    <label>Fundraising Page Title (100 Character Max)<span>*</span></label>
+                    <input class="form-control ng-untouched ng-pristine ng-valid" name="title" value="{{ fund_obj.title }}" type="name"> 
+                </div>
+                </div>
+
+                <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+
+                <div class="col-md-12">
+                <div class="form-group dsc_popup">
+                    <label>Your Appeal to People<span>*</span></label>
+                    <textarea name="editor1" placeholder="{{ fund_obj.description|safe }}" required>{{ fund_obj.description|safe }}</textarea><br/>
+                </div>
+                </div>
+
+                <script>
+                    CKEDITOR.replace('editor1');
+                </script>
+
+                <div class="col-md-12">
+                <div class="form-group">
+                <label>Write a Thank You message</label>
+                <textarea class="form-control ng-untouched ng-pristine ng-valid" name="thank_msg" height="140" placeholder="This message goes to your donors as soon as they donate">{{ fund_obj.thank_msg }}</textarea>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="send_data">
+                    <button type="submit">Save</button>
+                </div>
+                </div><div class="col-md-12">
+                    <div class="form-group dsc_popup">
+                        <div class="upload_browse1">
+                        <label>Upload Image</label>
+                        <input class="form-control " accept=".png,.jpg,.jpeg" placeholder="Upload Image" type="file" name="icon" value="fund_obj.icon">
+                        <!-- <label class="browse_btn" for="reg_audited_balancesheet">Browse...</label> -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/cso-banner-new.jpg')">
+		<div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event.main_page_logo }}')">
+		</div>
+	</div>
+</section>
+
+
+<section class="common_breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/my-pages">mypage</a></li>
+            <li><a href="javascript:;">{{ fund_obj.title }}</a></li>
+		</ul>
+	</div>
+</section>
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb40 ">
+            <div class="container">
+                <div class="padedesign_detail">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="col-lg-3 col-md-3 col-sm-4">
+                            <div class="logo_left ">
+                              <img class="circle_champion" src="{{ fund_icon }}">
+                            </div>
+                            <div align="center" class="fundraiser_icare">
+                              <h1>{{ display_name  }}</h1>
+                              <h3>Supports</h3>
+                              <h2>{{ ngoname }}</h2>
+                              <div class="left_contentdonate">
+                                <img src="{{ ngo_icon }}">
+                              </div>
+                            </div>
+                        </div>
+                        <div class="mission_detail">
+                            <div class="commontitleclass"><span>- {{ display_name  }}</span></div>
+                            <div class="missiondetail_about">
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <div class="believe_img">
+                                        <img src="http://demoispace.in/icfn/assets/images/believe.png?v=buYx7cHBdx">
+                                    </div>
+                                    <div class="about_detail">
+                                        <p>{{ black_board_message|safe }}</p>
+                                        <img src="http://demoispace.in/icfn/assets/images/point.png?v=buYx7cHBdx" class="point_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="http://demoispace.in/icfn/assets/images/layer_img2.png?v=buYx7cHBdx" class="bottom_layer_img">
+    </section>
+    
+    <section class="commonsections myappeal make_contribution">
+        <div class="container">
+            <div class="myappeal_box">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="appealvideo_part"><iframe width="515" height="350" src="{{ video }}"></iframe></div>
+                    <div class="myappeal_detail"> 
+                        <div class="commontitleclass">{{ fund_obj.title }}</div>
+                        <p>{{ fund_obj.description|truncatechars_html:200|safe }}</p>
+                        <div style="text-align: center;" class="fund_detail">Funds Requried</div>
+                        <div class="d-flex flex-wrap align-items-end justify-content-between">
+                            <div class="appeal_bar">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="display_numbers">
+                                        <img src="http://demoispace.in/icfn/assets/images/rupee_symbol.png?v=buYx7cHBdx" class="displaynumbers_span"><span>{{ donated_amount }}</span>
+                                    </div>
+                                    <div class="display_numbers">
+                                        <img src="http://demoispace.in/icfn/assets/images/rupee_symbol.png?v=buYx7cHBdx" class="displaynumbers_span"><span>{{ fund_obj.goal_amount }}</span>
+                                    </div>
+                                </div>
+                                <div class="fundprogressbar">
+                                    <div class="fundinlinepbar" style="width:{{ percentage }}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detailtext text-center">{{ percentage }}% achieved through {{ donation_count }} Donations</div>
+                        <div class="btn_part">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a onclick="popupfunction('ex1')" class="btn_white">edit</a>
+                            
+                                <a onclick="registerfundraiserpage('{{ fund_obj.id }}', '{{ eslug }}')" class="btn_red">update</a>
+                                <!-- <a href="/{{ eslug }}/fundraiser/{{ fslug }}" class="btn_red">update</a> -->
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+
+
+<script>
+
+var popupfunction = function (editpopup) {
+      // Get the modal
+      if ( editpopup == "ex1") {
+        var modal = document.getElementById("Ex1")
+      }
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      modal.style.display = "block";
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    }
+var registerfundraiserpage = function(f_id, eslug){
+    $.ajax({
+    type: "POST",
+    url: '/api/fundraiser/complete/',
+    data: {'f_id':f_id,'eslug':eslug},
+    dataType:"json",
+    success: function(response){
+        var msg = response.message
+        alert(msg)
+        //if request if made successfully then the response represent the data
+        // $( "#result" ).empty().append( response );
+    }
+  });
+}
+
+
+</script>
+{% endblock %}

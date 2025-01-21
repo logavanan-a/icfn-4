@@ -1,0 +1,26 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="termsconditions" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<section class=" forcorporate">
+	<div class="container">
+		<div style="background-color: rgb(31, 30, 30); color: white;" class="corporate_box">
+			
+
+			<p _ngcontent-c19=""><p>{{ terms_cond.description|safe  }}</p>
+
+		</div>
+		</div>
+</section>
+
+
+{% endblock %}

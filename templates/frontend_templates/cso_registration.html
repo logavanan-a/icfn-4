@@ -1,0 +1,748 @@
+{% extends "frontend_templates/base.html" %}
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="cso_reg_level_one" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+
+
+<section class=" signup_form">
+	
+
+	{% include "frontend_templates/cso_registration_levels.html" %}
+
+
+
+<div class="container">
+	<div class="imp_note">Fields marked with an asterisk (*) are required</div><br><br>
+
+	<div id="level1">
+	<form method="POST" action="/cso-registration/level-one/" id="level_one">
+	  	{% csrf_token %}
+		<div class="signup_formbox">
+			<div class="row justify-content-between">
+				<div class="col-xl-4 col-12">
+				
+					<div class="form-group customfieldinput">
+				        <label>Select Title<span>*</span></label>
+				        <select name="title" id="title">
+							{% for slutation in slutations %} 
+					        <option value="{{ slutation.id }}">{{ slutation.name }}</option>
+					        {% endfor %} 
+
+					        <!-- <option _ngcontent-c1="" value="">Select title...</option>
+	                        <option _ngcontent-c1="" value="1" class="ng-star-inserted">Mr</option>
+	                        <option _ngcontent-c1="" value="2" class="ng-star-inserted">Ms</option>
+	                        <option _ngcontent-c1="" value="3" class="ng-star-inserted">Mrs</option>
+	                        <option _ngcontent-c1="" value="4" class="ng-star-inserted">Dr</option>
+	                        <option _ngcontent-c1="" value="5" class="ng-star-inserted">Prof</option>
+	                        <option _ngcontent-c1="" value="6" class="ng-star-inserted">Miss</option>
+	                        <option _ngcontent-c1="" value="10" class="ng-star-inserted">M/s</option> -->
+                          </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>First Name<span>*</span></label>
+				        <input class="form-control " type="text" name="fname" id="fname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Last Name</label>
+				        <input class="form-control " type="text" name="lname" id="lname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Mobile No.<span>*</span></label>
+				        <input class="form-control " type="text" name="mobile" id="mobile">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Email<span>*</span></label>
+				        <input class="form-control " type="text" name="email" id="email">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Password<span>*</span></label>
+				        <input class="form-control " type="password" name="password1" id="password1">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Re-enter Password<span>*</span></label>
+				        <input class="form-control " type="password" name="password2" id="password2">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+
+						{% if msg %}
+                        <p style="text-align:center;color:red;">{{msg}}</p>
+                        {% endif %}
+
+
+				<div class="col-xl-2 col-12">
+					<div class="btn_part">
+						<button type="submit" id="level1_button"><a class="btn_darkred ">Submit</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+
+
+	<div id="level2">
+		<form method="POST" action="/cso-registration/level-two/" id="level_two" enctype="multipart/form-data">
+	  	{% csrf_token %}
+
+	  	<input type="hidden" name="user_id" value={{request.user.id}}>
+	  	<input type="hidden" name="ngo_id" value={{request.session.ngo_id}}>
+
+	  	<div class="signup_formbox">
+			<div class="row justify-content-between">
+				<!-- <div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select Title<span>*</span></label>
+				        <select name="title" id="title">
+					        <option _ngcontent-c1="" value="">Select title...</option>
+	                        <option _ngcontent-c1="" value="1" class="ng-star-inserted">Mr</option>
+	                        <option _ngcontent-c1="" value="2" class="ng-star-inserted">Ms</option>
+	                        <option _ngcontent-c1="" value="3" class="ng-star-inserted">Mrs</option>
+	                        <option _ngcontent-c1="" value="4" class="ng-star-inserted">Dr</option>
+	                        <option _ngcontent-c1="" value="5" class="ng-star-inserted">Prof</option>
+	                        <option _ngcontent-c1="" value="6" class="ng-star-inserted">Miss</option>
+	                        <option _ngcontent-c1="" value="10" class="ng-star-inserted">M/s</option>
+                          </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>First Name<span>*</span></label>
+				        <input class="form-control " type="text" name="fname" id="fname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Last Name</label>
+				        <input class="form-control " type="text" name="lname" id="lname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Mobile No.<span>*</span></label>
+				        <input class="form-control " type="text" name="mobile" id="mobile">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Email<span>*</span></label>
+				        <input class="form-control " type="text" name="email" id="email">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Password<span>*</span></label>
+				        <input class="form-control " type="text" name="password1" id="password1">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Re-enter Password<span>*</span></label>
+				        <input class="form-control " type="text" name="password2" id="password2">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div> -->
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Address 1<span>*</span></label>
+				        <input class="form-control " type="text" name="address1" id="address1">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Address 2</label>
+				        <input class="form-control " type="text" name="address2" id="address2">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select Country<span>*</span></label>
+				        <select name="country" id="country">
+				        	<!-- <option value="" selected="selected"></option> -->
+				        	{% for c in countries %} 
+					        <option value="{{ c.id }}">{{ c.name }}</option>
+					        {% endfor %} 
+				        </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select State<span>*</span></label>
+				        <select name="state" id="state">
+				        	<option value="">Select Here...</option>
+				        	<!-- {% for s in states %} 
+					        <option value="{{ s.id }}">{{ s.name }}</option>
+					        {% endfor %}  -->
+				        </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>City<span>*</span></label>
+				        <input class="form-control " type="text" name="city" id="city">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Pincode<span>*</span></label>
+				        <input class="form-control " type="text" name="pincode" id="pincode">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Landline No.</label>
+				        <input class="form-control " type="text" name="landline" id="landline">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Name of the CSO<span>*</span></label>
+				        <input class="form-control " type="text" name="cso_name" id="cso_name">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Year Founded<span>*</span></label>
+				        <input class="form-control ipadding" type="text" name="year_founded" id="datepicker">
+				       	<a href="javascript:;"><img src="/static/assets/images/calendar.png" class="calendar_display"></a>
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Logo<span>*</span></label>
+				        <!-- <input class="form-control" type="text"> -->
+						<span  class="form-control" id="logo_text"></span>
+				        <label class="browse_btn" for="logo_browse">Browse...</label>
+				        <input type="file" name="logo" id="logo_browse" class="customfile_hide">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg">Upload logo of size less than 1Mb.</span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Primary Cause<span>*</span></label>
+				        <select name="primary_cause" id="primary_cause">
+					        <option _ngcontent-c1="" value="">Select</option>
+				        	{% for ca in cause %} 
+					        <option value="{{ ca.id }}">{{ ca.name }}</option>
+					        {% endfor %} 
+                        </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Secondary Cause</label>
+				        <select name="secondary_cause" id="secondary_cause">
+				        	{% for ca in cause %} 
+					        <option value="{{ ca.id }}">{{ ca.name }}</option>
+					        {% endfor %} 
+                          </select>
+				    </div>
+				</div>
+				<div class="col-xl-12 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Mission Statement<span>*</span></label>
+				         <textarea class="form-control" rows="5" name="mission" id="mission"></textarea>
+				          <span class="info_msg">50 words or 280 characters remaining</span>
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Web Address</label>
+				        <input class="form-control " type="text" name="webstie" id="webstie">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Your own india cares url<span>*</span></label>
+				        <input class="form-control " type="text" name="own_url" id="own_url">
+				         <span class="info_msg">For example : http://www.icfn.in/adhm/YOURTEXT/</span>
+						 
+						{% if level2url_msg %}
+                        <p style="text-align:center;color:red;">{{level2url_msg}}</p>
+                        {% endif %}
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Youtube Embedded Link</label>
+				        <input class="form-control " type="text" name="youtube_url" id="youtube_url">
+				        <span class="info_msg">For example : https://www.youtube.com/embed/23WbluYCUe8</span>
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Fundraising Target Rs<span>*</span></label>
+				        <input class="form-control " type="text" name="fundraising_target" id="fundraising_target">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-12 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Our Work<span>*</span></label>
+				         <textarea class="form-control" rows="10" name="our_work" id="our_work"></textarea>
+				          <span class="info_msg">Should not exceed 1900 characters</span>
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Fund Requirement statement<span>*</span></label>
+				         <textarea class="form-control" rows="5" name="requirement" id="requirement"></textarea>
+				          <span class="info_msg">50 words or 280 characters remaining</span>
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>We Believe statement<span>*</span></label>
+				         <textarea class="form-control" rows="5" name="we_believe" id="we_believe"></textarea>
+				          <span class="info_msg">50 words or 280 characters remaining</span>
+				          <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+
+
+						{% if level2_msg %}
+                        <p style="text-align:center;color:red;">{{level2_msg}}</p>
+                        {% endif %}
+
+
+				<div class="col-xl-2 col-12">
+					<div class="btn_part">
+						<button type="submit"><a class="btn_darkred ">Submit</a></button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+	  </form>
+	</div>
+
+
+	<div id="level3">
+		<form method="POST" action="/cso-registration/level-three/" id="level_three" enctype="multipart/form-data">
+	  	{% csrf_token %}
+			<input type="hidden" name="user_id" value={{request.user.id}}>
+			<input type="hidden" name="ngo_id" value={{request.session.ngo_id}}>
+	  	<div class="signup_formbox">
+			<div class="row justify-content-between">
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Upload Audited Balance Sheet</label>
+				        <input class="form-control" id='balance_sheettext' type="text" disabled="">
+				        <label class="browse_btn" for="balance_sheet">Browse...</label>
+				        <input type="file" name="balance_sheet" id="balance_sheet" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Upload Profit & Loss Statement</label>
+				        <input class="form-control" id="profit_losstext" type="text" disabled="">
+				        <label class="browse_btn" for="profit_loss">Browse...</label>
+				        <input type="file" name="profit_loss" id="profit_loss" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>80G Approval<span>*</span></label>
+				        <input class="form-control" id="80g_approvaltext" type="text" disabled="">
+				        <label class="browse_btn" for="80g_approval">Browse...</label>
+				        <input type="file" name="80g_approval" id="80g_approval" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>12A Approval<span>*</span></label>
+				        <input class="form-control" id = "12a_approvaltext" type="text" disabled="">
+				        <label class="browse_btn" for="12a_approval">Browse...</label>
+				        <input type="file" name="12a_approval" id="12a_approval" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>FCRA Approval</label>
+				        <input class="form-control" id="fcra_applicabletext" type="text" disabled="">
+				        <label class="browse_btn" for="fcra_applicable">Browse...</label>
+				        <input type="file" name="fcra_applicable" id="fcra_applicable" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput extra_margin">
+				        <label>Pan Card<span>*</span></label>
+				        <input class="form-control" id='pan_cardtext' type="text" disabled="">
+				        <label class="browse_btn" for="pan_card">Browse...</label>
+				        <input type="file" name="pan_card" id="pan_card" class="customfile_hide" onchange="customfilesel(this)">
+				        <span class="error_msg">invalid input</span>
+				        <span class="info_msg"></span>
+				    </div>
+				</div>
+
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>FCRA<span>*</span></label>
+				        <select name="fcra" id="fcra">
+					        <option _ngcontent-c1="" value="">Please Select</option>
+					        <option value="NA">Not Applicable</option>
+					        <option value="VA">Applicable</option>
+                        </select>
+				    </div>
+				</div>
+				<div class="col-xl-4 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Event,Campaigns<span>*</span></label>
+				        <select name="event" id="event" >
+				        	<option value="" selected="selected"></option>
+				        	{% for e in events %} 
+				        	<option value="{{ e.id }}">{{ e.name }}</option>
+				        	{% endfor %} 
+				        </select>
+				    </div>
+				</div>
+
+						{% if msg %}
+                        <p style="text-align:center;color:red;">{{msg}}</p>
+                        {% endif %}
+
+
+				<div class="col-xl-2 col-12">
+					<div class="btn_part">
+						<button type="submit"><a class="btn_darkred ">Submit</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  </form>
+	</div>	
+
+</div>
+	
+</section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function($) {
+
+     //Mobile number validation  
+      var mobile_number = 10;
+      $('#mobile').keydown( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+      $('#mobile').keyup( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+
+      //Email validator function
+     $.validator.addMethod('emailValidate', function (value, element) {
+            return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+        }, "Please enter a valid email address.");
+     
+     //Form validations 
+     $('#level_one').validate({
+        rules: {
+        		title: {required:true},
+                fname: {required:true},
+                email: {required:true,emailValidate: true},
+                mobile: {required:true,digits:true,minlength:10,maxlength:10},
+                password1: {required:true},
+                password2: {required:true},
+                address1: {required:true},
+                country: {required:true},
+                city: {required:true},
+                pincode: {required:true,digits:true},
+              },  
+      });
+
+
+//$('#level1').hide();
+$('#level2').hide();
+$('#level3').hide();
+
+$('#basic').click(function() {
+	$('#level1').show();
+	$('#level2').hide();
+	$('#level3').hide();
+});
+
+$('#contact').click(function() {
+	$('#level1').hide();
+	$('#level2').show();
+	$('#level3').hide();
+});
+
+$('#upload').click(function() {
+	$('#level1').hide();
+	$('#level2').hide();
+	$('#level3').show();
+});
+
+
+
+
+     //Form validations 
+     $('#level_two').validate({
+        rules: {
+                address1: {required:true},
+                country: {required:true},
+                state: {required:true},
+                city: {required:true},
+                pincode: {required:true,digits:true},
+                landline: {digits:true},
+                cso_name: {required:true},
+                year_founded: {required:true},
+                logo: {required:true},
+                primary_cause: {required:true},
+                mission: {required:true},
+                own_url: {required:true},
+                fundraising_target: {required:true},
+                our_work: {required:true},
+                requirement: {required:true},
+                we_believe: {required:true},
+              },  
+      });
+
+
+
+
+
+
+/*loading States based on Country */
+$('#country').change(function() {
+	$('#state').html('');
+    var country_id = $(this).val();
+    if(country_id) {
+        targeturl="/state-data/"+country_id;
+        $.ajax({
+            url: targeturl, 
+            type: 'POST',
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+            success: function(result){
+            	$('#state').html('');
+
+            	var data = '<option value="">Select Here...</option>';
+            	$("#state").append(data);
+
+                for (res in result.state_list)
+                {
+                    var r = result.state_list[res];
+
+                    var option = '<option value=' + r.id + '>' + r.name + '</option>';
+                    $("#state").append(option);
+                }
+            }
+        });
+    }
+});
+
+/* Loading the states based on the seleced Country*/
+var selected_countary = $('#country').val()
+if(selected_countary){
+	level_twodata = JSON.parse('{{ level_two_data|safe}}')
+	selected_state = level_twodata.state
+	targeturl="/state-data/"+selected_countary;
+        $.ajax({
+            url: targeturl, 
+            type: 'POST',
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+            success: function(result){
+            	$('#state').html('');
+
+            	var data = '<option value="">Select Here...</option>';
+            	$("#state").append(data);
+
+                for (res in result.state_list)
+                {
+                    var r = result.state_list[res];
+					if (r.id == selected_state){
+						var option = '<option selected value=' + r.id + '>' + r.name + '</option>';
+					}
+					else{
+						var option = '<option value=' + r.id + '>' + r.name + '</option>';
+
+					}
+                    $("#state").append(option);
+                }
+            }
+        	});   
+				}
+
+/*----------------- */
+
+
+     //Form validations 
+     $('#level_three').validate({
+        rules: {
+        		//balance_sheet: {required:true},
+                fcra: {required:true},
+                event: {required:true},
+              },  
+      });
+
+// if cso is logged in then first level button woulb be disabled
+var loginuser = '{{request.user.is_authenticated}}'
+if (loginuser){
+	$('#level1_button').attr('disabled',true);
+}
+
+// --------------------------------------
+}); 
+</script> 
+
+
+
+{% if request.user.is_authenticated %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Populating the data for the Level1
+				level_onedata = JSON.parse('{{ level_one_data|safe}}')
+				console.log(level_onedata)
+				var title =  level_onedata.title
+				var fname =  level_onedata.fname
+				var lname =  level_onedata.lname
+				var email =  level_onedata.email
+				var mobile =  level_onedata.mobile
+
+				// if (header_value == "None"){
+				// 	header_value = ""
+				// }
+				$('#title').val(title);
+				$('#fname').val(fname);
+				$('#lname').val(lname);
+				$('#email').val(email);
+				$('#mobile').val(mobile);
+
+				$('#title , #fname , #lname , #email , #mobile , #password1, #password2').attr('disabled',true);
+			// Populating the Data for the Level1
+				level_twodata = JSON.parse('{{ level_two_data|safe}}')
+
+				var address1 = level_twodata.address1
+				var address2 = level_twodata.address2
+				var country = level_twodata.country
+				var state = level_twodata.state
+				var city = level_twodata.city
+				var pincode = level_twodata.pincode
+				var landline = level_twodata.landline
+				var cso_name = level_twodata.cso_name
+				var year_founded = level_twodata.year_founded
+				var primary_cause = level_twodata.primary_cause
+				var mission = level_twodata.mission
+				var webstie = level_twodata.webstie
+				var own_url = level_twodata.own_url
+				var youtube_url = level_twodata.youtube_url
+				var fundraising_target = level_twodata.fundraising_target
+				var our_work = level_twodata.our_work
+				var requirement = level_twodata.requirement
+				var we_believe = level_twodata.we_believe
+				var logo       =   level_twodata.logo
+
+
+				$('#address1').val(address1);
+				$('#address2').val(address2);
+				$('#country').val(country);
+				$('#state').val(state);
+				$('#pincode').val(pincode);
+				$('#landline').val(landline);
+				$('#city').val(city);
+				$('#cso_name').val(cso_name);
+				$('#datepicker').val(year_founded);
+				$('#primary_cause').val(primary_cause);
+				$('#mission').val(mission);
+				$('#webstie').val(webstie);
+				$('#own_url').val(own_url);
+				$('#youtube_url').val(youtube_url);
+				$('#fundraising_target').val(fundraising_target);
+				$('#our_work').val(our_work);
+				$('#requirement').val(requirement);
+				$('#we_believe').val(we_believe);
+				$('#logo_text').html(logo);
+
+
+		})
+
+		//Populating the Data for the Level1
+		level_threedata = JSON.parse('{{ level_three_data|safe}}')
+
+		var balance_sheet = level_threedata.balance_sheet
+		var profit_loss = level_threedata.profit_loss
+		var g_approval = level_threedata.g_approval
+		var a_approval = level_threedata.a_approval
+		var fcra_applicable = level_threedata.fcra_applicable
+		var pan_card = level_threedata.pan_card
+		var fcra     = level_threedata.fcra
+		var event    = level_threedata.event
+
+		$('#balance_sheettext').val(balance_sheet);
+		$('#profit_losstext').val(profit_loss);
+		$('#80g_approvaltext').val(g_approval);
+		$('#12a_approvaltext').val(a_approval);
+		$('#fcra_applicabletext').val(fcra_applicable);
+		$('#pan_cardtext').val(pan_card);
+		$('#fcra').val(fcra);
+		$('#event').val(event);
+
+	</script>
+{% endif %}
+
+{% endblock %}

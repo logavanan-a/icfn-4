@@ -1,0 +1,42 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="annualreports" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+            <li><a href="javascript:;">annual reports</a></li>
+		</ul>
+	</div>
+</section>
+
+<section class="commonsections annual_reports">
+	<div class="container">
+		<div class="annualreports_container">
+			<div class="d-flex flex-wrap ">
+				{% for report in reportlist %}
+				<div class="reportdiv_parent">
+					<a href="/static/{{ report.attach_file }}" class="reportsdivsection">
+						<div class="report_imgpart backimgstyle"  style="background-image:url('/static{{ report.image.url }}') " ></div>
+						<div class="report_detailpart">
+							<div class="report_title">{{ report.name }}</div>
+						</div>
+					</a>
+					<a href="/static/{{ report.attach_file }}" class="reportshare_icon"><img src="/static/assets/images/share_icon.png" >
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

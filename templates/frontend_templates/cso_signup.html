@@ -1,0 +1,175 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="csosignup" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<section class=" signup_form">
+	<form method="POST" action="" id="cso_signup">
+	  	{% csrf_token %}
+
+	<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="container">
+			<div class="signup_banner">
+				
+				<div class="d-flex flex-wrap align-items-center justify-content-center">
+					<div class="col-xl-6 col-12">
+						<div class="form-group customfieldinput">
+					        <label>Existing CSO<span>*</span></label>
+					        <select name="ngo_list" id="ngo_list">		                        
+		                        <option value="" selected="selected"></option>
+					        	{% for n in ngos %} 
+						        <option value="{{ n.id }}">{{ n.name }}</option>
+						        {% endfor %} 
+	                          </select>
+	                          Login using the same email id used last time. Click <a href="/forgot-password/">Forgot password</a>to reset the password.
+					    </div>
+					</div>
+					<div class="col-xl-4 col-12">
+						<div class="btn_part">
+							IF NEW CSO
+							<a href="/cso-registration/" class="btn_darkred ">Click Here to Register</a>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+	</section>
+
+
+
+		<div class="container">
+		
+		<div class="imp_note">Fields marked with an asterisk (*) are required</div><br><br>
+
+
+		<div class="signup_formbox">
+			<div class="row justify-content-between">
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Select Title<span>*</span></label>
+				        <select name="title" id="title">
+					        <option _ngcontent-c1="" value="">Select title...</option>
+	                        <option _ngcontent-c1="" value="1" class="ng-star-inserted">Mr</option>
+	                        <option _ngcontent-c1="" value="2" class="ng-star-inserted">Ms</option>
+	                        <option _ngcontent-c1="" value="3" class="ng-star-inserted">Mrs</option>
+	                        <option _ngcontent-c1="" value="4" class="ng-star-inserted">Dr</option>
+	                        <option _ngcontent-c1="" value="5" class="ng-star-inserted">Prof</option>
+	                        <option _ngcontent-c1="" value="6" class="ng-star-inserted">Miss</option>
+	                        <option _ngcontent-c1="" value="10" class="ng-star-inserted">M/s</option>
+                          </select>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>First Name<span>*</span></label>
+				        <input class="form-control " type="text" name="fname" id="fname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Last Name<span>*</span></label>
+				        <input class="form-control " type="text" name="lname" id="lname">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Email<span>*</span></label>
+				        <input class="form-control " type="text" name="email" id="email">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				<div class="col-xl-6 col-12">
+					<div class="form-group customfieldinput">
+				        <label>Mobile No.<span>*</span></label>
+				        <input class="form-control " type="text" name="mobile" id="mobile">
+				        <span class="error_msg">invalid input</span>
+				    </div>
+				</div>
+				
+				
+
+
+						{% if msg %}
+                        <p style="text-align:center;color:red;">{{msg}}</p>
+                        {% endif %}
+
+
+				<div class="col-xl-2 col-12">
+					<div class="btn_part">
+						<button type="submit"><a class="btn_darkred ">Submit</a></button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+	  </form>
+	
+</section>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function($) {
+
+     //Mobile number validation  
+      var mobile_number = 10;
+      $('#mobile').keydown( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+      $('#mobile').keyup( function(e){
+          if ($(this).val().length >= mobile_number) { 
+              $(this).val($(this).val().substr(0, mobile_number));
+          }
+      });
+
+      //Email validator function
+     $.validator.addMethod('emailValidate', function (value, element) {
+            return this.optional(element) || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+        }, "Please enter a valid email address.");
+     
+     //Form validations 
+     $('#cso_signup').validate({
+        rules: {
+        		cso_list: {required:true},
+        		title: {required:true},
+                fname: {required:true},
+                lname: {required:true},
+                email: {required:true,emailValidate: true},
+                mobile: {required:true,digits:true,minlength:10,maxlength:10},
+                password1: {required:true},
+                password2: {required:true},
+                address1: {required:true},
+                country: {required:true},
+                city: {required:true},
+                pincode: {required:true,digits:true},
+              },  
+      });
+}); 
+
+
+
+
+</script> 
+
+
+{% endblock %}

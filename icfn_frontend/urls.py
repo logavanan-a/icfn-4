@@ -1,0 +1,70 @@
+from django.urls import path, include
+from icfn_frontend.views import *
+from icfn_frontend import views
+
+
+app_name = "icfn_frontend"
+
+urlpatterns = [
+	path('',index, name="index"),
+	path('login/',frontendlogin, name="login"),
+	path('event/<slug:event_slug>',eventdetail, name="eventdetail"),
+	path('campaign/<slug:event_slug>', campaigndetail, name="campaigndetail"),
+	path('individual_register/',signup, name="signup"),
+	path('csos/<slug:event_slug>', cso_listing, name="cso_listing"),
+	path('fundraisers/<slug:event_slug>', fundraisers_listing, name="fundraisers_listing"),
+	path('event-about-us/<slug:event_slug>', event_aboutus, name="event-about-us"),
+	path('event-faq/<slug:event_slug>', event_faq, name="event-faq"),
+	path('event-gallery/<slug:event_slug>',event_gallery, name="event-gallery"),
+	path('fundraiser-overview/<slug:event_slug>', fundraiser_overview, name="fundraiser-overview"),
+	path('coming-soon/', coming_soon,name='coming-soon'),
+	path('<slug:event_slug>/<slug:cso_slug>', cso_details, name="cso-details"),
+	path('<slug:event_slug>/fundraiser/<slug:fund_slug>', fundraisers_details, name="fundraisers-details"),
+	path('donate/ngo/<slug:cso_slug>/<slug:event_slug>', cso_donation_form, name="cso-donation-form"),
+	path('donate/fundraiser/<slug:cham_slug>/<slug:event_slug>', fund_donation_form, name="fund-donation-form"),
+	path('donate/fundraiser/<slug:cham_slug>/<slug:event_slug>/conformation', donation_form2, name="donation-form"),
+	path('choose-target/<slug:event_slug>/id', ChooseCategory.as_view(), name="ChooseCategory"),
+	path('event-awards/<slug:event_slug>/', events_awards, name="events-awards"),
+	path('add-fundraiser/', FundraiserPageCreation.as_view(), name="FundraiserPageCreation"),
+	path('my-pages/', my_page, name="my-page"),
+	path('my-page/', my_account, name="my-account"),
+	path('preview-page/', preview_page, name="preview-page"),
+	path('edit-fundraiser-page/', fundraiser_page_edit, name="fundraiser-page-edit"),
+	path('popup-msg/', deactivet_fundraisesr_page, name="deactivet-fundraisesr-page"),
+	#-----------------------------------------------------
+	path('signup/',signup, name="signup"),
+	path('events/',current_event_campaing, name="current-event-campaing"),
+	path('annual-reports/',annual_report, name="annual_report"),
+	path('make-fundraise/',make_fundraising, name="make-fundraising"),
+	path('dockets/',dockets, name="dockets"),
+	path('forgot-password/', change_password, name="change-password"),
+	path('start-fundraise/',why_fundraise, name="why-fundraise"),
+	path('archive/',archive, name="archive"),
+	# path('article/<slug:article_slug>/',archive, name="archive"),
+	path('about-us/',about_us, name="about_us"),
+	path('contact-us/',contact_us, name="contact_us"),
+	path('for-corporate/',for_corporate, name="for_corporate"),
+	path('cso-adhm/',cso_adhm, name="cso_adhm"),
+	path('events-adhm/',events_adhm, name="events_adhm"),
+	path('events-tsk/',events_tsk, name="events_tsk"),
+	path('campaigns-water-maharashtra/',campaigns_water_maharashtra, name="campaigns_water_maharashtra"),
+	path('for-cso/',for_cso, name="for_cso"),
+	path('cso-tsk/',cso_tsk, name="cso_tsk"),
+	path('fundraisers-adhm/',fundraisers_adhm, name="fundraisers_adhm"),
+	path('fundraisers-tsk/',fundraisers_tsk, name="fundraisers_tsk"),
+	path('faq/',faq, name="faq"),
+	path('refund-policy/',refund_policy, name="refund_policy"),
+	path('privacy-policy/',privacy_policy, name="privacy_policy"),
+	path('terms-conditions/',terms_conditions, name="terms_conditions"),
+	path('cso-signup/',cso_signup, name="cso_signup"),
+	path('state-data/<int:pk>',state_data, name="state_data"),
+	path('cso-registration/',cso_registration, name="cso_registration"),
+	path('cso-registration/level-one/',cso_reg_level_one, name="cso_reg_level_one"),
+	path('cso-registration/level-two/',cso_reg_level_two, name="cso_reg_level_two"),
+	path('cso-registration/level-three/',cso_reg_level_three, name="cso_reg_level_three"),
+	path('captcha/', include('captcha.urls')),
+	
+	path('fundraiser-type/<slug:event_slug>/<int:id>/',fundraisers_type_listing,name="fundraisers_type_listing"),
+
+
+	]

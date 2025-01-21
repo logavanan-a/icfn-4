@@ -1,0 +1,34 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block midpart %}
+
+
+<section class="banner_part_one">
+	<div class="banner_img_one overlay_black  backimgstyle"
+		style="background-image:url('/static/{{event.banner_image}}')">
+		<div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event.main_page_logo }}')">
+		</div>
+	</div>
+</section>
+
+<section class="common_breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="javascript:;">Event</a></li>
+			<li><a href="/event/{{ event.slug }}">{{event.name }}</a></li>
+		</ul>
+	</div>
+</section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+    <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="commansubtitleclass text-center"><span class= "commansubtitleclass grey">FUNDRAISERS</span>OVERVIEW</div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,438 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Home-India Cares Foundation" PageName="index" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="sliderfeaturedimgs">
+	<div class="container">
+		<div class="featuredboxourinitiative">
+			<div class="featuredbox">
+				<div class="featuredtitle"> <h3>Featured</h3></div>
+				<div class="featuredeventslist">
+
+					
+					{% for feach in featured %}					
+					 <div class="featuredeventbox">
+						<div class="featuredimgurl" style="background-image: url( '/static/{{ feach.main_page_logo }}' );"></div>
+						<div class="featuredimgurllinks">
+							{% if feach.event_type == "Event" %}
+							<a href="/campaign/{{ feach.slug }}">View Campaign</a>
+							<a href="javascript:;">Share</a>
+							{% else %}
+							<a href="/event/{{ feach.slug }}">View Event</a>
+							<a href="javascript:;">Share</a>
+							{% endif %}
+						</div>
+					</div> 
+				{% endfor %}
+					<!-- <div class="featuredeventbox">
+						<div class="featuredimgurl" style="background-image: url('/static/assets/images/event_logo2.png');"></div>
+						<div class="featuredimgurllinks">
+							{% if event_type == campaign %}
+							<a href="javascript:;">View Campaigns</a>
+						 	<a href="javascript:;">Share</a>
+							{% endif %}
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<div class="ourinitatives">
+				<div class="ourinitititle">our Programmes</div>
+				<div class="carouselsliderthumbs owl-carousel" id="sliderlogos">
+					<div class="carouselsiderimg" style="background-image: url('/static/assets/images/wish_tree.png');"></div>
+					<div class="carouselsiderimg" style="background-image: url('/static/assets/images/reachout_logo1.png');"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="commonsections">
+	<div class="container">
+		<div class="commontitleclass text-center">India Cares <span>Since 2008</span></div>
+		<div class="funfactsnumber">
+			<div class="factsnumbercols">
+				<div class="funfactstitletxt">CONNECTING</div>
+				<div class="funfactstitl_subetxt">to Causes</div>
+				<div class="funfactstitl_sub_numberetxt numberCounter">1277</div>
+				<div class="funfactstitl_sub_content">Unique CSOs have associated with India Cares</div>
+			</div>
+			<div class="factsnumbercols">
+				<div class="funfactstitletxt">ENGAGING</div>
+				<div class="funfactstitl_subetxt">the Public</div>
+				<div class="funfactstitl_sub_numberetxt numberCounter">114592</div>
+				<div class="funfactstitl_sub_content">Individual donations received till dates</div>
+			</div>
+			<div class="factsnumbercols">
+				<div class="funfactstitletxt">TRANSFORMING</div>
+				<div class="funfactstitl_subetxt">thousands of Lives</div>
+				<div class="funfactstitl_sub_numberetxt">Over 1</div>
+				<div class="funfactstitl_sub_content">Million lives impacted directly between 2008 - 2018</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+	/* The Modal (background) */
+	.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 17px solid rgb(15, 15, 15);
+	width: 70%;
+	/* height: 50%; */
+	position: unset;
+	}
+
+	/* The Close Button */
+	.close {
+	position: absolute;
+	color: #b91111;
+	background-color: white;
+	right: 260px;
+	font-size: 28px;
+	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	}
+</style>
+
+<!-- Watch Popup -->
+<div id="myModal1" class="modal">
+	<button class="close" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="modal-body">
+			<a>
+				<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="420" width="100%" src="{{ accross_obj.video }}"></iframe>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- Support Popup  -->
+<div id="Support" class="modal">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div class="modal-content">
+		<div class="donate_popup">
+			<div class="donate_middle">
+				<div class="login_fields">
+					<div class="donate_yes">
+						{% for feat in featured %}
+							<div class="borderpopup_width col-md-4 ng-star-inserted">
+								<a href="/event/{{ feat.slug }}" data-dismiss="modal">
+									<img src="/static/{{ feat.main_page_logo }}">
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="commonsections notop acrosstitlecontent">
+	<div class="container">
+		<div class="commontitleclass acrosstheworldtitle">Across the Country</div>
+	</div>
+</section>
+<section class="whysupportcause" style="background-image: url('{{ banner }}');">
+	<div class="container">
+		<div class="whysupportcausecontent">
+			<div class="containercausebox">
+				<div class="titlewhysupporttx">{{ accross_obj.title }}</div>
+				<div class="whysupportcontent">
+					{{ accross_obj.description|safe }}
+				</div>
+				<div class="boxcontentbtm">
+					<a onclick="popupfunction('videoPopup')" href="javascript:;">Watch</a>
+					<a onclick="popupfunction('f_event')" href="javascript:;">Support</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- donation form popup for cso -->
+<!-- <div id="myModal" class="modal-dialog">
+	<div class="modal-content">
+		<button data-dismiss="modal" hidden=""></button>
+		<div class="donate_popup">
+			<div>
+				<div class="donate_middle">
+					<img class="indiamap" src="/static/indiamap.png">
+					<div class="login_fields">
+						<div class="donate_yes">
+							<h2>Are you an Indian citizen</h2>
+							<div class="nationality">
+								<label class="donate_radio">
+									<input id="listingcso_yes" name="donate" type="radio" >Yes
+									<span class="checkmark"></span>
+								</label>
+								<label class="donate_radio">
+									<input type="radio" name="donate" value="no">No
+									<span class="checkmark"></span>
+								</label>
+								<a data-target="#myModal5" data-toggle="modal"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- after clicking the no button in donate popup -->
+<!-- <div class="form-b">
+	<button id="close" class="close" data-dismiss="modal" type="button">
+		<img src="/static/close_button.png">
+	</button>
+	<div>
+		<div class="donate_middle donate_popup_next">
+			<div class="login_fields" style="padding-bottom: 44px">
+				<div class="donate_yes">
+					<h4 class="modalno">India Cares does not have FCRA so cannot receive foreign funds,
+						if you want to donate Please contact CSO, 
+						or leave your details We will get back to you soon...</h4>
+					<div class="login_fields">
+						<div class="email_us contact_uss">
+							<form novalidate="" class="ng-invalid ng-dirty ng-touched">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Name<span class="aterisk">*</span></label>
+										<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="name" type="name">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Phone Number<span class="aterisk">*</span></label>
+										<input class="form-control ng-invalid ng-dirty ng-touched" formcontrolname="phone" type="name">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Email<span class="aterisk">*</span></label>
+										<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="email" type="name">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="send_data">
+										<button data-dismiss="modal" type="submit" disabled="">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!------------------------------------------------------------- -->
+
+
+<section class=" bechampion">
+	<div class="container">
+		<div class="bechampiontitlepart">
+			<div class="d-flex flex-wrap align-items-center">
+				<div class="championimageslider backimgstyle1" style="background-image: url('{{ champion_logo }}') "></div>
+				<div class="commontitleclass  text-center"><span>Be a champion </span>#Because you care</div>
+			</div>
+		</div>
+		<div class="commandivwrapper">
+			<div class="d-flex flex-wrap justify-content-between">
+				{% for i in ngo_obj %}
+				<div class="commanclassdiv">
+					<div class="commanclassdivtitle">{{ i.cause.name }}</div>
+					<div class="comandivcontainer">
+						<div class="d-flex justify-content-center">
+							<div class="divsliderimage backimgstyle1" style="background-image: url('{{ image }}') "></div>
+						</div>
+						<a style="color: #000;"  href="/{{ featured_event.slug }}/{{ i.slug }}">
+							<div class="commanclassdivtext">{{ i.name }}</div>
+						</a>
+					<div class="commanclassdivsubtext"><span>{{ i.our_mission|truncatechars_html:110|safe }}</span></div>
+						<div class="commanclassdivlinkpart">
+							<div class="d-flex align-items-center justify-content-center">  
+								<a href="/choose-target/{{ featured_event.slug }}/id">Be a Champion</a>
+								<a onclick="donationpopupfunction('{{ i.slug }}','{{ featured_event.slug }}')" href="javascript:;">Support</a>
+								<a href="javascript:;">Share</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<a href="/csos/{{ featured_event.slug }}" class="divviewalllink"><span>View All</span></a>
+		</div>
+	</div>
+</section>
+
+<section class="commonsections diffsegmentonegoal">
+	<div class="container">
+		<div class="commontitleclass  text-center">{{ homepage_speach_obj.speech_title }}</div>
+		<div class="section_div fwhite">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="ifreme_class">
+					<iframe width="560" height="325" src="{{ homepage_speach_obj.speech_video }}"></iframe>
+				</div>
+				<div class="info_part">
+					<div class="title_text fbold">{{ homepage_speach_obj.headline }}</div>
+					<div class="about_detail">
+						{{ homepage_speach_obj.speach|truncatechars_html:200|safe }}
+					</div>
+					<div class="review_name"><span>-</span><span>{{ homepage_speach_obj.byline }}</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="commonsections associated">
+	<div class="container">
+		<div class="commontitleclass  text-center">Associations</div>
+		<div class="commandivwrapper">
+			<div class="owl-carousel" id="associatedwith">
+				<div class="carouselboxlisting">
+				<div class="commanclassdiv">
+					<div class="commanclassdivtitle text-uppercase">{{ caption }}</div>
+					<div class="comandivcontainer">
+						<div class="divsliderimage backimgstyle1" style="background-image: url('{{ image }}') "></div>
+						<div class="div_sub_title">{{ text }} {{ csrname }}</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="slider_dots_parent">
+			<div class="d-flex justify-content-end align-items-center">
+				<a href="javascript:;" class="slider_dots active"></a>
+				<a href="javascript:;" class="slider_dots"></a>
+				<a href="javascript:;" class="slider_dots"></a>
+			</div>
+		</div>
+	</div>	
+</section>
+
+
+
+
+<script>
+	var popupfunction = function(csopopup){
+		
+		// Get the modal
+		if(csopopup=="videoPopup"){
+			var modal = document.getElementById("myModal1")
+		}
+
+		if(csopopup=="f_event"){
+			var modal = document.getElementById("Support")
+		}
+
+		if(csopopup=="supportPopup"){
+			var modal = document.getElementById("donation")
+		}
+		// var modal = document.getElementById("myModal");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		modal.style.display = "block";
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		if (event.target == modal) {
+		modal.style.display = "none";
+		}
+		}
+	}
+
+	var donationpopupfunction = function(csoslug,eventslug){
+
+	var url = $("#listingcso_yes").attr("onclick","window.location='/donate/ngo/"+csoslug+"/"+eventslug+"'");
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	// When the user clicks the button, open the modal 
+	modal.style.display = "block";
+	// when the user will click to the redio button open the model
+	var redio = document.getElementById("myRedio")
+	redio.style.display = "block"
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+	}
+	}
+
+	$(document).ready(function() {
+	$('input[name=donate]:radio').change(function(e) {
+	let value = e.target.value.trim()
+
+	switch (value) {
+	case 'no':
+		$('.form-b').show()
+		break;
+	default:
+		break;
+
+	}
+	})
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	modal.style.display = "none";
+	}
+	})
+</script>
+
+{% endblock %}

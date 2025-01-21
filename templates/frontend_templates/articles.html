@@ -1,0 +1,80 @@
+
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="eventaboutus" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+{{ get_article_menus as article_menus }}
+<section class="pagedesign_banner">
+	<div class="pagedesign_banner_container mb100">
+		<div class="commansubtitleclass text-center">{{ article_menus.name }}</div>
+	</div>
+	<img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+</section>
+
+
+
+<section class="commonsections abouteventdetail">
+	<div class="container">
+		<div class="eventdetail_box">
+			<div class="d-flex flex-wrap justify-content-between">
+				<div class="eventdetail_video">
+				</div>
+            {% for i in get_article_menus %}
+				<div class="eventdetail_infopart">
+					<div class="commontitleclass">{{ i.name }}</div>
+					<div class="eventdetail_part" data-simplebar>
+						<p>{{ i.description|safe }}</p>
+					</div>
+				</div>
+            {% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="registerforevent">
+	<div class="container">
+		<div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+		<div class="registerevent_container">
+			<div class="d-flex flex-wrap align-items-start justify-content-between">
+				<a href="/csos/{{ event.slug }}" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent1.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>CSOs</span></div>
+				</a>
+				<a href="javascript:;" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent2.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Fundraisers</span></div>
+				</a>
+				<a href="javascript:;" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent3.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Awards</span></div>
+				</a>
+				<a href="javascript:;" class="event_box">
+					<div class="d-flex justify-content-center">
+						<img src="/static/assets/images/regevent4.png" class="event_img">
+					</div>
+					<div class="event_title text-center"><span>Past year run report</span></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

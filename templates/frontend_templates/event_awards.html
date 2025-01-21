@@ -1,0 +1,110 @@
+ 
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+<section class="fixed_icon">
+    <a href="javascript:;" class="sharebutton"><img src="http://demoispace.in/icfn/assets/images/share.png?v=2LkRIpUKFV"></a>
+    <div style="display: none">
+    <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/facebook.png?v=2LkRIpUKFV"></a>
+    <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/twitter.png?v=2LkRIpUKFV"></a>
+    <a href="javascript:;"><img src="http://demoispace.in/icfn/assets/images/linkedin.png?v=2LkRIpUKFV"></a>
+    </div>
+</section>
+ 
+
+    <section class="banner_part_one">	
+        <div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner8.png')">
+            <div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event_obj.main_page_logo }}')"> 
+            </div>
+        </div>
+    </section>
+
+    <section class="common_breadcrumb">
+        <div class="container">
+        
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="javascript:;">event awards</a></li>
+            </ul>
+        
+        </div>
+    </section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+    <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="commansubtitleclass text-center"><span class="commansubtitleclass grey">EVENT</span>AWARDS</div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+    
+    <section class="commonsections awards_detail">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-xl-4 col-12">
+                    <div class="awardsdetail_box">
+                        <div class="detailbox_title">{{ award_obj.name }}</div>
+                        <ul>
+                            <li>{{ award_obj.description|safe }}</li>
+                        </ul>
+                    </div>
+                </div>	
+            </div>
+        </div>
+        <div class="margin_class"></div>
+
+    </section>
+    
+
+    <section class="registerforevent">
+        <div class="container">
+            <div class="commontitleclass text-center">Register -<span>for the Event</span></div>
+            <div class="registerevent_container">
+                <div class="d-flex flex-wrap align-items-start justify-content-between">
+                    <a href="javascript:;" class="event_box active">
+                        <div class="d-flex justify-content-center">
+                            <img src="http://demoispace.in/icfn/assets/images/regevent1.png?v=oDOSNf8wVa" class="event_img">
+                        </div>
+                        <div class="event_title text-center"><span>CSOs</span></div>
+                    </a>
+                    <a href="javascript:;" class="event_box">
+                        <div class="d-flex justify-content-center">
+                            <img src="http://demoispace.in/icfn/assets/images/regevent2.png?v=oDOSNf8wVa" class="event_img">
+                        </div>
+                        <div class="event_title text-center"><span>Fundraisers</span></div>
+                    </a>
+                    <a href="javascript:;" class="event_box">
+                        <div class="d-flex justify-content-center">
+                            <img src="http://demoispace.in/icfn/assets/images/regevent3.png?v=oDOSNf8wVa" class="event_img">
+                        </div>
+                        <div class="event_title text-center"><span>Awards</span></div>
+                    </a>
+                    <a href="javascript:;" class="event_box">
+                        <div class="d-flex justify-content-center">
+                            <img src="http://demoispace.in/icfn/assets/images/regevent4.png?v=oDOSNf8wVa" class="event_img">
+                        </div>
+                        <div class="event_title text-center"><span>Past year run report</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+{% endblock %}
+
+    
+
+    
+    
+    

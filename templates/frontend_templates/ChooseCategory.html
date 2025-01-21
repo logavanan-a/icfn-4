@@ -1,0 +1,148 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+{% with PageTitle="Website Name :: Webstie" PageName="eventadhm" %}
+{{block.super}}
+{% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+    <section class="banner_part_one">	
+        <div class="banner_img_one overlay_black  backimgstyle" style="background-image:url('/static/assets/images/banner13.png')">
+            <div class="label_logo backimgstyle1" style="background-image:url('/static/{{ event.main_page_logo }}')"> 
+            </div>
+        </div>
+    </section>	
+
+
+    <section class="common_breadcrumb">
+        <div class="contwindow.location.href=url;// }ainer">
+        
+             <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/event/{{ event.slug }}">{{event.name }}</a></li>
+                <li><a href="javascript:;">choose target</a></li>
+            </ul>
+        
+        </div>
+    </section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="container">
+                <div class="commontitleclass text-center">Choose<span>a Target</span></div>
+                <div class="fundraising_banner">
+                    <div class="wide_btn">
+                        <div class="d-flex flex-wrap align-items-center justify-content-center">
+                            <a href="/start-fundraise/" class="btn_one active">How to start fundraising</a>
+                            <a href="javascript:;" class="btn_one">Choose a Target</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/static/assets/images/layer_img2.png" class="bottom_layer_img">
+    </section>
+
+
+
+<form onSubmit="return checkForm();" action="/add-fundraiser/" method="GET">
+    <input value="{{ event.slug }}" type="hidden" name="eslug">
+    <section id="fundraising_part" class="fundraising_part">
+        <div class="container">
+            <div class="fundraise_wrapper">
+            {% if show_csodropdown %}
+                <div class="row justify-content-center">
+                    <div class="col-xl-4 col-12">
+                        <div class="form-group customfieldinput">
+                            <h4 style="float:left">Choose CSO</h4>
+                            <select name="csoslug" onchange="filterdata()" id="csolisting" class="cso_listing">
+                                <option selected disabled value="0"></option>
+                                {% for obj in ngo_obj %}
+                                <option value="{{ obj.id }}">{{ obj.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+                <div class="fundraising_table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="th_title">CATEGORIES</th>
+                                {% for cat in cat_obj %}
+                                <th>{{ cat.id }} {{ cat.name }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td_title">CHOOSE THIS CATEGORY</td>
+                                {% for i in cat_obj %}
+                                <td>
+                                    <input value="{{ i.id }}" type="radio" name="choose_category" id="{{ i.id }}">
+                                </td>
+                                {% endfor %}
+                            <tr>
+                                <td class="td_title">DOWNLOAD FORM</td>
+                                {% for down in download_form %}
+                                <td>
+                                    <a href="{{ down.form }}">
+                                        <img src="/static/assets/images/download_image.png">
+                                    </a>
+                                </td>
+                                {% endfor %}
+                           <tr>
+                                <td class="td_title">MINIMUM PLEDGE</td>
+                                {% for min in min_pledge %}
+                                <td><img src="{{ min.image }}" class="rupee_sign"><span>{{ min.min_pledge}}</span></td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                {% if request.user.is_authenticated %}
+                    <div class="btn_part">      
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn_darkred extra_padding">Proceed to next</button>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="btn_part">      
+                        <div class="d-flex justify-content-center">
+                            <a href="/login/" option="csodropdown" class="btn_darkred extra_padding">Proceed to next</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</form>
+
+
+
+<script>
+
+function checkForm(){
+    var e=document.getElementById("csolisting").value;//alert(e);
+    if(e==="0"){
+        alert("please select the cso");
+        return false;
+    }
+    var button = document.querySelector('input[name="choose_category"]:checked')  
+    if( button == null) {   
+        alert("please select the category"); 
+        return false
+    }
+}  
+</script>
+
+{% endblock %}

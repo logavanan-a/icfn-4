@@ -1,0 +1,482 @@
+{% extends "frontend_templates/base.html" %}
+
+{% block header %}
+  {% with PageTitle="Website Name :: Webstie" PageName="cso" %}
+  {{block.super}}
+  {% endwith %}
+{% endblock header %}
+
+
+{% block midpart %}
+
+
+
+<style>
+
+	/* The Modal (background) */
+	.modal-dialog {
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		top: 0;
+		display: none; /* Hidden by default */
+		position: fixed;  /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		justify-content: center;
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+		
+	}
+	
+
+	/* Modal Content */
+	.modal-content {
+		background-color:brown;
+		margin: auto;
+		width: 170%;
+		height: 25%;
+		color: white;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.indiamap {
+		align-items: left;
+		height: 100px;
+		width: 100px;
+	}
+
+	.donate_popup {
+		overflow: hidden;
+		/* height: 50%;
+		width: auto; */
+	} 
+	
+	
+	</style> 
+
+
+<div id="myModal" class="modal-dialog">
+	<div class="modal-content">
+		<button data-dismiss="modal" hidden=""></button>
+		<div class="donate_popup">
+			<div>
+				<div class="donate_middle">
+					<img class="indiamap" src="/static/indiamap.png">
+					<div class="login_fields">
+						<div class="donate_yes">
+							<h2>Are you an Indian citizen</h2>
+							<div class="nationality">
+								<label class="donate_radio">
+									{% for csos in cso %}
+									<input name="donate" type="radio" onclick="window.location='/donate/ngo/{{ csos.slug }}/{{ event.slug }}';">Yes
+									{% endfor %}
+									<span class="checkmark"></span>
+								</label>
+								<label class="donate_radio">
+									<input name="donate" type="radio" class="ng-untouched ng-pristine ng-valid">No
+									<span class="checkmark"></span>
+								</label>
+								<a data-target="#myModal5" data-toggle="modal"></a>
+									<!-- after clicking the no button in donate popup -->
+									<div id="myRedio" class="donate_popup">
+										<div>
+											<div class="donate_middle donate_popup_next">
+												<div class="login_fields" style="padding-bottom: 44px">
+													<div class="donate_yes">
+														<h4 class="modalno">India Cares does not have FCRA so cannot receive foreign funds,if you want to donate Please contact CSO, or leave your details We will get back to you soon...</h4>
+														<div class="login_fields">
+															<div class="email_us contact_uss">
+																<form novalidate="" class="ng-invalid ng-dirty ng-touched">
+																	<div class="col-md-6">
+																		<div class="form-group">
+																			<label>Name<span class="aterisk">*</span></label>
+																			<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="name" type="name">
+																		</div>
+																	</div>
+																	<div class="col-md-6">
+																		<div class="form-group">
+																			<label>Phone Number<span class="aterisk">*</span></label>
+																			<input class="form-control ng-invalid ng-dirty ng-touched" formcontrolname="phone" type="name">
+																		</div>
+																	</div>
+																	<div class="col-md-12">
+																		<div class="form-group">
+																			<label>Email<span class="aterisk">*</span></label>
+																			<input class="form-control ng-dirty ng-valid ng-touched" formcontrolname="email" type="name">
+																		</div>
+																	</div>
+																	<div class="col-md-12">
+																		<div class="send_data">
+																			<button data-dismiss="modal" type="submit" disabled="">Submit</button>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+<!------------------------------------------------------------- -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="common_breadcrumb extrapadding_left">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/event/{{ event.slug }}">{{ event.name }}</a></li>
+			<li><a href="/csos/{{ event.slug }}">Participating CSO's</a></li>
+            <li><a href="javascript:;">{{ cso_obj.name }}</a></li>
+		</ul>
+	</div>
+</section>
+
+{% include "frontend_templates/common_banner_dropdown.html" %}
+
+
+
+{% if event.end_date >= today %}
+     <section class="pagedesign_banner">
+        <div class="pagedesign_banner_container mb100">
+            <div class="container">
+              
+                <div class="csodetail_pagebanner">
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="logo_part">
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <img src="{{ cso_obj.icon }}" class="logo_img">
+                            </div>
+                        </div>
+            
+                        <div class="detail_part">
+                            <div class="commontitleclass"><span>{{ cso_obj.name }}</span></div>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <div class="detailpart_box">
+                                    <div class="detail_info">Established Year -<span>{{ cso_obj.established_on.year }}</span></div>
+                                    <div class="detail_info">Loction  -<span>{% if address.city %}{{ address.city }}{% endif %}</span></div>
+                                    <div class="detail_info">Cause -<span>{{ cso_obj.cause.name }}</span></div>
+                                    <div class="detail_info">Tax Status -<span>{{ tax }}</span></div>
+                                </div>
+                                <div class="detailpart_box">
+                                    <div class="detail_info">Address</div>
+                                    <div class="detail_info"><span>{{ address1 }}</span></div>
+                                </div>
+                                <div class="detailpart_box">  
+                                    <div class="detail_info">Contact Person -<span>{{ contact }}</span></div>
+                                    <div class="detail_info">Phone: <span>{% if phone %}{{ phone }}{% endif %}</span></div>
+                                    <div class="detail_info">Mobile: <span>{{ address.mobile }}</span></div>
+                                    <div class="detail_info">Email: <span>{{ cso_email }}</span></div>
+                                    <div class="detail_info">Website: <span>{{ web }}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                 
+                    </div>
+                    <div class="csomissiondetail">
+                        <div class="mission_detail">
+                            <div class="missiondetail_about">
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <div class="believe_img">
+                                        <img src="http://demoispace.in/icfn/assets/images/believe.png?v=Uzph7jNjXx">
+                                    </div>
+                                    <div class="about_detail">
+                                        <p>{{  black_board_message|safe }}</p>
+                                        <img src="http://demoispace.in/icfn/assets/images/point.png?v=Uzph7jNjXx" class="point_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <img src="http://demoispace.in/icfn/assets/images/layer_img2.png?v=Uzph7jNjXx" class="bottom_layer_img">
+    </section>
+    
+    
+    <section class="commonsections csodetail ">
+        <div class="make_contribution myappeal">
+            <div class="container">
+                <div class="mcontribution_container">
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="detail_part">
+                            <div class="commontitleclass">Our<span>Mission</span></div>
+                            <div class="detail_text">{{ our_mission|safe }}</div>
+                            <div class="appealvideo_part"><iframe width="560" height="510" src="{{ video }}"></iframe></div>
+                        </div>
+                        <div class="fund_part">
+                            <div class="commontitleclass">Our Appeal<span></span></div>
+                            <div class="donation_part">
+                                <p>{{ Our_mission_description|safe }}</p>
+                            </div>
+                            <div class="d-flex flex-wrap align-items-end justify-content-between">
+                                <div class="fund_detail">Funds Requried</div>
+                                <div class="appeal_bar">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="display_numbers">
+                                            <img src="" class="displaynumbers_span"><span>{{ donated_amount }}</span>
+                                        </div>
+                                        <div class="display_numbers">
+                                            <img src="" class="displaynumbers_span"><span>{{ total_amount }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="fundprogressbar">
+                                        <div class="fundinlinepbar" style="width:{{perentage_collection}}%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="link_part_two">
+                                <div class="d-flex flex-wrap flex align-items-end justify-content-center">
+                                    <a href="javascript:;"><span>Be a Champion</span></a>		
+                                    <a href="javascript:;"><span>Share</span></a>
+                                    {% if event.accept_donation %}
+                                    <a href="javascript:;"><span>Donate</span></a>	
+                                    {% endif %}					
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="ourachivements">
+        <div class="container">
+            <div class="achivement_box">
+                <div class="achivement_box_titlepart">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div>
+                            <img src="http://demoispace.in/icfn/assets/images/achivement.png?v=Uzph7jNjXx" class="achivement_img">
+                        </div>
+                        <div>
+                            <span class="achive_title">Our</span>
+                            <span class="achive_title">Achievements</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="achivementbox_detail">
+                    <p>{{ Ngo_full_description|safe }}</p>               
+                </div>
+            </div> 
+        </div>
+    </section>
+    
+    <section class="oursupporters">
+        <div class="container">
+            <div class="commonbox_wrapper">
+                <div class="d-flex flex-wrap">
+                    {% for cso in cso_list %}
+                    <div class="commanbox_parent">
+                        <div class="commonbox_title fbold text-center">Our iCare Supporters - {{ cso_len }}</div>
+                        <div class="commonbox">
+                            <div class="d-flex justify-content-center">
+                                <div class="user_img backimgstyle" style="background-image:url('{{ cso.icon }}')"></div>
+                            </div>
+                            <div class="user_detail text-center">iCare - {{ cso.name}}</div>
+                            <div class="cb_title text-center">{{ cso.header}}</div>
+                            {% if event.accept_donation == True %}
+                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                <div class="radiobtn_part">
+                                    <div>
+                                          <input type="radio" id="s1" name="radio-group">
+                                        <label class="radiobtn_label" for="s1">₹ 3000</label>
+                                     </div>
+                                 </div>
+                                 <div class="radiobtn_part"> 
+                                     <div>
+                                         <input type="radio" id="s2" name="radio-group">
+                                        <label class="radiobtn_label" for="s2">₹ 2000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="s3" name="radio-group">
+                                        <label class="radiobtn_label" for="s3">₹ 1000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="s4" name="radio-group">
+                                        <label class="radiobtn_label" for="s4">₹ 500</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="s5" name="radio-group">
+                                        <label class="radiobtn_label" for="s5">₹ Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a onclick="popupfunction()" href="javascript:;" class="circle_link backimgstyle1" style="background-image:url('http://demoispace.in/icfn/assets/images/link_round.png?v=Uzph7jNjXx')">Donate</a>
+                            </div>
+                            {% endif %}
+                            <div class="d-flex justify-content-end">
+                                <a href="javascript:;" class="share_link"><span class="share_span">share</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for icare in champion_list %}
+                    <div class="commanbox_parent">
+                        <div class="commonbox_title fbold text-center">Our Champions - {{ cham_len }}</div>
+                        <div class="commonbox">
+                            <div class="d-flex justify-contenthttp://demoispace.i-center">
+                                <div class="user_img backimgstyle" style="background-image:url('{{ icare.icon }}')"></div>
+                            </div>
+                            <div class="user_detail text-center">Champion - {{ icare.name }}</div>
+                            <div class="cb_title text-center">{{ icare.header }}</div>
+                            {% if event.accept_donation == True %}
+                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                <div class="radiobtn_part">
+                                    <div>
+                                          <input type="radio" id="champions1" name="champion_btn">
+                                        <label class="radiobtn_label" for="champions1">₹ 3000</label>
+                                     </div>
+                                 </div>
+                                 <div class="radiobtn_part"> 
+                                     <div>
+                                         <input type="radio" id="champions2" name="champion_btn">
+                                        <label class="radiobtn_label" for="champions2">₹ 2000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="champions3" name="champion_btn">
+                                        <label class="radiobtn_label" for="champions3">₹ 1000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="champions4" name="champion_btn">
+                                        <label class="radiobtn_label" for="champions4">₹ 500</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="champions5" name="champion_btn">
+                                        <label class="radiobtn_label" for="champions5">₹ Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a onclick="popupfunction()" href="javascript:;" class="circle_link backimgstyle1" style="background-image:url('')">Donate</a>
+                            </div>
+                            {% endif %}
+                            <div class="d-flex justify-content-end">
+                                <a href="javascript:;" class="share_link"><span class="share_span">share</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for corp in corp_lis %}
+                    <div class="commanbox_parent">
+                        <div class="commonbox_title fbold text-center">Support Company</div>
+                        <div class="commonbox">
+                            <div class="d-flex justify-content-center">
+                                <div class="company_logo"><span class="company_name fbold">{{ corp.text }}</span></div>
+                            </div>
+                            <div class="user_detail text-center">{{ corp.team }}</div>
+                            <div class="cb_title text-center">Supports - Us</div>
+                            {% if event.accept_donation == True %}
+                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                <div class="radiobtn_part">
+                                    <div>
+                                          <input type="radio" id="support1" name="support_btn">
+                                        <label class="radiobtn_label" for="support1">₹ 3000</label>
+                                     </div>
+                                 </div>
+                                 <div class="radiobtn_part"> 
+                                     <div>
+                                         <input type="radio" id="support2" name="support_btn">
+                                        <label class="radiobtn_label" for="support2">₹ 2000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="support3" name="support_btn">
+                                        <label class="radiobtn_label" for="support3">₹ 1000</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="support4" name="support_btn">
+                                        <label class="radiobtn_label" for="support4">₹ 500</label>
+                                    </div>
+                                </div>
+                                <div class="radiobtn_part"> 
+                                    <div>
+                                         <input type="radio" id="support5" name="support_btn">
+                                        <label class="radiobtn_label" for="support5">₹ Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a onclick="popupfunction()" href="javascript:;" class="circle_link backimgstyle1" style="background-image:url('http://demoispace.in/icfn/assets/images/link_round.png?v=Uzph7jNjXx')">Donate</a>
+                            </div>
+                            {% endif %}
+                            <div class="d-flex justify-content-end">
+                                <a href="javascript:;" class="share_link"><span class="share_span">share</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% else %}
+
+        <h3><center>{{ msg }}</center></h3>
+
+{% endif %}
+
+
+    <script>
+
+        var popupfunction = function(){
+            // Get the modal
+            var modal = document.getElementById("myModal");
+    
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+    
+            // When the user clicks the button, open the modal 
+            modal.style.display = "block";
+    
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+    
+    
+            // when the user will click to the redio button open the model
+            var redio = document.getElementById("myRedio")
+            redio.style.display = "block"
+    
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+        }
+        </script>
+    
+{% endblock%}
